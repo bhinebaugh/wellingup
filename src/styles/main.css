@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0; }
+
+
+/* angular temp top nav */
+nav { margin: 0; padding: 1rem 0; }
+nav a { padding: 0.2em 1em; }
+nav a:hover { background: #abc; }
+nav a.current { background: #369; color: #dde; text-decoration: none; }
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+  margin-bottom: 0;
+  padding: 0 1rem;
+}
+h2 {
+  background-color: rgb(165, 185, 200);
+  color: #47a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  padding: 1rem;
+}
+header {
+  margin: 0px;
+  background-color: rgb(187, 205, 222);
+  padding: 0px;
+}
+
+header, nav, ul, li, main, div, h2, p, footer {
+}
+
+/*header {}
+  header nav {
+    background-color: #444444;
+    margin: 0 0 0 0;
+    width: 100%; }
+    header nav ul {
+      background-color: #848484;
+      margin: 0;
+      min-height: 60px;
+      width: 100%; }
+      header nav ul li {
+        background-color: #c4c4c4;
+        list-style-type: none;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        width: 8.33333%; }*/
+
+/*h1 {
+  padding: 1em;
+}*/
+main {
+  background-color: #c4c4c4;
+  padding-top: 4px;
+}
+  main #design1 {
+    background-color: #848484;
+    display: inline-block;
+    margin: 40px 16.66667%;
+    min-width: 66.66667%; }
+    main #design1 h2 {
+      background-color: #c4c4c4;
+      padding: 10px; }
+    main #design1 p {
+      background-color: #c4c4c4;
+      padding: 10px; }
+    main #design1 div audio {
+      margin: 0 30%; }
+  main #design2 {
+    background-color: #848484;
+    display: none;
+    margin: 40px 16.66667%;
+    min-width: 66.66667%; }
+    main #design2 h2 {
+      background-color: #c4c4c4;
+      display: inline-block;
+      padding: 10px;
+      width: 30%; }
+    main #design2 p {
+      background-color: #c4c4c4;
+      display: inline-block;
+      margin: 0 0;
+      padding: 10px;
+      width: 30%; }
+    main #design2 .circle {
+      border-radius: 200px;
+      display: inline-block;
+      height: 400px;
+      margin: -3% 30%;
+      vertical-align: top;
+      width: 400px;
+      z-index: -1; }
+      main #design2 .circle audio {
+        margin: 45% 15%; }
+    main #design2 div {
+      display: inline-block;
+      margin-left: 25%;
+      width: 30%; }
+      main #design2 div p {
+        width: 100%; }
+
+button {
+  display: inline-block;
+  height: 50px;
+  margin: 40px 0 40px 45vw;
+  width: 200px; }
+
+footer {
+  background-color: #444444;
+  display: block;
+  width: 100%; }
+  footer ul {
+    display: inline-block;
+    margin-left: 8.3%;
+    width: 30%; }
+    footer ul li {
+      background-color: #848484;
+      list-style-type: none; }

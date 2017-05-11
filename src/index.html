@@ -5,7 +5,8 @@
     <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/gray.css">
 
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -17,6 +18,15 @@
     <script>
       System.import('main.js').catch(function(err){ console.error(err); });
     </script>
+
+    <!-- for landing page interactions -->
+    <!-- TODO: get compressed version. use velocity-based plugin instead of GSAP. handle with npm? -->
+    <script type="text/javascript" src="vendor-js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="vendor-js/ScrollMagic.js"></script>
+    <script type="text/javascript" src="vendor-js/plugins/animation.gsap.js"></script>
+    <script type="text/javascript" src="scrollmagic/plugins/debug.addIndicators.js"></script>
+    <!-- href="https://github.com/ai/autoprefixer" -->
+
   </head>
 
   <body>

@@ -1,0 +1,127 @@
+<main>
+	<div id="upper-transition">
+
+		<div id="painting"></div>
+
+		<div id="aboveground" class="aboveground">
+			<div class="buildings"></div>
+			<div class="trees" id="trees"></div>
+			<div class="entrypoint">
+				<a id="listen-link" href="#">listen to the story</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="interlude">
+		<div class="episodes-wrapper">
+			<div id="episodes" class="episodes">
+				<div class="episode">
+					<h2>introduction</h2>
+					<audio controls>
+						<source src="episodes/welling-up-patricia-wild-0.mp3">
+						<source src="episodes/welling-up-patricia-wild-0.wav">
+						attributes of interest: buffered controls preload=[]
+						browser codec support: https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats
+					</audio>
+					<p></p>
+				</div>
+				<div class="episode">
+						<h2>episode 1</h2>
+						<audio controls="controls" src="episodes/welling-up-patricia-wild-1.mp3"></audio>
+						<p>Description of episode lorem ipsum dolor sit amet</p>
+						<p><a href="#">List of Characters</a> • <a href="#">List of helpful links</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="belowground">
+		<div id="root-links">
+			<div id="first"><a href="#">characters</a></div>
+			<div id="second"><a href="#">Quaker glossary</a></div>
+			<div id="third"><a href="#">timeline 1997</a></div>
+			<div id="fourth"><a href="#">touch</a></div>
+			<div id="fifth"><a href="#">origins</a></div>
+		</div>
+		<div class="entrypoint">
+			<a id="supplemental-link" href="#">explore the depths</a>
+		</div>
+	</div>
+
+</main>
+
+<!-- footer -->
+
+<script type="text/javascript">
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	/** Scroll animations **/
+
+	var holdFixed = new ScrollMagic.Scene({duration: 500})
+	.setPin("#upper-transition")
+	.addTo(controller);
+
+	// make invisible to start
+	// but only if JS is working and we get this far
+	document.getElementById("aboveground").style = "opacity: 0";
+	var backdropFadeIn = new ScrollMagic.Scene({duration: 300})
+	.setTween("#aboveground", {opacity: 1})
+	.addTo(controller);
+
+	var crossfadeScene = new ScrollMagic.Scene({duration: 300})
+	.setTween("#painting", {opacity: 0})
+	.addTo(controller);
+
+	console.log('scroll transition js loaded')
+</script>
+<script type="text/javascript">
+
+	"use strict";
+	var listenButton, startButton, resetButton, episodes, bl;
+	var revealLinks, revealEpisodes;
+
+
+	/** Button interactions **/
+
+	function connectButtons(){
+		console.log('page loaded');
+		startButton = document.getElementById('supplemental-link');
+		listenButton = document.getElementById('listen-link');
+		console.log(startButton);
+		episodes = document.getElementById('episodes');
+		// resetButton = document.getElementById('reset');
+		var supplementalLinks = document.getElementById('root-links');
+
+		revealEpisodes = function(e){
+			e.preventDefault();
+			console.log('reveal eps');
+			episodes.className += " shown";
+		};
+		revealLinks = function(e) {
+			e.preventDefault();
+			console.log('reveal links');
+			if (undefined != e) e.preventDefault();
+			startButton.parentElement.style = "display: none";
+			supplementalLinks.className = "open";
+		};
+
+
+		listenButton.addEventListener(
+			'click',
+			revealEpisodes
+		);
+		startButton.addEventListener(
+			'click',
+			revealLinks
+		);
+	}
+
+	// document.addEventListener(
+	// 	'DOMContentLoaded',
+	// 	connectButtons
+	// );
+	connectButtons();
+	console.log('button listener js loaded');
+
+</script>
