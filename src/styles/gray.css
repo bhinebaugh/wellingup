@@ -3,45 +3,45 @@ html {
 
   }
 h1 {
-  text-align: center;
   color: #667;
   font-family: Arial, sans-serif;
   letter-spacing: 0.1em;
   margin: 0;
   padding-bottom: 0.4em;
+  text-align: center;
 }
 h2 {
   font-family: Arial, sans-serif;
   font-size: 20px;
   color: #6767a2;
   margin-top: 0;
+  text-align: center;
 }
 a {
   color: #60686a;
 }
+.hidden { display: none; }
+
+
 .entrypoint {
   background: rgba(230,235,240,0.8);
   box-shadow: 0 0 9px rgba(200,200,180,0.5);
-  left: 38%;
+  cursor: pointer;
   padding: 1em 2em;
   position: absolute;
   text-align: center;
-  /*top: 50%;*/
-  /*transform: translate(-50%, -50%);*/
-}
-.aboveground .entrypoint {
-  top: 50%;
   left: 50%;
   transform: translateX(-50%);
 }
+.aboveground .entrypoint { top: 50%; }
 .belowground .entrypoint { top: 60px; }
-#site-title {
+/*#site-title {
   background: rgb(215, 223, 231);
   border: double 4px #999;
   margin: 0 auto;
   text-align: center;
   width: 40vw;
-}
+}*/
 
 
 main {
@@ -50,7 +50,6 @@ main {
   padding: 40px 0;
 }
 .aboveground {
-  /*#f0f4ff */
   background:
     linear-gradient(to bottom, rgba(190,200,210,1) 0%, rgba(140,145,150,1) 100%);
   border-radius: 50% 50% 0 0;
@@ -67,11 +66,23 @@ main {
   width: 390px;
   position: absolute;
   left: 50%;
-  margin-top: 200px;
+  margin-top: 270px;
   top: 0px;
   transform: translateX(-50%);
   z-index: 4;
+  animation-name: fadeOut;
+  animation-delay: 0.8s;
+  animation-duration: 1.4s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
+/* temp animation, to be replaced with ScrollMagic scroll-proportional fade */
+@keyframes fadeOut {
+  0% { opacity: 1 }
+  99% { opacity: 0; z-index: 4; }
+  100% { opacity: 0; z-index: -1; }
+}
+
 .buildings {
   background: url('../images/skyline.svg') 50% 0% no-repeat;
   position: absolute;
@@ -173,21 +184,6 @@ footer {
   transform: translate(0,0);
   transition: all 1s ease-out;
 }
-/*#link1 {
-  position: absolute;
-  left: 450px;
-  bottom: 400px;
-}
-#link2 {
-  position: absolute;
-  left: 250px;
-  bottom: 300px;
-}
-#link3 {
-  position: absolute;
-  left: 350px;
-  bottom: 200px;
-}*/
 .open #second { transform: translate(150px, 10px) }
 .open #first { transform: translate(-150px,40px) }
 .open #third { transform: translate(190px,50px) }

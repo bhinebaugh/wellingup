@@ -6,15 +6,15 @@
 		<div id="aboveground" class="aboveground">
 			<div class="buildings"></div>
 			<div class="trees" id="trees"></div>
-			<div class="entrypoint">
-				<a id="listen-link" href="#">listen to the story</a>
+			<div class="entrypoint" [ngClass]="{'hidden': episodesVisible}">
+				<a id="listen-link" (click)="episodesVisible = true">listen to the story</a>
 			</div>
 		</div>
 	</div>
 
 	<div class="interlude">
 		<div class="episodes-wrapper">
-			<div id="episodes" class="episodes">
+			<div id="episodes" class="episodes" [ngClass]="{'shown': episodesVisible}">
 				<div class="episode">
 					<h2>introduction</h2>
 					<audio controls>
@@ -36,15 +36,15 @@
 	</div>
 
 	<div class="belowground">
-		<div id="root-links">
+		<div id="root-links" [ngClass]="{'open': rootLinksVisible}">
 			<div id="first"><a href="#">characters</a></div>
 			<div id="second"><a href="#">Quaker glossary</a></div>
 			<div id="third"><a href="#">timeline 1997</a></div>
 			<div id="fourth"><a href="#">touch</a></div>
 			<div id="fifth"><a href="#">origins</a></div>
 		</div>
-		<div class="entrypoint">
-			<a id="supplemental-link" href="#">explore the depths</a>
+		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">
+			<a id="supplemental-link" (click)="rootLinksVisible = true">explore the depths</a>
 		</div>
 	</div>
 
@@ -74,54 +74,4 @@
 	.addTo(controller);
 
 	console.log('scroll transition js loaded')
-</script>
-<script type="text/javascript">
-
-	"use strict";
-	var listenButton, startButton, resetButton, episodes, bl;
-	var revealLinks, revealEpisodes;
-
-
-	/** Button interactions **/
-
-	function connectButtons(){
-		console.log('page loaded');
-		startButton = document.getElementById('supplemental-link');
-		listenButton = document.getElementById('listen-link');
-		console.log(startButton);
-		episodes = document.getElementById('episodes');
-		// resetButton = document.getElementById('reset');
-		var supplementalLinks = document.getElementById('root-links');
-
-		revealEpisodes = function(e){
-			e.preventDefault();
-			console.log('reveal eps');
-			episodes.className += " shown";
-		};
-		revealLinks = function(e) {
-			e.preventDefault();
-			console.log('reveal links');
-			if (undefined != e) e.preventDefault();
-			startButton.parentElement.style = "display: none";
-			supplementalLinks.className = "open";
-		};
-
-
-		listenButton.addEventListener(
-			'click',
-			revealEpisodes
-		);
-		startButton.addEventListener(
-			'click',
-			revealLinks
-		);
-	}
-
-	// document.addEventListener(
-	// 	'DOMContentLoaded',
-	// 	connectButtons
-	// );
-	connectButtons();
-	console.log('button listener js loaded');
-
 </script>

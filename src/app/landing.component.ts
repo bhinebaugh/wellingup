@@ -4,4 +4,9 @@ import { Component } from '@angular/core';
   selector: 'landing',
   templateUrl: './templates/landing.html'
 })
-export class LandingComponent {}
+export class LandingComponent {
+  // these values are changed inline by event listeners on the button
+  // which triggers ngClas to add classes to the respective elements
+  episodesVisible: false;
+  rootLinksVisible: false;
+}
