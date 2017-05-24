@@ -14,12 +14,10 @@ import { CharactersService } from './characters.service';
   	h3 { padding: 0 1.5rem; }
   `],
   template: `
-  <ul>
-  	<div *ngFor="let character of characters" class="character">
-			<img src="images/silhouette.png"/>
-			<h3>{{ character }}</h3>
-  	</div>
-	</ul>
+	<div *ngFor="let character of characters" class="character">
+		<img src="images/silhouette.png"/>
+		<h3>{{ character }}</h3>
+	</div>
   `,
   providers: [ CharactersService ]
 })

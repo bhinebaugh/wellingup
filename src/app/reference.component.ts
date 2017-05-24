@@ -1,9 +1,20 @@
 import { Component } from '@angular/core';
 
+import { ReferenceService } from './reference.service';
+
 @Component({
   selector: 'reference',
   template: `
-    1997 Ephemera, Greater Boston (glossary and maps), Quakerese, Mary Magdelene, 'Noli me tangere', 'Muchas Manos', Creating the story and website
-  `
+  <ul>
+    <li *ngFor="let page of referencePages">{{page}}</li>
+  </ul>
+  `,
+  providers: [ ReferenceService ]
 })
-export class ReferenceComponent {}
+export class ReferenceComponent {
+	referencePages: Array<any>;
+	
+	constructor( referenceService: ReferenceService ) {
+		this.referencePages = referenceService.getReferencePages()
+	}
+}

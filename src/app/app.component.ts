@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { EpisodeComponent } from './episode.component'
 
 @Component({
   selector: 'my-app',
@@ -9,7 +8,7 @@ import { Component } from '@angular/core';
         <a routerLinkActive="current" routerLink="/home">home</a>
         <a routerLinkActive="current" routerLink="/episodes">the main story (episodes)</a>
         <a routerLinkActive="current" routerLink="/characters">characters</a>
-        <a routerLinkActive="current" routerLink="/supplemental">supplemental story</a>
+        <a routerLinkActive="current" routerLink="/narrative">supplemental story</a>
         <a routerLinkActive="current" routerLink="/reference">reference material</a>
       </nav>
       <h1>{{name}}</h1>
