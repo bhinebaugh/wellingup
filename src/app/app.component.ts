@@ -13,6 +13,15 @@ import { Component } from '@angular/core';
       </nav>
       <h1>{{name}}</h1>
       <h2>a love story</h2>
+      <div class="episode-mini">
+      	<p>episode 1</p>
+			<audio controls="controls">
+				<source src="audio/welling-up-patricia-wild-1.webm">
+				<source src="audio/welling-up-patricia-wild-1.mp4">
+				<source src="audio/welling-up-patricia-wild-1.mp3">
+				<source src="audio/welling-up-patricia-wild-1.wav">
+			</audio>
+	 	</div>
     </header>
 
     <router-outlet></router-outlet>
