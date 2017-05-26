@@ -183,19 +183,29 @@ footer {
   position: absolute;
   left: 50%;
   top: 0;
+  height: 100%;
+  width: 100%;
 }
 #root-links.open {
   opacity: 1;
 }
-#root-links div {
+#root-links ul { list-style-type: none; }
+#root-links li {
   padding: 0.5em 0.8em;
   background: white;
   border: solid 1px #aac;
-  transform: translate(0,0);
-  transition: all 1s ease-out;
+  transition: margin 0.5s ease-out;
 }
-.open #second { transform: translate(150px, 10px) }
-.open #first { transform: translate(-150px,40px) }
-.open #third { transform: translate(190px,50px) }
-.open #fourth { transform: translate(-80px, 60px) }
-.open #fifth { transform: translate(-25px,80px) }
+.narrative-links,
+.reference-links {
+	padding: 0 2em;
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	transition: all 0.6s ease-out;
+}
+.narrative-links { right: 30%; }
+.reference-links { left: 30%; }
+.open .narrative-links { right: 0%; }
+.open .reference-links { left: 0%; }
+.open li { margin-top: 1em; }
