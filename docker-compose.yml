@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  webapi:
+    image: wordpress
+    # image: wordpress:4.7.5-apache
+    environment:
+      WORDPRESS_DB_HOST: mysqldb:3306
+      WORDPRESS_DB_PASSWORD: example
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+      - wellingup
+    ports:
+      - "80:80"
+    depends_on:
+      - mysqldb
+      # mysqldb:
+        # condition: service_healthy
+
+  mysqldb:
+    image: mariadb
+    environment:
+      #MYSQL_ROOT_PASSWORD: example
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: example
+      MYSQL_DATABASE: wordpress
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - wellingup
+    ports:
+      - 3306:3306
+    volumes:
+      - ../databases/wordpress:/var/lib/mysql
+    # healthcheck:
+    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    #   timeout: 20s
+    #   retries: 6
+
+networks:
+  wellingup:
