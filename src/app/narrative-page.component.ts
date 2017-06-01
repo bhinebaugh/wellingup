@@ -7,9 +7,12 @@ import { NarrativeService } from './narrative.service';
 @Component({
 	selector: 'narrative-page',
 	template: `
-	<h3>{{page.title}}</h3>
-	<div [innerHtml]="page.content"></div>
+	<div class="page">
+		<h3>{{page.title}}</h3>
+		<div [innerHtml]="page.content"></div>
+	</div>
 	`,
+	styles: ['.page { margin: 0 10%; }'],
 	providers: [ NarrativeService ]
 })
 
