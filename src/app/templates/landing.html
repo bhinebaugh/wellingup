@@ -38,7 +38,7 @@
 	<div class="belowground">
 		<div id="root-links" [ngClass]="{'open': rootLinksVisible}">
 			<ul class="narrative-links">
-				<li *ngFor="let page of narrativePages">{{page}}</li>
+				<li *ngFor="let page of narrativePages">{{page.title}}</li>
 			</ul>
 			<ul class="reference-links">
 				<li *ngFor="let page of referencePages">{{page}}</li>

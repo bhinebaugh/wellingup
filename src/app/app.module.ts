@@ -6,6 +6,7 @@ import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
 import { NarrativeComponent } from './narrative.component';
+import { NarrativePage } from './narrative-page.component';
 import { ReferenceComponent } from './reference.component';
 import { LandingComponent } from './landing.component';
 
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
   { path: 'narrative', component: NarrativeComponent },
+  { path: 'narrative/:id', component: NarrativePage },
   { path: 'reference', component: ReferenceComponent },
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
@@ -25,7 +27,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, ReferenceComponent, LandingComponent ],
+  declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, LandingComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

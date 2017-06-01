@@ -6,7 +6,7 @@ import { NarrativeService } from './narrative.service';
   selector: 'narrative',
   template: `
   <ul>
-    <li *ngFor="let page of pages">{{ page }}</li>
+    <li *ngFor="let page of pages"><a routerLink={{page.slug}}>{{ page.title }}</a></li>
   </ul>
   `,
   providers: [ NarrativeService ]
