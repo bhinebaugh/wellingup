@@ -6,7 +6,7 @@ import { ReferenceService } from './reference.service';
   selector: 'reference',
   template: `
   <ul>
-    <li *ngFor="let page of referencePages">{{page}}</li>
+    <li *ngFor="let page of referencePages"><a routerLink={{page.slug}}>{{page.title}}</a></li>
   </ul>
   `,
   providers: [ ReferenceService ]

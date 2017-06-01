@@ -26,7 +26,7 @@ export class NarrativePage implements OnInit {
 		//let id = this.route.params['id'];
 		//this.page = this.narrativeService.getNarrativePage(id);
 		this.route.params
-		// what is switchMap? it's being weird. returning a slice of a string?
+		// switchMap is part of the observable ecosystem
 		// oh it's looking for an object to pull a property from and manipulate
 		.switchMap((params:Params) => this.narrativeService.getNarrativePage(+params['id']))
 		.subscribe(page => this.page = page)
