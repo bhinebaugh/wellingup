@@ -1,6 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
+// Animation API support is still evolving (http://caniuse.com/#feat=web-animation)
+// Polyfill web-animations.min.js is recommended
+import { animate, style, transition, trigger } from '@angular/animations';
+// import { HttpModule } when time to hook up to API
 
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
@@ -27,6 +32,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, ReferencePage, LandingComponent ],
