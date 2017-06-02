@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 import { NarrativeService } from './narrative.service';
+import { slideAnimation } from './animations';
 
 @Component({
+  animations: [ slideAnimation ],
   selector: 'narrative',
   template: `
   <ul>
@@ -12,6 +14,10 @@ import { NarrativeService } from './narrative.service';
   providers: [ NarrativeService ]
 })
 export class NarrativeComponent {
+  @HostBinding('@routeAnimation') routeAnimation = true;
+	@HostBinding('style.display')   display = 'block';
+	@HostBinding('style.position')  position = 'aboslute';
+
 	pages: Array<any>;
 
 	constructor( narrativeService:NarrativeService ) {

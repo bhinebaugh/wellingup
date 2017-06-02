@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 import { CharactersService } from './characters.service';
+import { slideAnimation } from './animations';
 
 @Component({
+	animations: [ slideAnimation ],
   selector: 'characters',
   styles: [`
   	.character { 
@@ -22,6 +24,10 @@ import { CharactersService } from './characters.service';
   providers: [ CharactersService ]
 })
 export class CharactersComponent {
+	@HostBinding('@routeAnimation') routeAnimation = true;
+	@HostBinding('style.display')   display = 'block';
+	@HostBinding('style.position')  position = 'aboslute';
+
 	characters: Array<any>;
 	
 	constructor( charactersService: CharactersService ){

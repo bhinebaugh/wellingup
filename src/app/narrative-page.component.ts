@@ -1,11 +1,12 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { NarrativeService } from './narrative.service';
+import { slideAnimation } from './animations';
 
 @Component({
-	selector: 'narrative-page',
+	animations: [ slideAnimation ],
 	template: `
 	<div class="page">
 		<h3>{{page.title}}</h3>
@@ -18,6 +19,10 @@ import { NarrativeService } from './narrative.service';
 
 
 export class NarrativePage implements OnInit {
+	@HostBinding('@routeAnimation') routeAnimation = true;
+	@HostBinding('style.display')   display = 'block';
+	@HostBinding('style.position')  position = 'aboslute';
+
 	page: Object;
 
 	constructor(

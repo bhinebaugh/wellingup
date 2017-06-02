@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 import { ReferenceService } from './reference.service';
+import { slideAnimation } from './animations';
 
 @Component({
+  animations: [ slideAnimation ],
   selector: 'reference',
   template: `
   <ul>
@@ -12,6 +14,10 @@ import { ReferenceService } from './reference.service';
   providers: [ ReferenceService ]
 })
 export class ReferenceComponent {
+	@HostBinding('@routeAnimation') routeAnimation = true;
+	@HostBinding('style.display')   display = 'block';
+	@HostBinding('style.position')  position = 'aboslute';
+
 	referencePages: Array<any>;
 	
 	constructor( referenceService: ReferenceService ) {
