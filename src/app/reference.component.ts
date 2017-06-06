@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 
+import { Page } from './page';
 import { ReferenceService } from './reference.service';
 import { slideAnimation } from './animations';
 
@@ -16,11 +17,11 @@ import { slideAnimation } from './animations';
 export class ReferenceComponent {
 	@HostBinding('@routeAnimation') routeAnimation = true;
 	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'aboslute';
+	@HostBinding('style.position')  position = 'absolute';
 
-	referencePages: Array<any>;
+	referencePages: Array<Page>;
 	
 	constructor( referenceService: ReferenceService ) {
-		this.referencePages = referenceService.getReferencePages()
+		referenceService.getReferencePages().then(pages => this.referencePages = pages)
 	}
 }

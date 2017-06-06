@@ -16,8 +16,9 @@ export class LandingComponent {
   narrativePages: Array<any>;
   referencePages: Array<any>;
   
+  // get pages onInit rather than in constructor
   constructor( narrativeService:NarrativeService, referenceService:ReferenceService ) {
-    this.narrativePages = narrativeService.getNarrativePages();
-    this.referencePages = referenceService.getReferencePages();
+    narrativeService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
+    referenceService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
   }
 }

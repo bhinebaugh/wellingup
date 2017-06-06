@@ -1,5 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 
+import { Page } from './page';
 import { NarrativeService } from './narrative.service';
 import { slideAnimation } from './animations';
 
@@ -18,9 +19,9 @@ export class NarrativeComponent {
 	@HostBinding('style.display')   display = 'block';
 	@HostBinding('style.position')  position = 'aboslute';
 
-	pages: Array<any>;
+	pages: Array<Page>;
 
 	constructor( narrativeService:NarrativeService ) {
-		this.pages = narrativeService.getNarrativePages();
+		narrativeService.getNarrativePages().then(pages => this.pages = pages);
 	}
 }
