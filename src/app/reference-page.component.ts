@@ -1,16 +1,18 @@
-import 'rxjs/add/operator/switchMap';
+//import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
+import { Page } from './page';
 import { ReferenceService } from './reference.service';
 import { slideAnimation } from './animations';
 
 @Component({
 	animations: [ slideAnimation ],
+    // need '?' to check if promise has resolved and initialized var
 	template: `
     <div class="page">
-        <h3>{{page.title}}</h3>
-        <div [innerHtml]="page.content"></div>
+        <h3>{{referencePage?.title}}</h3>
+        <div [innerHtml]="referencePage?.content"></div>
     </div>
 	`,
     styles: ['.page { margin: 0 10%; }'],
@@ -21,9 +23,9 @@ import { slideAnimation } from './animations';
 export class ReferencePage implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
 	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'aboslute';
+	@HostBinding('style.position')  position = 'absolute';
 
-	page: Object;
+	referencePage: Page;
 
 	constructor(
 		private referenceService:ReferenceService,
@@ -31,10 +33,14 @@ export class ReferencePage implements OnInit {
 	) {}
 	
 	ngOnInit(): void {
-		//let id = this.route.params['id'];
-		//this.page = this.referenceService.getReferencePage(id);
-		this.route.params
-		.switchMap((params:Params) => this.referenceService.getReferencePage(+params['id']))
-		.subscribe(page => this.page = page)
+        // params is an Observable...
+		// if we decide to implement linking directly to a sibling (e.g. backstory) page,
+        // the router will re-use the component, and we'll need to use something 
+        // like switchMap make sure the component contents get updated properly:
+		// this.route.params
+		// .switchMap((params:Params) => this.referenceService.getReferencePage(+params['id']))
+		// .subscribe(page => this.page = page)
+        let id = +this.route.snapshot.params['id']; //'+' coerces the string into a number
+		this.referenceService.getReferencePage(id).then(resolvedPage => this.referencePage = resolvedPage);
 	}
 }

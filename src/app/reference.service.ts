@@ -12,8 +12,9 @@ export class ReferenceService {
 		return Promise.resolve( referencePages )
 	}
 
-	getReferencePage(id: number) {
-		return new Array(referencePages[id-1])
+	getReferencePage(id: number): Promise<Page> {
+		// return new Array(referencePages[id-1])
+		return Promise.resolve( referencePages[id-1] );
 	}
 
 }

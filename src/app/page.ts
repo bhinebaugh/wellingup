@@ -3,4 +3,5 @@ export class Page {
     slug: string;
     title: string;
     content: string;
+    categories: Array<any>;
 }

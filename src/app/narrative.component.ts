@@ -17,7 +17,7 @@ import { slideAnimation } from './animations';
 export class NarrativeComponent {
   @HostBinding('@routeAnimation') routeAnimation = true;
 	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'aboslute';
+	@HostBinding('style.position')  position = 'absolute';
 
 	pages: Array<Page>;
 
