@@ -9,7 +9,7 @@ import { slideAnimation } from './animations';
   selector: 'narrative',
   template: `
   <ul>
-    <li *ngFor="let page of pages"><a routerLink={{page.slug}}>{{ page.title }}</a></li>
+    <li *ngFor="let page of pages"><a routerLink={{page.id}}>{{ page.title.rendered }}</a></li>
   </ul>
   `,
   providers: [ NarrativeService ]

@@ -10,8 +10,8 @@ import { slideAnimation } from './animations';
 	animations: [ slideAnimation ],
 	template: `
 	<div class="page">
-		<h3>{{page?.title}}</h3>
-		<div [innerHtml]="page?.content"></div>
+		<h3>{{page?.title.rendered}}</h3>
+		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
 	`,
 	styles: ['.page { margin: 0 10%; }'],
