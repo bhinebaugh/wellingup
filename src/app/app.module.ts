@@ -5,8 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 // Animation API support is still evolving (http://caniuse.com/#feat=web-animation)
 // Polyfill web-animations.min.js is recommended
 import { animate, style, transition, trigger } from '@angular/animations';
-import { HttpModule } from '@angular/http';
+import { HttpModule, RequestOptions } from '@angular/http';
 
+import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     HttpModule
   ],
   declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, ReferencePage, LandingComponent ],
+  providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

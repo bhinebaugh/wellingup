@@ -4,6 +4,8 @@ jspm_packages
 npm-debug.log
 debug.log
 src/**/*.js
+#copy environment.ts from dev or prod template
+**/environment.ts
 #re-include the config js files
 !src/systemjs.config.extras.js
 !src/systemjs.config.js
