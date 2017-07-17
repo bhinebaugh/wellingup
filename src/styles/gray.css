@@ -18,6 +18,17 @@ a {
 }
 .hidden { display: none; }
 
+.episode-mini {
+  /*display: none; /* initially hidden */
+  position: fixed;
+  border-radius: 4px;
+  background: #ddd;
+  padding: 0.3em .5em;
+  left: 0.5em;
+  bottom: 1em;
+  z-index: 20;
+}
+.interlude { display: none; }
 
 .entrypoint {
   background: rgba(230,235,240,0.8);
