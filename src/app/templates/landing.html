@@ -36,7 +36,9 @@
 	</div>
 
 	<div class="belowground">
-		<div id="root-links" [ngClass]="{'open': rootLinksVisible}">
+		<!--<div id="root-links" [ngClass]="{'open': rootLinksVisibleAsync | async }">-->
+		<div [hidden]="!subscribedRootsVis">subscribedRootsVis is true</div>
+		<div id="root-links" [hidden]="!(rootLinksVisibleAsync | async)">
 			<ul class="narrative-links">
 				<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
 			</ul>
@@ -45,10 +47,11 @@
 			</ul>
 		</div>
 		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">
-			<a id="supplemental-link" (click)="rootLinksVisible = true">explore the depths</a>
+			<a id="supplemental-link" (click)="showRootLinks()">explore the depths</a>
 		</div>
 	</div>
 
+	<div (click)="state.hideRootLinks()">go away</div>
 </main>
 
 <!-- footer -->

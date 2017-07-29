@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ActiveState } from './active-state.service';
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 // import { Subject } from 'rxjs/Subject';
 // import 'rxjs/add/operator/filter';
 // import 'rxjs/add/operator/map';
@@ -30,13 +30,16 @@ import { ActiveState } from './active-state.service';
       </nav>
       <h1>Welling Up</h1>
       <h2>a love story</h2>
+      <div>[state] root links: {{ rootLinksAsync | async }} | <a (click)="showRootLinks()">show roots</a> <a (click)="hideRootLinks()">hide roots</a></div>
     </header>
 
     <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
   `
 })
 export class AppComponent implements OnInit {
-  onFrontPage : Boolean = false;
+  onFrontPage : boolean = false;
+  // rootLinksShown : Boolean = false;
+  rootLinksAsync : Observable<boolean>; // assign to an observable, then use with async pipe in template
 
   constructor(
     private state: ActiveState,
@@ -45,14 +48,22 @@ export class AppComponent implements OnInit {
   ){
     // state.currentPath().then(resolvedPath => this.path = resolvedPath);
     // state.currentPath()
+    this.rootLinksAsync = this.state.rootLinksVisible$
   }
 
   ngOnInit(): void {
-    this.state.isNavigationVisible().subscribe(resource => this.onFrontPage = resource)
   }
 
   newComponentActivated(component: Event) {
     this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
   }
 
+  showRootLinks() {
+    console.log("component registers click; calls service");
+    this.state.makeRootLinksVisible();
+    // console.log('root links locally in component:', this.state.rootLinksVisible$)
+  }
+  hideRootLinks() {
+    this.state.hideRootLinks();
+  }
 }
