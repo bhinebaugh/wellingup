@@ -10,16 +10,17 @@ import { ActiveState } from './active-state.service';
   providers: [ NarrativeService, ReferenceService ]
 })
 export class LandingComponent {
-  // these values are changed inline in the template by event listeners on the buttons
+  // these values (are)were changed inline in the template by event listeners on the buttons
   // which triggers ngClass to add classes to the respective elements
-  // episodesVisible: boolean = false;
-  // rootLinksVisible: boolean;// = false;
-  rootLinksVisibleAsync : Observable<boolean>;
+  episodesVisible: boolean;// = false;
+  audioPlayerVisibleAsync : Observable<boolean>;
+  rootLinksVisible: boolean;// = false;
+
   narrativePages: Array<any>;
   referencePages: Array<any>;
   subscribedRootsVis : boolean;
   
-  // get pages onInit rather than in constructor
+  // get pages onInit rather than in constructor?
   constructor(
     narrativeService:NarrativeService,
     referenceService:ReferenceService,
@@ -27,21 +28,21 @@ export class LandingComponent {
   ) {
     narrativeService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
     referenceService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
-    this.rootLinksVisibleAsync = this.state.rootLinksVisible$
-    this.state.rootLinksVisible$.subscribe(valu => {
-      this.subscribedRootsVis = valu;
-      console.log('rootLinksVisible$ subscribed, and (subscribedRootsVis) currently:',valu)
-    });
   }
 
   ngOnInit(): void {
     console.log('ngOnInit for landing component');
-    this.rootLinksVisibleAsync = this.state.rootLinksVisible$;
-    // this.rootLinksVisible = this.state.getRootLinksVisibility();
-    // console.log('root links locally in component (init):', this.rootLinksVisible)
+    this.rootLinksVisible = this.state.rootLinks;
+    this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+  }
+
+  showAudioPlayer() {
+    this.state.makeAudioPlayerVisible();
   }
 
   showRootLinks() {
-    this.state.makeRootLinksVisible();
+    this.rootLinksVisible = this.state.rootLinks = true;
+    // this.rootLinksVisible = this.state.linksState();
+    // this.rootLinksVisible = this.state.rootLinks
   }
 }

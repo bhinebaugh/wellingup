@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   selector: 'my-app',
   providers: [ActiveState],
   template: `
-    <div class="episode-mini">
+    <div class="episode-mini" [hidden]="!(audioPlayerVisibleAsync | async)">
       <p>episode 1</p>
       <audio controls="controls">
         <source src="audio/welling-up-patricia-wild-1.webm">
@@ -30,7 +30,6 @@ import { Observable } from 'rxjs/Observable';
       </nav>
       <h1>Welling Up</h1>
       <h2>a love story</h2>
-      <div>[state] root links: {{ rootLinksAsync | async }} | <a (click)="showRootLinks()">show roots</a> <a (click)="hideRootLinks()">hide roots</a></div>
     </header>
 
     <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
@@ -38,32 +37,20 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   onFrontPage : boolean = false;
-  // rootLinksShown : Boolean = false;
-  rootLinksAsync : Observable<boolean>; // assign to an observable, then use with async pipe in template
+  audioPlayerVisibleAsync : Observable<boolean>;
 
   constructor(
     private state: ActiveState,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ){
-    // state.currentPath().then(resolvedPath => this.path = resolvedPath);
-    // state.currentPath()
-    this.rootLinksAsync = this.state.rootLinksVisible$
-  }
+  ){}
 
   ngOnInit(): void {
+    this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
   }
 
   newComponentActivated(component: Event) {
     this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
   }
 
-  showRootLinks() {
-    console.log("component registers click; calls service");
-    this.state.makeRootLinksVisible();
-    // console.log('root links locally in component:', this.state.rootLinksVisible$)
-  }
-  hideRootLinks() {
-    this.state.hideRootLinks();
-  }
 }
