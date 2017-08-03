@@ -6,8 +6,9 @@
 		<div id="aboveground" class="aboveground">
 			<div class="buildings"></div>
 			<div class="trees" id="trees"></div>
-			<div class="entrypoint" [ngClass]="{'hidden': episodesVisible}">
-				<a id="listen-link" (click)="episodesVisible = true">listen to the story</a>
+			<div class="entrypoint" [hidden]="state.audioPlayerVisible$ | async">
+			<!--<div class="entrypoint" [hidden]="audioPlayerVisibleAsync | async">-->
+				<a id="listen-link" (click)="showAudioPlayer()">listen to the story</a>
 			</div>
 		</div>
 	</div>
@@ -36,7 +37,9 @@
 	</div>
 
 	<div class="belowground">
-		<div id="root-links" [ngClass]="{'open': rootLinksVisible}">
+		<!--<div id="root-links" [ngClass]="{'open': rootLinksVisibleAsync | async }">-->
+		<div id="root-links" [hidden]="!rootLinksVisible">
+		<!--<div id="root-links" [hidden]="!state.rootLinks">-->
 			<ul class="narrative-links">
 				<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
 			</ul>
@@ -45,10 +48,9 @@
 			</ul>
 		</div>
 		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">
-			<a id="supplemental-link" (click)="rootLinksVisible = true">explore the depths</a>
+			<a id="supplemental-link" (click)="showRootLinks()">explore the depths</a>
 		</div>
 	</div>
-
 </main>
 
 <!-- footer -->

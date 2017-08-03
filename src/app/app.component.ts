@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ActiveState } from './active-state.service';
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 // import { Subject } from 'rxjs/Subject';
 // import 'rxjs/add/operator/filter';
 // import 'rxjs/add/operator/map';
@@ -11,7 +11,7 @@ import { ActiveState } from './active-state.service';
   selector: 'my-app',
   providers: [ActiveState],
   template: `
-    <div class="episode-mini">
+    <div class="episode-mini" [hidden]="!(audioPlayerVisibleAsync | async)">
       <p>episode 1</p>
       <audio controls="controls">
         <source src="audio/welling-up-patricia-wild-1.webm">
@@ -36,19 +36,17 @@ import { ActiveState } from './active-state.service';
   `
 })
 export class AppComponent implements OnInit {
-  onFrontPage : Boolean = false;
+  onFrontPage : boolean = false;
+  audioPlayerVisibleAsync : Observable<boolean>;
 
   constructor(
     private state: ActiveState,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ){
-    // state.currentPath().then(resolvedPath => this.path = resolvedPath);
-    // state.currentPath()
-  }
+  ){}
 
   ngOnInit(): void {
-    this.state.isNavigationVisible().subscribe(resource => this.onFrontPage = resource)
+    this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
   }
 
   newComponentActivated(component: Event) {
