@@ -49,7 +49,5 @@ export class LandingComponent {
 
   showRootLinks() {
     this.rootLinksVisible = this.state.rootLinks = true;
-    // this.rootLinksVisible = this.state.linksState();
-    // this.rootLinksVisible = this.state.rootLinks
   }
 }
