@@ -10,7 +10,7 @@ import { slideAnimation } from './animations';
 	animations: [ slideAnimation ],
 	template: `
 	<div class="page">
-		<h3>{{page?.title.rendered}}</h3>
+		<h3 [innerHtml]="page?.title.rendered"></h3>
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
 	`,

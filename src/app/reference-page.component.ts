@@ -11,7 +11,7 @@ import { slideAnimation } from './animations';
     // need '?' to check if promise has resolved and initialized var
 	template: `
     <div class="page">
-        <h3>{{referencePage?.title.rendered}}</h3>
+        <h3 [innerHtml]="referencePage?.title.rendered"></h3>
         <div [innerHtml]="referencePage?.content.rendered"></div>
     </div>
 	`,
