@@ -12,6 +12,7 @@ import { ActiveState } from './active-state.service';
 export class LandingComponent {
   // these values (are)were changed inline in the template by event listeners on the buttons
   // which triggers ngClass to add classes to the respective elements
+  paintingCrossfade : boolean;
   episodesVisible: boolean;// = false;
   audioPlayerVisibleAsync : Observable<boolean>;
   rootLinksVisible: boolean;// = false;
@@ -32,8 +33,14 @@ export class LandingComponent {
 
   ngOnInit(): void {
     console.log('ngOnInit for landing component');
+    this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+  }
+
+  ngAfterContentInit(): void {
+    // deactivate the painting crossfade for future init of this component
+    this.state.painting = false;
   }
 
   showAudioPlayer() {

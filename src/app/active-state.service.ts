@@ -15,9 +15,11 @@ export class ActiveState {
     rootLinks : boolean;
     audioPlayer : boolean;
     currentEpisode : number;
+    painting : boolean;
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute){
         console.log('new state service');
+        this.painting = true;
         this.rootLinks = false;
         this.audioPlayer = false;
         this.currentEpisode = 1; // or 0 for prelude/intro?
