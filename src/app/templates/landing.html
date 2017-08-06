@@ -43,7 +43,8 @@
 		<!--<div id="root-links" [hidden]="!rootLinksVisible">-->
 		<!--<div id="root-links" [hidden]="!state.rootLinks">-->
 			<ul class="narrative-links">
-				<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
+				<!--<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>-->
+				<li *ngFor="let category of narrativeSubcategories" [innerHtml]="category.name"></li>
 			</ul>
 			<ul class="reference-links">
 				<li *ngFor="let page of referencePages"><a routerLink="/reference/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>

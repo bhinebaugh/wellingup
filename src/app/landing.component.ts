@@ -19,15 +19,18 @@ export class LandingComponent {
 
   narrativePages: Array<any>;
   referencePages: Array<any>;
+  narrativeSubcategories: Array<any>;
   subscribedRootsVis : boolean;
   
   // get pages onInit rather than in constructor?
   constructor(
-    narrativeService:NarrativeService,
-    referenceService:ReferenceService,
+    private narrativeService:NarrativeService,
+    private referenceService:ReferenceService,
     private state:ActiveState // is supposed to share with app.component's instance of this service
   ) {
     narrativeService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
+    // in constructor or on init?
+    // narrativeService.getNarrativeSubcategories().then(returnedSubcats => this.narrativeSubcategories = returnedSubcats);
     referenceService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
   }
 
@@ -36,6 +39,7 @@ export class LandingComponent {
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+    this.narrativeService.getNarrativeSubcategories().subscribe(data => this.narrativeSubcategories = data )
   }
 
   ngAfterContentInit(): void {

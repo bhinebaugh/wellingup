@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
 
 import { environment } from './environment';
 import { Page } from './page';
@@ -28,5 +30,32 @@ export class NarrativeService {
 		return this.http.get( postUrl )
 		.toPromise()
 		.then(response => response.json() as Page );
+	}
+
+	getNarrativeSubcategories() {
+		console.log('get narrative subcats');
+		return this.http.get('/categories')
+		.map( resp => resp.json() )
+		// this filter attempt returns all categories, as expected
+		// .filter( (cat, idcat) => true)
+		// .filter( function(cat, idcat) {
+		// 	console.log('filtering... cat:', cat); // --> [Obj, Obj]
+		// 	return true
+		// })
+		// now the Observable contains an array
+		// and this of course works
+		// .map( obj => obj)
+		// while this examines each category object of the array
+		// and only allows it through if it has 'narrative' as parent category
+		.map( obj => obj.filter(x => x.parent == environment.narrativeCategory) )
+
+		// used to return a promise
+		// .toPromise()
+		// .then(response => response.json())
+		// select only items that have narrative as parent
+		// but this isn't the way to filter
+		// .then(response => {
+		// 	response.json().filter((cat,idx) => {return cat === 0})
+		// }
 	}
 }
