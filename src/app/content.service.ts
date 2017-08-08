@@ -5,18 +5,33 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
 import { environment } from './environment';
+import { Category } from './category';
 import { Page } from './page';
 // import { narrativePages } from './mock-pages';
 
 @Injectable()
-export class NarrativeService {
+export class ContentService {
 
-        private handleError(error: any): Promise<any> {
-                return Promise.reject( error.message || error );
-        }
+	private handleError(error: any): Promise<any> {
+			return Promise.reject( error.message || error );
+	}
 	
 	constructor(private http: Http) {}
 	
+	getCategory(id : number) : Promise<Category> {
+		return this.http.get('/categories/'+id)
+			.toPromise()
+			.then(response => response.json() as Category)
+			.catch(this.handleError)
+	}
+
+	getPagesForCategory(id : number) : Promise<Page[]> {
+		return this.http.get('/posts?categories='+id)
+			.toPromise()
+			.then(response => response.json() as Page[])
+			.catch(this.handleError)
+	}
+
 	getNarrativePages(): Promise<Page[]> {
 		// return this.http.get('http://localhost/wp-json/wp/v2/posts?categories=2')
 		return this.http.get('/posts?categories='+environment.narrativeCategory)
@@ -47,7 +62,7 @@ export class NarrativeService {
 		// .map( obj => obj)
 		// while this examines each category object of the array
 		// and only allows it through if it has 'narrative' as parent category
-		.map( obj => obj.filter(x => x.parent == environment.narrativeCategory) )
+		.map( obj => obj.filter( (x : Category) => x.parent == environment.narrativeCategory) )
 
 		// used to return a promise
 		// .toPromise()
@@ -58,4 +73,21 @@ export class NarrativeService {
 		// 	response.json().filter((cat,idx) => {return cat === 0})
 		// }
 	}
+
+	getReferencePages(): Promise<Page[]> {
+		//return Promise.resolve( referencePages )
+		return this.http.get('/posts?categories='+environment.referenceCategory)
+		.toPromise()
+		.then( response => response.json() as Page[] )
+		.catch( this.handleError )
+	}
+
+	getReferencePage(id: number): Promise<Page> {
+		// return Promise.resolve( referencePages[id-1] );
+		return this.http.get('/posts/'+id)
+		.toPromise()
+		.then( response => response.json() as Page )
+		.catch( this.handleError )
+	}
+
 }

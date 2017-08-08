@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 
 import { Page } from './page';
-import { NarrativeService } from './narrative.service';
+import { ContentService } from './content.service';
 import { slideAnimation } from './animations';
 
 @Component({
@@ -12,7 +12,7 @@ import { slideAnimation } from './animations';
     <li *ngFor="let page of pages"><a routerLink={{page.id}} [innerHtml]="page.title.rendered"></a></li>
   </ul>
   `,
-  providers: [ NarrativeService ]
+  providers: [ ContentService ]
 })
 export class NarrativeComponent {
   @HostBinding('@routeAnimation') routeAnimation = true;
@@ -21,7 +21,7 @@ export class NarrativeComponent {
 
 	pages: Array<Page>;
 
-	constructor( narrativeService:NarrativeService ) {
-		narrativeService.getNarrativePages().then(pages => this.pages = pages);
+	constructor( contentService:ContentService ) {
+		contentService.getNarrativePages().then(pages => this.pages = pages);
 	}
 }

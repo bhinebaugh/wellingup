@@ -11,6 +11,7 @@ import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
+import { CategoryComponent } from './category.component';
 import { NarrativeComponent } from './narrative.component';
 import { NarrativePage } from './narrative-page.component';
 import { ReferenceComponent } from './reference.component';
@@ -19,6 +20,13 @@ import { LandingComponent } from './landing.component';
 
 const appRoutes: Routes = [
   { path: 'episodes', component: EpisodeComponent },
+  // show index for /category/x, /narrative, /reference
+  // x = category x?
+  // show page for /post/x
+  // post x = category/subcategory/x?
+  // category/narrative
+  { path: 'category/:id', component: CategoryComponent },
+  { path: 'post/:id', component: NarrativePage }, // re-assign to Post component
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
   { path: 'narrative', component: NarrativeComponent },
@@ -37,7 +45,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, ReferencePage, LandingComponent ],
+  declarations: [ AppComponent, EpisodeComponent, CategoryComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, ReferencePage, LandingComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })
