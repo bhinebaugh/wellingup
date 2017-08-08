@@ -11,18 +11,27 @@ import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
-import { NarrativeComponent } from './narrative.component';
-import { NarrativePage } from './narrative-page.component';
-import { ReferenceComponent } from './reference.component';
+import { CategoryComponent } from './category.component';
+import { PageComponent } from './page.component';
+import { ReferenceComponent } from './reference.component'; // change to PageComp
 import { ReferencePage } from './reference-page.component';
 import { LandingComponent } from './landing.component';
+import { environment } from './environment';
 
 const appRoutes: Routes = [
   { path: 'episodes', component: EpisodeComponent },
+  // show index for /category/x, /narrative, /reference
+  // x = category x?
+  // show page for /post/x
+  // post x = category/subcategory/x?
+  // category/narrative
+  { path: 'category/:id', component: CategoryComponent },
+  { path: 'page/:id', component: PageComponent }, // re-assign to Page component
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
-  { path: 'narrative', component: NarrativeComponent },
-  { path: 'narrative/:id', component: NarrativePage },
+  // { path: 'narrative', component: CategoryComponent },
+  { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate
+  { path: 'narrative/:id', component: PageComponent },
   { path: 'reference', component: ReferenceComponent },
   { path: 'reference/:id', component: ReferencePage },
   { path: 'home', component: LandingComponent },
@@ -37,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, CharactersComponent, NarrativeComponent, NarrativePage, ReferenceComponent, ReferencePage, LandingComponent ],
+  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })

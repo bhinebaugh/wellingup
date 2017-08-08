@@ -117,38 +117,41 @@ a {
         width: 40vw;
       }*/
 
-
+      #upper-transition { position: relative; }
       .aboveground {
-        background:
+        /*background:
           linear-gradient(to bottom, rgba(190,200,210,1) 0%, rgba(140,145,150,1) 100%);
-        border-radius: 50% 50% 0 0;
-        margin: 40px auto;
-        padding: 40px;
+        border-radius: 50% 50% 0 0;*/
+        background: url('/images/landing_full.jpg');
+        background-size: cover;
+        margin: 0 auto;
+        /*padding: 40px;*/
         position: relative;
-        min-height: 400px;
+        height: 70vw;
         width: 70vw;
       }
       #painting {
         background: #eee url('../images/miranda.jpg');
         background-size: cover;
-        height: 470px;
-        width: 390px;
+        height: 100%;
+        width: 100%;
         position: absolute;
-        left: 50%;
-        margin-top: 270px;
+        left: 0px;
         top: 0px;
-        transform: translateX(-50%);
+        /*transform: translateX(-50%);*/
+        transform-origin: 50% bottom;
         z-index: 4;
         animation-name: fadeOut;
         animation-delay: 0.8s;
-        animation-duration: 1.4s;
+        animation-duration: 1.6s;
+        animation-timing-function: ease-in;
         animation-direction: normal;
         animation-fill-mode: forwards;
       }
       /* temp animation, to be replaced with ScrollMagic scroll-proportional fade */
       @keyframes fadeOut {
-        0% { opacity: 1 }
-        99% { opacity: 0; z-index: 4; }
+        0% { opacity: 1; }
+        99% { opacity: 0; z-index: 4; transform: scale(0.6) translateY(1vh); }
         100% { opacity: 0; z-index: -1; }
       }
 
@@ -204,16 +207,19 @@ a {
       }
 
       .belowground {
-        background: radial-gradient(
+        /*background: radial-gradient(
           ellipse at top,
           rgba(100,130,180,1),
           rgba(190,200,210,1)
-        );
-        border-radius: 0 0 50% 50%;
-        margin: 40px auto;
-        padding: 0 40px 40px;
+        );*/
+        background: url('/images/landing_full.jpg');
+        background-size: cover;
+        background-position: 50% 100%;
+        /*border-radius: 0 0 50% 50%;*/
+        margin: 0 auto 40px;
+        padding: 0;
         position: relative;
-        min-height: 400px;
+        height: 23vw;
         width: 70vw;
       }
 
@@ -294,6 +300,8 @@ narrative, reference, episodes{
         background: white;
         border: solid 1px #aac;
         transition: margin 0.5s ease-out;
+        max-width: 20em;
+        width: 22vw;
       }
       .narrative-links,
       .reference-links {

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { NarrativeService } from './narrative.service';
+import { ContentService } from './content.service';
 import { ReferenceService } from './reference.service';
 import { ActiveState } from './active-state.service';
 
 @Component({
   selector: 'landing',
   templateUrl: './templates/landing.html',
-  providers: [ NarrativeService, ReferenceService ]
+  providers: [ ContentService, ReferenceService ]
 })
 export class LandingComponent {
   // these values (are)were changed inline in the template by event listeners on the buttons
@@ -19,15 +19,18 @@ export class LandingComponent {
 
   narrativePages: Array<any>;
   referencePages: Array<any>;
+  narrativeSubcategories: Array<any>;
   subscribedRootsVis : boolean;
   
   // get pages onInit rather than in constructor?
   constructor(
-    narrativeService:NarrativeService,
-    referenceService:ReferenceService,
+    private contentService:ContentService,
+    private referenceService:ReferenceService,
     private state:ActiveState // is supposed to share with app.component's instance of this service
   ) {
-    narrativeService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
+    contentService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
+    // in constructor or on init?
+    // narrativeService.getNarrativeSubcategories().then(returnedSubcats => this.narrativeSubcategories = returnedSubcats);
     referenceService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
   }
 
@@ -36,6 +39,7 @@ export class LandingComponent {
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+    this.contentService.getNarrativeSubcategories().subscribe(data => this.narrativeSubcategories = data )
   }
 
   ngAfterContentInit(): void {
@@ -49,7 +53,5 @@ export class LandingComponent {
 
   showRootLinks() {
     this.rootLinksVisible = this.state.rootLinks = true;
-    // this.rootLinksVisible = this.state.linksState();
-    // this.rootLinksVisible = this.state.rootLinks
   }
 }
