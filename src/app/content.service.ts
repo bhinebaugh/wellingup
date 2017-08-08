@@ -32,6 +32,14 @@ export class ContentService {
 			.catch(this.handleError)
 	}
 
+	getPage(id: number): Promise<Page> {
+		// return Promise.resolve(narrativePages[id-1])
+		var postUrl: string = '/posts/' + id.toString();
+		return this.http.get( postUrl )
+		.toPromise()
+		.then(response => response.json() as Page );
+	}
+
 	getNarrativePages(): Promise<Page[]> {
 		// return this.http.get('http://localhost/wp-json/wp/v2/posts?categories=2')
 		return this.http.get('/posts?categories='+environment.narrativeCategory)

@@ -20,7 +20,7 @@ import { slideAnimation } from './animations';
 })
 
 
-export class NarrativePage implements OnInit {
+export class PageComponent implements OnInit {
 	@HostBinding('@routeAnimation') routeAnimation = true;
 	@HostBinding('style.display')   display = 'block';
 	@HostBinding('style.position')  position = 'absolute';
@@ -34,7 +34,7 @@ export class NarrativePage implements OnInit {
 	
 	ngOnInit(): void {
 		let id = +this.route.snapshot.params['id'];
-		this.contentService.getNarrativePage(id).then(resolvedPage => this.page = resolvedPage)
+		this.contentService.getPage(id).then(resolvedPage => this.page = resolvedPage)
 	}
 
 }

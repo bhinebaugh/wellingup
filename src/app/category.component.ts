@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
     template: `
         <h1>{{ category.name }}</h1>
         <ul>
-            <li *ngFor="let page of subcategories"><a routerLink='/post/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
+            <li *ngFor="let page of subcategories"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
         </ul>
     `,
     providers: [ ContentService ]
