@@ -1,0 +1,24 @@
+$light: #eeeeee;
+$dark: #aaaaaa;
+$darker: #999999;
+main{
+  width: 100%;
+  .character-portrait{
+    width: 22.2%;
+    img{
+      width: 100%;
+    }
+  }
+  article{
+    background-color: $darker;
+    width: 83.3%;
+    h3{
+      background-color: $light;
+      width: 50%;
+    }
+    p{
+      background-color: $dark;
+      width: 75%;
+    }
+  }
+}

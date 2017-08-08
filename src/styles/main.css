@@ -1,7 +1,9 @@
 body {
+  font-size: 16px;
   margin: 0;
   overflow-x: hidden;
-  padding: 0; }
+  padding: 0;
+}
 
 
 /* angular temp top nav */
@@ -24,9 +26,9 @@ nav a.current {
 header h1 {
   background-color: #99aba9;
   color: #667;
-  font-family: Arial, sans-serif;
+  font-family: 'Playfair Display SC', Arial, sans-serif;
   font-size: 250%;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   line-height: 4rem;
   margin: 0;
   padding-bottom: 0.4em;
@@ -223,6 +225,37 @@ a {
         /*width: 24em;*/
         opacity: 1;
       }
+
+h3{
+  border-bottom: 2px solid #a8afbd;
+  color: #346;
+  font-family: sans-serif;
+}
+img{
+  display: block;
+  margin: 0 auto;
+}
+.page, episodes ul, narrative ul, reference ul{
+  background-color: rgba(255, 255, 255, 0.64);
+  border-bottom: 1px solid #ccc;
+}
+ng-component, narrative, reference, characters, episodes{
+  background: url(../images/wavecut.png) repeat;
+}
+episodes ul, narrative ul, reference ul{
+  display: inline-block;
+  margin-left: 8.3%;
+  padding: 10px;
+  width: 33.3%;
+}
+li{
+  line-height: 2em;
+}
+narrative, reference, episodes{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
 
       .bottom-wrapper,
