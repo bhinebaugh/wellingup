@@ -40,19 +40,17 @@ export class ContentService {
 		.then(response => response.json() as Page );
 	}
 
-	getNarrativePages(): Promise<Page[]> {
-		// return this.http.get('http://localhost/wp-json/wp/v2/posts?categories=2')
-		return this.http.get('/posts?categories='+environment.narrativeCategory)
-		.toPromise()
-		.then(response => response.json() as Page[])
-                .catch(this.handleError);
+	getNarrativePages() {
+		return this.getPagesForCategory(environment.narrativeCategory)
 	}
-	getNarrativePage(id: number): Promise<Page> {
-		// return Promise.resolve(narrativePages[id-1])
-		var postUrl: string = '/posts/' + id.toString();
-		return this.http.get( postUrl )
-		.toPromise()
-		.then(response => response.json() as Page );
+	getNarrativePage(id: number) {
+		return this.getPage(id)
+	}
+	getReferencePages() {
+		return this.getPagesForCategory(environment.referenceCategory)
+	}
+	getReferencePage(id: number) {
+		return this.getPage(id)
 	}
 
 	getNarrativeSubcategories() {
@@ -80,22 +78,6 @@ export class ContentService {
 		// .then(response => {
 		// 	response.json().filter((cat,idx) => {return cat === 0})
 		// }
-	}
-
-	getReferencePages(): Promise<Page[]> {
-		//return Promise.resolve( referencePages )
-		return this.http.get('/posts?categories='+environment.referenceCategory)
-		.toPromise()
-		.then( response => response.json() as Page[] )
-		.catch( this.handleError )
-	}
-
-	getReferencePage(id: number): Promise<Page> {
-		// return Promise.resolve( referencePages[id-1] );
-		return this.http.get('/posts/'+id)
-		.toPromise()
-		.then( response => response.json() as Page )
-		.catch( this.handleError )
 	}
 
 }
