@@ -3,7 +3,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Page } from './page';
-import { ReferenceService } from './reference.service';
+import { ContentService } from './content.service';
 import { slideAnimation } from './animations';
 
 @Component({
@@ -16,7 +16,7 @@ import { slideAnimation } from './animations';
     </div>
 	`,
     styles: ['.page { margin: 0 10%; }'],
-	providers: [ ReferenceService ]
+	providers: [ ContentService ]
 })
 
 
@@ -28,7 +28,7 @@ export class ReferencePage implements OnInit {
 	referencePage: Page;
 
 	constructor(
-		private referenceService:ReferenceService,
+		private contentService:ContentService,
 		private route:ActivatedRoute
 	) {}
 	
@@ -38,9 +38,9 @@ export class ReferencePage implements OnInit {
         // the router will re-use the component, and we'll need to use something 
         // like switchMap make sure the component contents get updated properly:
 		// this.route.params
-		// .switchMap((params:Params) => this.referenceService.getReferencePage(+params['id']))
+		// .switchMap((params:Params) => this.contentService.getReferencePage(+params['id']))
 		// .subscribe(page => this.page = page)
         let id = +this.route.snapshot.params['id']; //'+' coerces the string into a number
-		this.referenceService.getReferencePage(id).then(resolvedPage => this.referencePage = resolvedPage);
+		this.contentService.getReferencePage(id).then(resolvedPage => this.referencePage = resolvedPage);
 	}
 }

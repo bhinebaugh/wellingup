@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 
 import { Page } from './page';
-import { ReferenceService } from './reference.service';
+import { ContentService } from './content.service';
 import { slideAnimation } from './animations';
 
 @Component({
@@ -12,7 +12,7 @@ import { slideAnimation } from './animations';
     <li *ngFor="let page of referencePages"><a routerLink={{page.id}} [innerHtml]="page.title.rendered"></a></li>
   </ul>
   `,
-  providers: [ ReferenceService ]
+  providers: [ ContentService ]
 })
 export class ReferenceComponent {
 	@HostBinding('@routeAnimation') routeAnimation = true;
@@ -21,7 +21,7 @@ export class ReferenceComponent {
 
 	referencePages: Array<Page>;
 	
-	constructor( referenceService: ReferenceService ) {
-		referenceService.getReferencePages().then(pages => this.referencePages = pages)
+	constructor( contentService: ContentService ) {
+		contentService.getReferencePages().then(pages => this.referencePages = pages)
 	}
 }

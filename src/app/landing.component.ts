@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ContentService } from './content.service';
-import { ReferenceService } from './reference.service';
 import { ActiveState } from './active-state.service';
 
 @Component({
   selector: 'landing',
   templateUrl: './templates/landing.html',
-  providers: [ ContentService, ReferenceService ]
+  providers: [ ContentService ]
 })
 export class LandingComponent {
   // these values (are)were changed inline in the template by event listeners on the buttons
@@ -25,13 +24,12 @@ export class LandingComponent {
   // get pages onInit rather than in constructor?
   constructor(
     private contentService:ContentService,
-    private referenceService:ReferenceService,
     private state:ActiveState // is supposed to share with app.component's instance of this service
   ) {
     contentService.getNarrativePages().then(returnedPages => this.narrativePages = returnedPages);
     // in constructor or on init?
     // narrativeService.getNarrativeSubcategories().then(returnedSubcats => this.narrativeSubcategories = returnedSubcats);
-    referenceService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
+    contentService.getReferencePages().then(returnedPages => this.referencePages = returnedPages);
   }
 
   ngOnInit(): void {

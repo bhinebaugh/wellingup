@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   imports:      [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
     HttpModule
   ],
   declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent ],
