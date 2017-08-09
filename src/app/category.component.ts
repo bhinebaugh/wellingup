@@ -8,12 +8,8 @@ import { slideAnimation } from './animations';
 @Component({
     animations: [ slideAnimation ],
     template: `
-<<<<<<< HEAD
     <div class="wrapper">
-        <h3>{{ category.name }}</h3>
-=======
-        <h1>{{ category?.name }}</h1>
->>>>>>> 62ad45005e57aa21fae4eea914baa6fb494b8206
+        <h3>{{ category?.name }}</h3>
         <ul>
             <li *ngFor="let page of pages"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
         </ul>
@@ -36,12 +32,7 @@ export class CategoryComponent implements OnInit {
         let id = +this.route.snapshot.params['id'];
         contentService.getPagesForCategory(id).then(returnedPages => this.pages = returnedPages );
         // get Category name, and breadcrumb also
-<<<<<<< HEAD
-        this.contentService.getCategory(id).then(returnedCat =>
-        {this.category = returnedCat; console.log('got category', returnedCat)})
-=======
         this.contentService.getCategory(id).then(returnedCat => this.category = returnedCat)
->>>>>>> 62ad45005e57aa21fae4eea914baa6fb494b8206
     }
 
     ngOnInit(): void {
