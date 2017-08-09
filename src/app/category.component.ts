@@ -11,10 +11,12 @@ import { slideAnimation } from './animations';
 @Component({
     animations: [ slideAnimation ],
     template: `
-        <h1>{{ category?.name }}</h1>
+    <div class="wrapper">
+        <h3>{{ category?.name }}</h3>
         <ul>
             <li *ngFor="let page of pages"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
         </ul>
+    </div>
     `,
     providers: [ ContentService ]
 })

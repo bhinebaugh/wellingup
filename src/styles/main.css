@@ -245,17 +245,22 @@ img{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
 }
-ng-component, narrative, reference, characters, episodes{
+ng-component, narrative, reference, characters, episodes, landing, main, .wrapper{
   background: url(../images/wavecut.png) repeat;
 }
-episodes ul, narrative ul, reference ul{
+.wrapper{
+  margin: 0;
+  padding: 1em 0;
+}
+episodes ul, narrative ul, reference ul, .wrapper ul{
   display: inline-block;
+  list-style-type: none;
   margin-left: 8.3%;
-  padding: 10px;
   width: 33.3%;
 }
 li{
   line-height: 2em;
+  padding: 10px 0;
 }
 narrative, reference, episodes{
   display: block;
