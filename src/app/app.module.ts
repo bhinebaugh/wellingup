@@ -30,10 +30,10 @@ const appRoutes: Routes = [
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
   // { path: 'narrative', component: CategoryComponent },
-  { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate
-  { path: 'narrative/:id', component: PageComponent },
-  { path: 'reference', component: ReferenceComponent },
-  { path: 'reference/:id', component: ReferencePage },
+  { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate in favor of category/1
+  { path: 'narrative/:id', component: PageComponent }, // page/:id
+  { path: 'reference', component: ReferenceComponent }, // category/2
+  { path: 'reference/:id', component: ReferencePage }, // page/:id
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
   // { path: '**', component: PageNotFoundComponent }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/filter';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
+import { environment } from './environment';
 
 @Component({
   selector: 'my-app',
@@ -25,8 +26,8 @@ import { Observable } from 'rxjs/Observable';
         <a routerLinkActive="current" routerLink="/home">home</a>
         <a routerLinkActive="current" routerLink="/episodes">the main story (episodes)</a>
         <a routerLinkActive="current" routerLink="/characters">characters</a>
-        <a routerLinkActive="current" routerLink="/narrative">supplemental story</a>
-        <a routerLinkActive="current" routerLink="/reference">reference material</a>
+        <a routerLinkActive="current" routerLink={{narrativeUrl}}>supplemental story</a>
+        <a routerLinkActive="current" routerLink={{referenceUrl}}>reference material</a>
       </nav>
       <h1>Welling Up</h1>
       <h2>a love story</h2>
@@ -38,6 +39,8 @@ import { Observable } from 'rxjs/Observable';
 export class AppComponent implements OnInit {
   onFrontPage : boolean = false;
   audioPlayerVisibleAsync : Observable<boolean>;
+  narrativeUrl : string;
+  referenceUrl : string;
 
   constructor(
     private state: ActiveState,
@@ -47,6 +50,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+    this.narrativeUrl = "/category/"+environment.narrativeCategory;
+    this.referenceUrl = "/category/"+environment.referenceCategory;
   }
 
   newComponentActivated(component: Event) {
