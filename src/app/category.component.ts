@@ -6,10 +6,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     template: `
-        <h1>{{ category.name }}</h1>
+    <div class="wrapper">
+        <h3>{{ category.name }}</h3>
         <ul>
             <li *ngFor="let page of subcategories"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
         </ul>
+    </div>
     `,
     providers: [ ContentService ]
 })
@@ -27,7 +29,7 @@ export class CategoryComponent {
             console.log('got categories', returnedCats)
         });
         // get Category name, and breadcrumb also
-        this.contentService.getCategory(id).then(returnedCat => 
+        this.contentService.getCategory(id).then(returnedCat =>
         {this.category = returnedCat; console.log('got category', returnedCat)})
     }
 
