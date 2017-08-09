@@ -39,24 +39,9 @@ export class CategoryComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // no errors but never assigns this.pages
-        // this.route.paramMap.map(
-        //     (params : ParamMap) => {
-        //         console.log('route params changed');
-        //         this.contentService.getPagesForCategory(+params.get('id'))
-        //         .then( (returnedPages: Page[]) => this.pages = returnedPages)
-        //     }
-        // );
-        
-        // maybe? diff between params and paramMap? abandoning.
-        // this.route.params.map(
-        //     params => this.contentService.getPagesForCategory(1)
-        // )
-
-        // hewing close to tutorial
-        // need to add a method to service that returns an Observable
-        // this.route.paramMap.switchMap(
-        //     (params : ParamMap) => this.contentService.getNarrativePages$()
-        // )
+        this.route.paramMap
+            .switchMap( (params: ParamMap) =>
+                this.contentService.getPagesForCategory(+params.get('id'))
+            ).subscribe((pages: Page[]) => this.pages = pages);
     }
 }
