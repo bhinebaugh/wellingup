@@ -26,18 +26,18 @@ nav a.current {
 header h1 {
   background-color: #99aba9;
   color: #667;
-  font-family: 'Playfair Display SC', Arial, sans-serif;
+  font-family: 'Playfair Display SC', Georgia, serif;
   font-size: 250%;
   letter-spacing: 0.15em;
-  line-height: 4rem;
+  line-height: 3rem;
   margin: 0;
-  padding-bottom: 0.4em;
+  padding: 0.4em 0;
   text-align: center;
 }
 header h2 {
   background-color: #99aba9;
   color: #667;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, serif;
   font-size: 120%;
   line-height: 0.5rem;
   margin: 0;
@@ -81,6 +81,7 @@ h2 {
   color: #6767a2;
   font-family: Arial, sans-serif;
   font-size: 20px;
+  font-weight: 300;
   margin-top: 0;
   text-align: center;
 }
@@ -255,14 +256,18 @@ img{
   display: block;
   margin: 0 auto;
 }
-.page, episodes ul, narrative ul, reference ul{
+.page, episodes ul, narrative ul, reference ul, .wrapper ul{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
 }
 ng-component, narrative, reference, characters, episodes, landing, main, .wrapper{
   background: url(../images/wavecut.png) repeat;
 }
+characters{
+  min-height: 800px;
+}
 .wrapper{
+  min-height: 800px;/*still working on this, trying to figure out how to get the content to be the right height to fill the rest of the page*/
   margin: 0;
   padding: 1em 0;
 }
