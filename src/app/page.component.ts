@@ -4,10 +4,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { Page } from './page';
 import { ContentService } from './content.service';
-import { slideAnimation } from './animations';
+import { slideAnimation, pageTurn } from './animations';
 
 @Component({
-	animations: [ slideAnimation ],
+	animations: [ pageTurn ],
 	template: `
 	<div class="page">
 		<a routerLink="/narrative">back</a>

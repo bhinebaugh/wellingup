@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 import { Category } from './category';
 import { Page } from './page';
 import { ContentService } from './content.service';
-import { slideAnimation } from './animations';
+import { slideAnimation, pageTurn } from './animations';
 
 @Component({
-    animations: [ slideAnimation ],
+    animations: [ pageTurn ],
     template: `
     <div class="wrapper">
         <h3>{{ category?.name }}</h3>

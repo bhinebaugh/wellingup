@@ -32,6 +32,15 @@ export class ContentService {
 			.catch(this.handleError)
 	}
 
+	getPagesForFrontPage() {
+		// pages that should appear on landing page, in roots section
+		// are set to 'sticky' in WordPress
+		// '/posts?sticky=1'
+		this.http.get('/posts?sticky=1')
+		.toPromise()
+		.then(response => response.json() as Page);
+	}
+
 	getPage(id: number): Promise<Page> {
 		// return Promise.resolve(narrativePages[id-1])
 		var postUrl: string = '/posts/' + id.toString();

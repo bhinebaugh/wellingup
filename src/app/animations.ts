@@ -16,3 +16,47 @@ export const slideAnimation: AnimationEntryMetadata =
             }))
         ])
     ]);
+
+export const pageTurn: AnimationEntryMetadata =
+    // new page is negative z-index to be below other content
+    // start with zero opacity
+    // fade in
+    // on removal / transition away,
+    // rotate about y-axis with perspective
+    // while fading to zero opacity
+
+    // enter (void => *)
+    // leave (* => void)
+    trigger('routeAnimation', [
+        state('*',
+            style({
+                opacity: 1,
+                transform: 'none',
+                position: 'absolute'
+            })
+        ),
+        state('void',
+            style({
+                transform: 'translateX(90%)',
+                opacity: '0.2',
+                position: 'absolute'
+            })
+        ),
+        transition('void => *', animate('2s ease-in')),
+        transition('* => void', animate('2s ease-out'))
+        // transition(':enter', [
+        //     style({
+        //         opacity: 0,
+        //         position: 'absolute'
+        //     }),
+        //     animate('2s ease-in')
+        // ]),
+        // transition(':leave', [
+        //     style({
+        //         opacity: 0.5,
+        //         transform: 'rotateY(-140deg)',
+        //         position: 'absolute'
+        //     }),
+        //     animate('2s ease-in')
+        // ])
+    ])

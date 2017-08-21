@@ -245,6 +245,21 @@ img{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
 }
+.animation-wrapper {
+  /* for page-turn animation on child .wrapper */
+  perspective: 800px;
+  position: relative; 
+  min-height: 600px;
+}
+ng-component {
+  /* for page-turn animation */
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  width: 100%; /* or less? */
+}
 ng-component, narrative, reference, characters, episodes, landing, main, .wrapper{
   background: url(../images/wavecut.png) repeat;
 }

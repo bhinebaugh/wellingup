@@ -33,7 +33,9 @@ import { environment } from './environment';
       <h2>a love story</h2>
     </header>
 
-    <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
+    <div class="animation-wrapper">
+      <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
+    </div>
   `
 })
 export class AppComponent implements OnInit {
