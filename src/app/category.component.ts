@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 import { Category } from './category';
 import { Page } from './page';
 import { ContentService } from './content.service';
-import { slideAnimation, pageTurn } from './animations';
+import { slideAnimation, pageTurn, pageBack } from './animations';
 
 @Component({
-    animations: [ pageTurn ],
+    animations: [ pageBack ],
     template: `
     <div class="wrapper">
         <h3>{{ category?.name }}</h3>
@@ -23,7 +23,7 @@ import { slideAnimation, pageTurn } from './animations';
 export class CategoryComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display')   display = 'block';
-    @HostBinding('style.position')  position = 'aboslute';
+    @HostBinding('style.position')  position = 'absolute';
 
     pages : Array<Page>;
     category : Category;

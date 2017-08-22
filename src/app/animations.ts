@@ -17,6 +17,25 @@ export const slideAnimation: AnimationEntryMetadata =
         ])
     ]);
 
+export const pageBack: AnimationEntryMetadata =
+    trigger('routeAnimation', [
+        state('*',
+            style({
+                opacity: 1,
+                transform: 'none',
+                position: 'absolute'
+            })
+        ),
+        transition('void => *', [
+            style({opacity: 0, transform: 'rotateY(-90deg'}),
+            animate('1.2s ease-in', style({opacity: 1, transform: 'rotateY(0deg)'}))
+        ]),
+        transition('* => void', [
+            animate('0.8s ease-in', style({opacity: 0, transform: 'rotateY(-90deg'}))
+        ])
+    ])
+
+
 export const pageTurn: AnimationEntryMetadata =
     // new page is negative z-index to be below other content
     // start with zero opacity
@@ -35,15 +54,24 @@ export const pageTurn: AnimationEntryMetadata =
                 position: 'absolute'
             })
         ),
-        state('void',
-            style({
-                transform: 'translateX(90%)',
-                opacity: '0.2',
-                position: 'absolute'
-            })
-        ),
-        transition('void => *', animate('2s ease-in')),
-        transition('* => void', animate('2s ease-out'))
+        // state('void',
+        //     style({
+        //         transform: 'translateX(90%)',
+        //         opacity: '0.2',
+        //         position: 'absolute'
+        //     })
+        // ),
+        // working:
+        // transition('void => *', animate('2s ease-in')),
+        // transition('* => void', animate('2s ease-out'))
+        transition('void => *', [
+            style({ opacity: 0, transform: 'none'}),
+            animate('0.6s ease-in')
+        ]),
+        transition('* => void', [
+            style({ opacity: 1}),
+            animate('1.2s ease-in', style({ opacity: 0}))
+        ])
         // transition(':enter', [
         //     style({
         //         opacity: 0,
