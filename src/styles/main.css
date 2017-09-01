@@ -250,7 +250,8 @@ a {
 h3{
   border-bottom: 2px solid #a8afbd;
   color: #346;
-  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0 10vw;
 }
 img{
   display: block;
@@ -285,6 +286,17 @@ narrative, reference, episodes{
   display: block;
   height: 100%;
   width: 100%;
+}
+figure{
+  margin: 2em auto;
+}
+figcaption{
+  line-height: 1.2em;
+  text-align: center;
+}
+p{
+  line-height: 1.4em;
+  margin: 2vh 2vw;
 }
 
 
