@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ContentService } from './content.service';
 import { ActiveState } from './active-state.service';
+import { environment } from './environment';
 
 @Component({
   selector: 'landing',
@@ -20,6 +21,7 @@ export class LandingComponent {
   referencePages: Array<any>;
   narrativeSubcategories: Array<any>;
   subscribedRootsVis : boolean;
+  referenceCategoryUrl: string;
   
   // get pages onInit rather than in constructor?
   constructor(
@@ -37,7 +39,8 @@ export class LandingComponent {
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
-    this.contentService.getNarrativeSubcategories().subscribe(data => this.narrativeSubcategories = data )
+    this.contentService.getNarrativeSubcategories().subscribe(data => this.narrativeSubcategories = data );
+    this.referenceCategoryUrl = '/category/' + environment.referenceCategory.toString();
   }
 
   ngAfterContentInit(): void {

@@ -321,8 +321,9 @@ narrative, reference, episodes{
         border: solid 1px #aac;
         transition: margin 0.5s ease-out;
         max-width: 20em;
-        width: 22vw;
+        width: 16vw;
       }
+      .synopsis,
       .narrative-links,
       .reference-links {
       	padding: 0 2em;
@@ -331,8 +332,20 @@ narrative, reference, episodes{
       	z-index: 5;
       	transition: all 0.6s ease-out;
       }
+      .synopsis { left: 50%; top: -1em; transform: translateX(-50%); }
       .narrative-links { right: 30%; }
       .reference-links { left: 30%; }
-      .open .narrative-links { right: 0%; }
+      .open .narrative-links { 
+        right: 0%; 
+      }
+      .open li { position: relative; margin-top: 1em; } }
+      .open .narrative-links  li:first-child { right: 10%; }
+      .open .narrative-links  li:nth-child(2) { right: 35%; }
+      .open .narrative-links  li:nth-child(3) { right: 80%; }
+
       .open .reference-links { left: 0%; }
-      .open li { margin-top: 1em; }
+      .open .reference-links  li:first-child { left: 10%; }
+      .open .reference-links  li:nth-child(2) { left: 35%; }
+      .open .reference-links  li:nth-child(3) { left: 15%; }
+      .open .reference-links  li:nth-child(4) { left: 60%; }
+

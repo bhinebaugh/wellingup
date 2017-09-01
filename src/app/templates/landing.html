@@ -42,12 +42,16 @@
 		<div id="root-links" [ngClass]="{'open': rootLinksVisible }">
 		<!--<div id="root-links" [hidden]="!rootLinksVisible">-->
 		<!--<div id="root-links" [hidden]="!state.rootLinks">-->
+			<ul class="synopsis">
+				<li><a routerLink="/page/79">Synopsis</a></li>
+			</ul>
 			<ul class="narrative-links">
 				<!--<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>-->
 				<li *ngFor="let category of narrativeSubcategories"><a routerLink="/category/{{category.id}}" [innerHtml]="category.name"></a></li>
 			</ul>
 			<ul class="reference-links">
-				<li *ngFor="let page of referencePages"><a routerLink="/reference/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
+				<li *ngFor="let page of referencePages | slice:0:3"><a routerLink="/reference/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
+				<li><a routerLink="{{referenceCategoryUrl}}">all...</a></li>
 			</ul>
 		</div>
 		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">
