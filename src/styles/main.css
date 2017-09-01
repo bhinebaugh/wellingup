@@ -26,27 +26,27 @@ nav a.current {
 header h1 {
   background-color: #99aba9;
   color: #667;
-  font-family: 'Playfair Display SC', Arial, sans-serif;
+  font-family: 'Playfair Display SC', Georgia, serif;
   font-size: 250%;
   letter-spacing: 0.15em;
-  line-height: 4rem;
+  line-height: 3rem;
   margin: 0;
-  padding-bottom: 0.4em;
+  padding: 0.4em 0;
   text-align: center;
 }
 header h2 {
   background-color: #99aba9;
   color: #667;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, serif;
   font-size: 120%;
   line-height: 0.5rem;
   margin: 0;
   padding: 1rem;
 }
 header {
-  margin: 0px;
   background-color: rgb(187, 205, 222);
   border-bottom: 4px solid #e6d27a;
+  margin: 0px;
   padding: 0px;
 }
 
@@ -60,55 +60,68 @@ button {
   display: inline-block;
   height: 50px;
   margin: 40px 0 40px 45vw;
-  width: 200px; }
+  width: 200px;
+}
 
 footer {
   background-color: #444444;
   display: block;
-  width: 100%; }
-  footer ul {
-    display: inline-block;
-    margin-left: 8.3%;
-    width: 30%; }
-    footer ul li {
-      background-color: #848484;
-      list-style-type: none; }
-      h2 {
-        font-family: Arial, sans-serif;
-        font-size: 20px;
-        color: #6767a2;
-        margin-top: 0;
-        text-align: center;
-      }
+  width: 100%;
+}
+footer ul {
+  display: inline-block;
+  margin-left: 8.3%;
+  width: 30%;
+}
+footer ul li {
+  background-color: #848484;
+  list-style-type: none;
+}
+h2 {
+  color: #6767a2;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 0;
+  text-align: center;
+}
 a {
-    color: #60686a;
-  }
-  .hidden { display: none; }
+  color: #60686a;
+}
+.hidden {
+  display: none;
+}
 
 .episode-mini {
-    /*display: none; /* initially hidden */
-    position: fixed;
-    border-radius: 4px;
-    background: #ddd;
-    padding: 0 10px 5px;
-    left: 0.5em;
-    bottom: 1em;
-    z-index: 20;
-  }
-      .interlude { display: none; }
+  /*display: none; /* initially hidden */
+  background: #ddd;
+  border-radius: 4px;
+  bottom: 1em;
+  left: 0.5em;
+  padding: 0 10px 5px;
+  position: fixed;
+  z-index: 20;
+}
+.interlude {
+  display: none;
+}
 
-      .entrypoint {
-        background: rgba(230,235,240,0.8);
-        box-shadow: 0 0 9px rgba(200,200,180,0.5);
-        cursor: pointer;
-        padding: 1em 2em;
-        position: absolute;
-        text-align: center;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .aboveground .entrypoint { top: 50%; }
-      .belowground .entrypoint { top: 60px; }
+.entrypoint {
+  background: rgba(230,235,240,0.8);
+  box-shadow: 0 0 9px rgba(200,200,180,0.5);
+  cursor: pointer;
+  left: 50%;
+  padding: 1em 2em;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.aboveground .entrypoint {
+  top: 50%;
+}
+.belowground .entrypoint {
+  top: 60px;
+}
       /*#site-title {
         background: rgb(215, 223, 231);
         border: double 4px #999;
@@ -117,131 +130,134 @@ a {
         width: 40vw;
       }*/
 
-      #upper-transition { position: relative; }
-      .aboveground {
+#upper-transition {
+  position: relative;
+}
+.aboveground {
         /*background:
           linear-gradient(to bottom, rgba(190,200,210,1) 0%, rgba(140,145,150,1) 100%);
         border-radius: 50% 50% 0 0;*/
-        background: url('/images/landing_full.jpg');
-        background-size: cover;
-        margin: 0 auto;
+  background: url('/images/landing_full.jpg');
+  background-size: cover;
+  height: 70vw;
+  margin: 0 auto;
         /*padding: 40px;*/
-        position: relative;
-        height: 70vw;
-        width: 70vw;
-      }
-      #painting {
-        background: #eee url('../images/miranda.jpg');
-        background-size: cover;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        left: 0px;
-        top: 0px;
+  position: relative;
+  width: 70vw;
+}
+#painting {
+  background: #eee url('../images/miranda.jpg');
+  background-size: cover;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
         /*transform: translateX(-50%);*/
-        transform-origin: 50% bottom;
-        z-index: 4;
-        animation-name: fadeOut;
-        animation-delay: 0.8s;
-        animation-duration: 1.6s;
-        animation-timing-function: ease-in;
-        animation-direction: normal;
-        animation-fill-mode: forwards;
-      }
+  transform-origin: 50% bottom;
+  width: 100%;
+  z-index: 4;
+  animation-name: fadeOut;
+  animation-delay: 0.8s;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
       /* temp animation, to be replaced with ScrollMagic scroll-proportional fade */
-      @keyframes fadeOut {
-        0% { opacity: 1; }
-        99% { opacity: 0; z-index: 4; transform: scale(0.6) translateY(1vh); }
-        100% { opacity: 0; z-index: -1; }
-      }
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  99% { opacity: 0; z-index: 4; transform: scale(0.6) translateY(1vh); }
+  100% { opacity: 0; z-index: -1; }
+}
 
-      .buildings {
-        background: url('../images/skyline.svg') 50% 0% no-repeat;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-      }
-      .trees {
-        background: url('../images/treeline.svg') bottom center no-repeat;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-      }
+.buildings {
+  background: url('../images/skyline.svg') 50% 0% no-repeat;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.trees {
+  background: url('../images/treeline.svg') bottom center no-repeat;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
-      .episodes-wrapper {
-        overflow-x: scroll;
-      }
-      .episodes {
-        opacity: 0;
-        transition: all 1s ease;
-        width: 300vw;
-      }
-      .episodes.shown {
-        opacity: 1;
-      }
+.episodes-wrapper {
+  overflow-x: scroll;
+}
+.episodes {
+  opacity: 0;
+  transition: all 1s ease;
+  width: 300vw;
+}
+.episodes.shown {
+  opacity: 1;
+}
 
-      .episode {
+.episode {
         /*border-image: url('../images/cloud.png') 2 stretch;*/
-        border-color: rgb(185, 195, 206);
-        border-style: solid;
-        border-width: 1px;
-        background-color: rgb(215, 223, 231);
-        padding: 0 20px;
-        float: left;
-        width: 22em;
-        max-width: 100vw;
-        margin: 0 1em;
-      }
-      .episode-mini {
-      }
-      .episode-mini p {
-      	color: #555;
-      	font-family: sans-serif;
-      	font-size: 14px;
-      	padding: 0;
-      	margin: 0;
-      }
+  background-color: rgb(215, 223, 231);
+  border-color: rgb(185, 195, 206);
+  border-style: solid;
+  border-width: 1px;
+  float: left;
+  margin: 0 1em;
+  padding: 0 20px;
+  width: 22em;
+  max-width: 100vw;
+}
+.episode-mini {
+}
+.episode-mini p {
+  color: #555;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
 
-      .belowground {
+.belowground {
         /*background: radial-gradient(
           ellipse at top,
           rgba(100,130,180,1),
           rgba(190,200,210,1)
         );*/
-        background: url('/images/landing_full.jpg');
-        background-size: cover;
-        background-position: 50% 100%;
+  background: url('/images/landing_full.jpg');
+  background-size: cover;
+  background-position: 50% 100%;
         /*border-radius: 0 0 50% 50%;*/
-        margin: 0 auto 40px;
-        padding: 0;
-        position: relative;
-        height: 23vw;
-        width: 70vw;
-      }
+  height: 23vw;
+  margin: 0 auto 40px;
+  padding: 0;
+  position: relative;
+  width: 70vw;
+}
 
-      #nolimetangere {
-        background-color: #444;
-        display: block;
-        height: 360px;
-        margin: 0 auto;
+#nolimetangere {
+  background-color: #444;
+  display: block;
+  height: 360px;
+  margin: 0 auto;
         /*width: 24em;*/
-        opacity: 1;
-      }
+  opacity: 1;
+}
 
 h3{
   border-bottom: 2px solid #a8afbd;
   color: #346;
-  font-family: sans-serif;
+  line-height: 1.5em;
+  padding: 0 10vw;
 }
 img{
   display: block;
   margin: 0 auto;
 }
-.page, episodes ul, narrative ul, reference ul{
+.page, episodes ul, narrative ul, reference ul, .wrapper ul{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
 }
@@ -263,7 +279,11 @@ ng-component {
 ng-component, narrative, reference, characters, episodes, landing, main, .wrapper{
   background: url(../images/wavecut.png) repeat;
 }
+characters{
+  min-height: 800px;
+}
 .wrapper{
+  min-height: 800px;/*still working on this, trying to figure out how to get the content to be the right height to fill the rest of the page*/
   margin: 0;
   padding: 1em 0;
 }
@@ -282,57 +302,80 @@ narrative, reference, episodes{
   height: 100%;
   width: 100%;
 }
+figure{
+  margin: 2em auto;
+}
+figcaption{
+  line-height: 1.2em;
+  text-align: center;
+}
+p{
+  line-height: 1.4em;
+  margin: 2vh 2vw;
+}
 
 
-      .bottom-wrapper,
-      footer {
-        position: relative;
-        z-index: 2;
-      }
-      .bottom-wrapper {
-        margin: 0 auto;
+.bottom-wrapper,
+footer {
+  position: relative;
+  z-index: 2;
+}
+.bottom-wrapper {
+  margin: 0 auto;
         /*background: white;*/
-        min-height: 5em;
-        position: relative;
-        padding-top: 130px;
-      }
-      .bottom-wrapper img {
-        position: relative;
-        display: block;
-        margin: 0 auto;
-      }
+  min-height: 5em;
+  position: relative;
+  padding-top: 130px;
+}
+.bottom-wrapper img {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
 
-      #root-links {
-        opacity: 0;
-        transform: translateX(-50%);
-        position: absolute;
-        left: 50%;
-        top: 0;
-        height: 100%;
-        width: 100%;
-      }
-      #root-links.open {
-        opacity: 1;
-      }
-      #root-links ul { list-style-type: none; }
-      #root-links li {
-        padding: 0.5em 0.8em;
-        background: white;
-        border: solid 1px #aac;
-        transition: margin 0.5s ease-out;
-        max-width: 20em;
-        width: 22vw;
-      }
-      .narrative-links,
-      .reference-links {
-      	padding: 0 2em;
-      	position: absolute;
-      	top: 0;
-      	z-index: 5;
-      	transition: all 0.6s ease-out;
-      }
-      .narrative-links { right: 30%; }
-      .reference-links { left: 30%; }
-      .open .narrative-links { right: 0%; }
-      .open .reference-links { left: 0%; }
-      .open li { margin-top: 1em; }
+#root-links {
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+#root-links.open {
+  opacity: 1;
+}
+#root-links ul {
+  list-style-type: none;
+}
+#root-links li {
+  background: white;
+  border: solid 1px #aac;
+  max-width: 20em;
+  padding: 0.5em 0.8em;
+  width: 22vw;
+  transition: margin 0.5s ease-out;
+}
+.narrative-links,
+.reference-links {
+  padding: 0 2em;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  transition: all 0.6s ease-out;
+}
+.narrative-links {
+  right: 30%;
+}
+.reference-links {
+  left: 30%;
+}
+.open .narrative-links {
+  right: 0%;
+}
+.open .reference-links {
+  left: 0%;
+}
+.open li {
+  margin-top: 1em;
+}
