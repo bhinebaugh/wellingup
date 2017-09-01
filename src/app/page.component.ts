@@ -1,5 +1,6 @@
 //import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Page } from './page';
@@ -10,7 +11,7 @@ import { slideAnimation, pageTurn } from './animations';
 	animations: [ pageTurn ],
 	template: `
 	<div class="page">
-		<a routerLink="/narrative">back</a>
+		<a (click)="goBack()">back</a>
 		<h3 [innerHtml]="page?.title.rendered"></h3>
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
@@ -29,12 +30,17 @@ export class PageComponent implements OnInit {
 
 	constructor(
 		private contentService:ContentService,
-		private route:ActivatedRoute
+		private route:ActivatedRoute,
+		private location:Location
 	) {}
 	
 	ngOnInit(): void {
 		let id = +this.route.snapshot.params['id'];
 		this.contentService.getPage(id).then(resolvedPage => this.page = resolvedPage)
+	}
+
+	goBack(): void {
+		this.location.back();
 	}
 
 }
