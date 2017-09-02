@@ -176,7 +176,7 @@ a {
 }
 
 .buildings {
-  background: url('../images/skyline.svg') 50% 0% no-repeat;
+  /*background: url('../images/skyline.svg') 50% 0% no-repeat;*/
   height: 100%;
   position: absolute;
   top: 0;
@@ -184,7 +184,7 @@ a {
   width: 100%;
 }
 .trees {
-  background: url('../images/treeline.svg') bottom center no-repeat;
+  /*background: url('../images/treeline.svg') bottom center no-repeat;*/
   height: 100%;
   position: absolute;
   bottom: 0;
