@@ -275,14 +275,14 @@ img{
 .animation-wrapper {
   /* for page-turn animation on child .wrapper */
   perspective: 800px;
-  position: relative; 
+  position: relative;
   min-height: 600px;
 }
 ng-component {
   /* for page-turn animation */
-  position: absolute; 
-  top: 0; 
-  left: 0; 
+  position: absolute;
+  top: 0;
+  left: 0;
   transform-origin: left center;
   transform-style: preserve-3d;
   width: 100%; /* or less? */
@@ -321,8 +321,11 @@ figcaption{
   text-align: center;
 }
 p{
+  font-size: 1.2em;
   line-height: 1.4em;
   /*margin: 2vh 2vw;*/
+}
+section{
 }
 
 
