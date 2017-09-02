@@ -7,7 +7,7 @@ import { slideAnimation } from './animations';
 	animations: [ slideAnimation ],
   selector: 'characters',
   styles: [`
-  	.character { 
+  	.character {
   		border: solid 1px #ddd;
   		float: left;
   		margin: 1rem;
@@ -17,7 +17,6 @@ import { slideAnimation } from './animations';
   `],
   template: `
 	<div *ngFor="let character of characters" class="character">
-		<img src="images/silhouette.png"/>
 		<h3>{{ character }}</h3>
 	</div>
   `,
@@ -29,7 +28,7 @@ export class CharactersComponent {
 	@HostBinding('style.position')  position = 'absolute';
 
 	characters: Array<any>;
-	
+
 	constructor( charactersService: CharactersService ){
 		this.characters = charactersService.getCharacters();
 	}
