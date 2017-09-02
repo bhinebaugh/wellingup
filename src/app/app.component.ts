@@ -24,7 +24,7 @@ import { environment } from './environment';
     <header>
       <nav [hidden]="onFrontPage">
         <a routerLinkActive="current" routerLink="/home">home</a>
-        <a routerLinkActive="current" routerLink="/episodes">the main story (episodes)</a>
+        <a routerLinkActive="current" routerLink="/episodes">episodes</a>
         <a routerLinkActive="current" routerLink="/characters">characters</a>
         <a routerLinkActive="current" routerLink={{narrativeUrl}}>supplemental story</a>
         <a routerLinkActive="current" routerLink={{referenceUrl}}>reference material</a>
