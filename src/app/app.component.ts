@@ -12,14 +12,15 @@ import { environment } from './environment';
   selector: 'my-app',
   providers: [ActiveState],
   template: `
-    <div class="episode-mini" [hidden]="!(audioPlayerVisibleAsync | async)">
-      <p>episode 1</p>
+    <div class="episode-mini" [class.shown]="(audioPlayerVisibleAsync | async)" [hidden]="!(audioPlayerVisibleAsync | async)">
+      <h5>episode 1</h5>
       <audio controls="controls">
         <source src="audio/welling-up-patricia-wild-1.webm">
         <source src="audio/welling-up-patricia-wild-1.mp4">
         <source src="audio/welling-up-patricia-wild-1.mp3">
         <source src="audio/welling-up-patricia-wild-1.wav">
       </audio>
+      <p><a routerLink="/episodes">more episodes...</a></p>
     </div>
     <header>
       <nav [hidden]="onFrontPage">

@@ -11,7 +11,14 @@ import { slideAnimation } from './animations';
   `],
   template: `
   <ul>
-	  <li *ngFor="let episode of episodes">episode: {{episode.name}}</li>
+	  <li *ngFor="let episode of episodes">
+      <h4>episode: {{episode.name}}</h4>
+      <audio controls="controls">
+        <source src="{{episode.audio}}.webm">
+        <source src="{{episode.audio}}.mp4">
+        <source src="{{episode.audio}}.mp3">
+      </audio>
+    </li>
   </ul>
   `,
   providers: [ EpisodesService ]

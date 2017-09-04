@@ -7,8 +7,15 @@ export class EpisodesService {
 
   constructor(){
     this.episodes = [
-      {name:'Introduction', length:32, links: [1,3,5], description: 'a quick orientation to the story'},
-      {name:'Episode 1', length:32, links: [1,3,5], description: 'getting into the story'}
+      {name:'Introduction', audio:'audio/welling-up-intro'},
+      {name:'Episode 1', audio:'audio/welling-up-patricia-wild-1'},
+      {name:'Episode 2', audio:'audio/welling-up-2'}
+      // {name:'Episode 3', audio:'audio/'},
+      // {name:'Episode 4', audio:'audio/'},
+      // {name:'Episode 5', audio:'audio/'},
+      // {name:'Episode 6', audio:'audio/'},
+      // {name:'Episode 7', audio:'audio/'},
+      // {name:'Episode 8', audio:'audio/'}
     ]
   }
 
