@@ -12,7 +12,7 @@ import { slideAnimation } from './animations';
   template: `
   <ul>
 	  <li *ngFor="let episode of episodes">
-      <h4>episode: {{episode.name}}</h4>
+      <h4>{{episode.name}}</h4>
       <audio controls="controls">
         <source src="{{episode.audio}}.webm">
         <source src="{{episode.audio}}.mp4">
