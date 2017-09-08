@@ -12,10 +12,12 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     animations: [ pageBack ],
     template: `
     <div class="wrapper">
-        <h3>{{ category?.name }}</h3>
+      <section>
+        <h3>{{ category?.name }}SUPER DOPE TITLE</h3>
         <ul>
             <li *ngFor="let page of pages"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
         </ul>
+      </section>
     </div>
     `,
     providers: [ ContentService ]

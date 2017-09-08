@@ -30,8 +30,10 @@ import { environment } from './environment';
         <a routerLinkActive="current" routerLink={{narrativeUrl}}>supplemental story</a>
         <a routerLinkActive="current" routerLink={{referenceUrl}}>reference material</a>
       </nav>
-      <h1>Welling Up</h1>
-      <h2>a love story</h2>
+      <div class="title-subtitle" [class.floating]="onFrontPage">
+        <h1>Welling Up</h1>
+        <h2>a love story</h2>
+      </div>
     </header>
 
     <div class="animation-wrapper">

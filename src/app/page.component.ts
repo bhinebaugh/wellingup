@@ -16,7 +16,7 @@ import { slideAnimation, pageTurn } from './animations';
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
 	`,
-	styles: ['.page { margin: 0 10%; }'],
+	styles: [],
 	providers: [ ContentService ]
 })
 
@@ -33,7 +33,7 @@ export class PageComponent implements OnInit {
 		private route:ActivatedRoute,
 		private location:Location
 	) {}
-	
+
 	ngOnInit(): void {
 		let id = +this.route.snapshot.params['id'];
 		this.contentService.getPage(id).then(resolvedPage => this.page = resolvedPage)
