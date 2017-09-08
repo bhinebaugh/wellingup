@@ -237,7 +237,7 @@ a {
 .episode-mini.shown {
   bottom: 1em;
   left: 0.5em;
-  /* duration | timing-function | delay | 
+  /* duration | timing-function | delay |
 iteration-count | direction | fill-mode (forwards, backwards, both) | play-state | name */
   animation: 1s ease-out 0.5s 1 normal both moveToCorner;
   /*transition: all 1s;*/
@@ -290,7 +290,8 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
 }
 
 .page {
-  padding: 1rem 2rem;
+  margin: 0 16.7%;
+  padding: 1rem 4rem;
 }
 
 h3{
@@ -298,13 +299,14 @@ h3{
   color: #346;
   font-size: 1.8rem;
   line-height: 1.5em;
+  margin: 10px 0;
   padding: 0;
 }
 img{
   display: block;
   margin: 0 auto;
 }
-.page, episodes ul, narrative ul, reference ul, .wrapper ul{
+.page{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
 }
@@ -335,17 +337,18 @@ characters{
 .wrapper{
   min-height: 800px;/*still working on this, trying to figure out how to get the content to be the right height to fill the rest of the page*/
   margin: 0;
-  padding: 1em 0;
+  padding: 0;
 }
-episodes ul, narrative ul, reference ul, .wrapper ul{
+episodes ul, narrative ul, reference ul, section ul{
   display: inline-block;
   list-style-type: none;
-  margin-left: 8.3%;
-  width: 33.3%;
+  margin: 0;
+  padding: 0;
+  width: 66%;
 }
 li{
   line-height: 2em;
-  padding: 10px 0;
+  padding: 10px 20px;
 }
 narrative, reference, episodes{
   display: block;
@@ -368,6 +371,10 @@ p{
   /*margin: 2vh 2vw;*/
 }
 section{
+  background-color: rgba(255, 255, 255, 0.64);
+  border-bottom: 1px solid #ccc;
+  margin: 70px 16.7%;
+  width: 66%;
 }
 
 
@@ -430,8 +437,8 @@ footer {
 .synopsis { left: 50%; top: -1em; transform: translateX(-50%); }
 .narrative-links { right: 30%; }
 .reference-links { left: 30%; }
-.open .narrative-links { 
-  right: 0%; 
+.open .narrative-links {
+  right: 0%;
 }
 .open li { position: relative; margin-top: 1em; } }
 .open .narrative-links  li:first-child { right: 10%; }
