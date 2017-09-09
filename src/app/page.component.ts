@@ -10,8 +10,8 @@ import { slideAnimation, pageTurn } from './animations';
 @Component({
 	animations: [ pageTurn ],
 	template: `
-	<a (click)="goBack()">&larr; back</a>
 	<div class="page">
+		<a class="go-back" (click)="goBack()">&larr; back</a>
 		<h3 [innerHtml]="page?.title.rendered"></h3>
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>

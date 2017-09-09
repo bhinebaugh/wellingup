@@ -298,8 +298,14 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
 .page {
   margin: 0 16.7%;
   padding: 1rem 4rem;
+  position: relative; /* to anchor .go-back */
 }
 
+.go-back {
+  left: 0;
+  position: absolute;
+  top: -1.5em;
+}
 h3{
   border-bottom: 2px solid #a8afbd;
   color: #346;
