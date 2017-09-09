@@ -12,7 +12,11 @@ import { environment } from './environment';
   selector: 'my-app',
   providers: [ActiveState],
   template: `
-    <div class="episode-mini" [class.shown]="(audioPlayerVisibleAsync | async)" [hidden]="!(audioPlayerVisibleAsync | async)">
+    <div class="episode-mini" 
+        [class.shown]="(audioPlayerVisibleAsync | async)" 
+        [class.centered]="onFrontPage"
+        [hidden]="!(audioPlayerVisibleAsync | async)"
+    >
       <h5>episode 1</h5>
       <audio controls="controls">
         <source src="audio/welling-up-patricia-wild-1.webm">
