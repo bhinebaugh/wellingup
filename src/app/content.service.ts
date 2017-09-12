@@ -64,7 +64,7 @@ export class ContentService {
 
 	getNarrativeSubcategories() {
 		console.log('get narrative subcats');
-		return this.http.get('/categories')
+		return this.http.get('/categories?per_page=100') // avoid the 10-item default
 		.map( resp => resp.json() )
 		// this filter attempt returns all categories, as expected
 		// .filter( (cat, idcat) => true)

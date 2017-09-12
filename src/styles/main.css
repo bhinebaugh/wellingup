@@ -106,6 +106,8 @@ a {
 
 .entrypoint {
   background: rgba(230,235,240,0.8);
+  border: solid 3px #b97f2a80;
+  border-radius: 1px;
   box-shadow: 0 0 9px rgba(200,200,180,0.5);
   cursor: pointer;
   left: 50%;
@@ -422,19 +424,22 @@ footer {
 }
 #root-links ul {
   list-style-type: none;
+  margin: 0 2em;
+}
+#root-links li {
+  padding: 0; /* apply padding to <a> instead */
 }
 .synopsis,
-#root-links li {
+#root-links a {
   background: #f3f0b3;
   border: solid 1px #aac;
+  display: inline-block;
   line-height: 1.4;
-  width: 10em;
   padding: 0.4em 0.8em;
-  /*width: 16vw;*/
   transition: margin 0.5s ease-out;
-}
+/*}
 .synopsis,
-#root-links li a {
+#root-links li a {*/
   font-style: italic;
   text-decoration: none;
 }
@@ -442,24 +447,26 @@ footer {
 .synopsis,
 .narrative-links,
 .reference-links {
-  padding: 0 2em;
   position: absolute;
   z-index: 5;
   transition: all 0.6s ease-out;
 }
 .synopsis { left: 50%; bottom: 1em; transform: translateX(-50%); }
-.narrative-links { top: 0; right: 30%; }
-.reference-links { top: 0; left: 30%; }
+.narrative-links,
+.reference-links { 
+  top: 0; left: 40%;
+  padding: 0;
+}
 .open .narrative-links {
-  right: 0%;
+  left: 0%;
 }
 .open li { position: relative; margin-top: 1em; } }
-.open .narrative-links  li:first-child { right: 10%; }
-.open .narrative-links  li:nth-child(2) { right: 35%; }
-.open .narrative-links  li:nth-child(3) { right: 80%; }
+.open .narrative-links  li:first-child { left: 10%; }
+.open .narrative-links  li:nth-child(2) { left: 5%; }
+.open .narrative-links  li:nth-child(3) { left: 8%; }
 
-.open .reference-links { left: 0%; }
-.open .reference-links  li:first-child { left: 10%; }
-.open .reference-links  li:nth-child(2) { left: 35%; }
-.open .reference-links  li:nth-child(3) { left: 15%; }
-.open .reference-links  li:nth-child(4) { left: 60%; }
+.open .reference-links { left: 50%; }
+.open .reference-links  li:first-child { left: 0%; }
+.open .reference-links  li:nth-child(2) { left: 5%; }
+.open .reference-links  li:nth-child(3) { left: 1%; }
+.open .reference-links  li:nth-child(4) { left: 6%; }
