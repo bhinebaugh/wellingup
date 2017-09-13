@@ -160,7 +160,7 @@ landing main {
 }
 .belowground {
   margin: 0 auto;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 0;
   position: relative;
   /* 
@@ -456,6 +456,21 @@ footer {
 .reference-links { 
   top: 0; left: 40%;
   padding: 0;
+}
+.narrative-links::before,
+.reference-links::before {
+    color: white;
+    font-size: 80%;
+    font-style: italic;
+    position: relative;
+    left: 3rem;
+    top: 0.5rem;
+}
+.narrative-links::before {
+  content: 'story pages';
+}
+.reference-links::before {
+  content: 'reference pages';
 }
 .open .narrative-links {
   left: 0%;
