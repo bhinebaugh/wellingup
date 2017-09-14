@@ -34,7 +34,9 @@ nav a.current {
   position: absolute;
   top: 5.4rem;
   left: 50%;
+  text-shadow: 0 0 5px white;
   transform: translateX(-50%);
+  width: 90%;
   z-index: 5;
 }
 header h1 {
@@ -427,6 +429,7 @@ footer {
   margin: 0 2em;
 }
 #root-links li {
+  float: left;
   padding: 0; /* apply padding to <a> instead */
 }
 .synopsis,
@@ -444,19 +447,18 @@ footer {
   text-decoration: none;
 }
 
-.synopsis,
+.synopsis {
+  position: absolute;
+  z-index: 5;
+}
 .narrative-links,
 .reference-links {
-  position: absolute;
+  clear: both;
   z-index: 5;
   transition: all 0.6s ease-out;
 }
 .synopsis { left: 50%; bottom: 1em; transform: translateX(-50%); }
-.narrative-links,
-.reference-links { 
-  top: 0; left: 40%;
-  padding: 0;
-}
+
 .narrative-links::before,
 .reference-links::before {
     color: white;
@@ -475,13 +477,31 @@ footer {
 .open .narrative-links {
   left: 0%;
 }
-.open li { position: relative; margin-top: 1em; } }
-.open .narrative-links  li:first-child { left: 10%; }
-.open .narrative-links  li:nth-child(2) { left: 5%; }
-.open .narrative-links  li:nth-child(3) { left: 8%; }
 
-.open .reference-links { left: 50%; }
-.open .reference-links  li:first-child { left: 0%; }
-.open .reference-links  li:nth-child(2) { left: 5%; }
-.open .reference-links  li:nth-child(3) { left: 1%; }
-.open .reference-links  li:nth-child(4) { left: 6%; }
+
+/* two-column arrangement of root links */
+@media (min-width: 450px) {
+  .title-subtitle.floating {
+    font-size: 100%;
+  }
+  #root-links li {
+    float: none;
+  }
+  .narrative-links,
+  .reference-links { 
+    top: 0; left: 40%;
+    padding: 0;
+    position: absolute;
+  }
+  .open .reference-links { left: 50%; }
+  .open li { position: relative; margin-top: 1em; }
+  .open .narrative-links  li:first-child { left: 10%; }
+  .open .narrative-links  li:nth-child(2) { left: 5%; }
+  .open .narrative-links  li:nth-child(3) { left: 8%; }
+
+  .open .reference-links  li:first-child { left: 0%; }
+  .open .reference-links  li:nth-child(2) { left: 5%; }
+  .open .reference-links  li:nth-child(3) { left: 1%; }
+  .open .reference-links  li:nth-child(4) { left: 6%; }
+
+}
