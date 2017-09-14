@@ -7,21 +7,22 @@ import { slideAnimation } from './animations';
   animations: [ slideAnimation ],
   selector: 'episodes',
   styles: [`
-  div { background: #f2f2f2 }
   `],
   template: `
-  <ul>
-	  <li *ngFor="let episode of episodes">
-      <h4>{{episode.name}}</h4>
+  <div class="wrapper">
+    <section *ngFor="let episode of episodes">
+      <h3>{{episode.name}}</h3>
       <audio controls="controls">
-        <!-- source src="{{episode.audio}}.webm" -->
-        <!-- source src="{{episode.audio}}.mp4" -->
         <source src="{{episode.audio}}.ogg" type="audio/ogg">
         <source src="{{episode.audio}}.mp3" type="audio/mpeg">
         <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
       </audio>
-    </li>
-  </ul>
+      <p class="blurb">Some really great stuff happens in this episode, you should totally check it out if you're cool. Has science gone too far?</p>
+      <img class="episode-thumbnail" src="images/Podcast5.jpeg">
+      <a>Some Relevant Stuff</a>
+      <a>Some Relevant Stuff</a>
+    </section>
+  </div>
   `,
   providers: [ EpisodesService ]
 })

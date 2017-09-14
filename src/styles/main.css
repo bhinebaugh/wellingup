@@ -148,7 +148,7 @@ landing main {
 .aboveground {
   margin: 0 auto;
   position: relative;
-  /* width and height are 1:1 ratio 
+  /* width and height are 1:1 ratio
   ** and expand to the full width
   ** except when that would push .belowground down and offscreen
   ** ???
@@ -163,7 +163,7 @@ landing main {
   overflow: scroll;
   padding: 0;
   position: relative;
-  /* 
+  /*
   **
   */
   max-width: 75vh;
@@ -384,13 +384,24 @@ p{
   line-height: 1.4em;
   /*margin: 2vh 2vw;*/
 }
+.blurb{
+  display: inline-block;
+  margin-top: 1%;
+  vertical-align: top;
+  width: 75%;
+}
 section{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
   margin: 70px 16.7%;
+  padding: 20px;
   width: 66%;
 }
-
+.episode-thumbnail{
+  display: inline-block;
+  vertical-align: top;
+  width: 16.7%;
+}
 
 .bottom-wrapper,
 footer {
@@ -453,7 +464,7 @@ footer {
 }
 .synopsis { left: 50%; bottom: 1em; transform: translateX(-50%); }
 .narrative-links,
-.reference-links { 
+.reference-links {
   top: 0; left: 40%;
   padding: 0;
 }
