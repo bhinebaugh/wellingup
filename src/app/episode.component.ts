@@ -12,15 +12,17 @@ import { slideAnimation } from './animations';
   <div class="wrapper">
     <section *ngFor="let episode of episodes">
       <h3>{{episode.name}}</h3>
+      <img class="episode-thumbnail" src="{{episode.image}}">
+      <div class="text-elements">
       <audio controls="controls">
-        <source src="{{episode.audio}}.ogg" type="audio/ogg">
-        <source src="{{episode.audio}}.mp3" type="audio/mpeg">
-        <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
+      <source src="{{episode.audio}}.ogg" type="audio/ogg">
+      <source src="{{episode.audio}}.mp3" type="audio/mpeg">
+      <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
       </audio>
-      <p class="blurb">Some really great stuff happens in this episode, you should totally check it out if you're cool. Has science gone too far?</p>
-      <img class="episode-thumbnail" src="images/Podcast5.jpeg">
-      <a>Some Relevant Stuff</a>
-      <a>Some Relevant Stuff</a>
+        <p class="blurb">Lorem ipsum dolor sit amet lorem ipsum dolor sit. Amet lorum ipsum dolor sit amet lorem. Ipsum dolor sit amet lorem ipsum. Dolor sit amet.</p>
+        <a class="supplemental">Some Relevant Stuff</a>
+        <a class="supplemental">Some Relevant Stuff</a>
+      </div>
     </section>
   </div>
   `,

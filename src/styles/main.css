@@ -386,9 +386,13 @@ p{
   line-height: 1.4em;
   /*margin: 2vh 2vw;*/
 }
+audio{
+  width: 66%;
+}
 .blurb{
   display: inline-block;
-  margin-top: 1%;
+  font-size: 1em;
+  margin: 1% 0;
   vertical-align: top;
   width: 75%;
 }
@@ -401,8 +405,19 @@ section{
 }
 .episode-thumbnail{
   display: inline-block;
+  margin: 0 2%;
   vertical-align: top;
   width: 16.7%;
+}
+.supplemental{
+  display: block;
+  margin-top: 0;
+  vertical-align: top;
+}
+.text-elements{
+  display: inline-block;
+  vertical-align: top;
+  width: 66%;
 }
 
 .bottom-wrapper,
