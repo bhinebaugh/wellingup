@@ -112,7 +112,7 @@ a {
 
 .entrypoint {
   background: rgba(230,235,240,0.8);
-  border: solid 3px #b97f2a80;
+  border: solid 3px rgba(185,127,42,0.5);
   border-radius: 1px;
   box-shadow: 0 0 9px rgba(200,200,180,0.5);
   cursor: pointer;
@@ -132,7 +132,7 @@ a {
 /* landing page */
 
 landing main {
-  background: url('../images/wavecut.png') repeat;
+  background: url('../images/patterns/regal.png') repeat; /* pattern by 'Akash' from subtlepatterns.com */
 }
 
 #upper-transition {
@@ -143,7 +143,7 @@ landing main {
 /* front page proportional layout */
 
 #frame {
-  background: #8f8d99 url('/images/landing_full.jpg') no-repeat center top;
+  background: transparent url('/images/landing_full.jpg') no-repeat center top;
   background-size: contain;
   margin: 0 auto;
   /* height: 100vh; /* full height */
@@ -151,31 +151,29 @@ landing main {
   height: 100%;
   width: 100%;
 }
-.aboveground {
+.aboveground,
+.belowground {
+  box-shadow: 0 0 5px black;
   margin: 0 auto;
+  max-width: 75vh;
   position: relative;
+  width: 100vw;
   /* width and height are 1:1 ratio
   ** and expand to the full width
   ** except when that would push .belowground down and offscreen
   ** ???
   */
-  max-width: 75vh;
+}
+.aboveground {
   max-height: 75vh;
-  width: 100vw;
   height: 100vw;
 }
 .belowground {
-  margin: 0 auto;
   overflow-y: scroll;
   padding: 0;
-  position: relative;
-  /*
-  **
-  */
   max-width: 75vh;
   max-height: 25vh;
   height: 30vw; /* ~1:3 image ratio */
-  width: 100vw;
 }
 
 
@@ -480,6 +478,9 @@ footer {
 .synopsis {
   position: absolute;
   z-index: 5;
+  left: 50%; 
+  bottom: 1em; 
+  transform: translateX(-50%); 
 }
 .narrative-links,
 .reference-links {
@@ -487,8 +488,50 @@ footer {
   z-index: 5;
   transition: all 0.6s ease-out;
 }
-.synopsis { left: 50%; bottom: 1em; transform: translateX(-50%); }
-.narrative-links,
-.reference-links {
-  top: 0; left: 40%;
-  padding: 0;
+
+.narrative-links::before,
+.reference-links::before {
+    color: white;
+    font-size: 80%;
+    font-style: italic;
+    position: relative;
+    left: 3rem;
+    top: 0.5rem;
+}
+.narrative-links::before {
+  content: 'story pages';
+}
+.reference-links::before {
+  content: 'reference pages';
+}
+.open .narrative-links {
+  left: 0%;
+}
+
+
+/* two-column arrangement of root links */
+@media (min-width: 450px) {
+  .title-subtitle.floating {
+    font-size: 100%;
+  }
+  #root-links li {
+    float: none;
+  }
+  .narrative-links,
+  .reference-links { 
+    top: 0; left: 40%;
+    padding: 0;
+    position: absolute;
+  }
+  .open .reference-links { left: 50%; }
+  .open li { position: relative; margin-top: 1em; }
+  .open .narrative-links  li:first-child { left: 10%; }
+  .open .narrative-links  li:nth-child(2) { left: 5%; }
+  .open .narrative-links  li:nth-child(3) { left: 8%; }
+
+  .open .reference-links  li:first-child { left: 0%; }
+  .open .reference-links  li:nth-child(2) { left: 5%; }
+  .open .reference-links  li:nth-child(3) { left: 1%; }
+  .open .reference-links  li:nth-child(4) { left: 6%; }
+
+}
