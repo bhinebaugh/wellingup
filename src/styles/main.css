@@ -13,7 +13,6 @@ a {
 nav {
   /*background-color: #99aba9;*/
   background-color: #8f8d99;
-  border-bottom: 2px solid #e6d27a;
   padding: 1rem;
   text-align: center;
 }
@@ -30,7 +29,12 @@ nav a.current {
   text-decoration: none;
 }
 
+.title-subtitle{
+  border-bottom: 2px solid #e6d27a;
+  z-index: -1;
+}
 .title-subtitle.floating {
+  border-bottom: none;
   position: absolute;
   top: 5.4rem;
   left: 50%;
@@ -394,13 +398,13 @@ audio{
   font-size: 1em;
   margin: 1% 0;
   vertical-align: top;
-  width: 75%;
+  width: 100%;
 }
 section{
   background-color: rgba(255, 255, 255, 0.64);
   border-bottom: 1px solid #ccc;
   margin: 70px 16.7%;
-  padding: 20px;
+  padding: 30px;
   width: 66%;
 }
 .episode-thumbnail{
@@ -417,7 +421,7 @@ section{
 .text-elements{
   display: inline-block;
   vertical-align: top;
-  width: 66%;
+  width: 75%;
 }
 
 .bottom-wrapper,
