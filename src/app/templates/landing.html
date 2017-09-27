@@ -6,30 +6,7 @@
 			<a id="listen-link" (click)="showAudioPlayer()">listen to the story</a>
 		</div>
 		<a class="synopsis" routerLink="/page/79">Synopsis</a>
-		<div id="painting" [hidden]="!paintingCrossfade"></div>
-	</div>
 
-	<div class="interlude">
-		<div class="episodes-wrapper">
-			<div id="episodes" class="episodes" [ngClass]="{'shown': episodesVisible}">
-				<div class="episode">
-					<h2>introduction</h2>
-					<audio controls>
-						<source src="episodes/welling-up-patricia-wild-0.mp3">
-						<source src="episodes/welling-up-patricia-wild-0.wav">
-						attributes of interest: buffered controls preload=[]
-						browser codec support: https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats
-					</audio>
-					<p></p>
-				</div>
-				<div class="episode">
-						<h2>episode 1</h2>
-						<audio controls="controls" src="episodes/welling-up-patricia-wild-1.mp3"></audio>
-						<p>Description of episode lorem ipsum dolor sit amet</p>
-						<p><a href="#">List of Characters</a> • <a href="#">List of helpful links</a></p>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<div class="belowground">
@@ -48,7 +25,9 @@
 		</div>
 	</div>
 
+
 </div>
+<div id="painting" [hidden]="!paintingCrossfade"></div>
 </main>
 
 <!-- footer -->
