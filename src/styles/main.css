@@ -30,7 +30,7 @@ nav a.current {
   text-decoration: none;
 }
 
-.title-subtitle.floating {
+.title-subtitle.floating { /* superimpose over trees on front page */
   position: absolute;
   top: 5.4rem;
   left: 50%;
@@ -183,6 +183,7 @@ landing main {
   height: 30vw; /* ~1:3 image ratio */
 }
 
+/* landing page animations */
 
 #painting {
   background: transparent url('../images/miranda.jpg') no-repeat 50% top;
@@ -206,6 +207,19 @@ landing main {
   0% { opacity: 1; }
   99% { opacity: 0; z-index: 4; transform: scale(0.6) translateY(1vh); }
   100% { opacity: 0; z-index: -1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.title-subtitle.floating {
+  animation: 0.7s linear 3.2s backwards fadeIn;
+}
+
+.synopsis,
+.entrypoint {
+  animation: 0.5s linear 4.2s backwards fadeIn;
 }
 
 .episodes-wrapper {
