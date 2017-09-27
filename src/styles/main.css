@@ -43,6 +43,9 @@ nav a.current {
   width: 90%;
   z-index: 5;
 }
+header.no-border{
+  border: none;
+}
 header h1 {
   color: #667;
   font-family: 'Playfair Display SC', Georgia, serif;
@@ -478,9 +481,9 @@ footer {
 .synopsis {
   position: absolute;
   z-index: 5;
-  left: 50%; 
-  bottom: 1em; 
-  transform: translateX(-50%); 
+  left: 50%;
+  bottom: 1em;
+  transform: translateX(-50%);
 }
 .narrative-links,
 .reference-links {
@@ -518,7 +521,7 @@ footer {
     float: none;
   }
   .narrative-links,
-  .reference-links { 
+  .reference-links {
     top: 0; left: 40%;
     padding: 0;
     position: absolute;
