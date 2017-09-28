@@ -12,7 +12,7 @@ export class EpisodesService {
         id: 1,
         name:'Prologue: December, 1997',
         description: "(Trees: Pine tree with red ornaments on it; one ornament at base of tree, apple and maple trees bare)",
-        image: "src/images/Podcast1.jpeg",
+        image: "images/Podcast1.jpeg",
         audio:'audio/welling-up-patricia-wild-1',
         links: [
           "Backstories: Rocco, Donna",
@@ -26,7 +26,7 @@ export class EpisodesService {
           id: 2,
           name: "Maudy Thursday, March, 1997 ",
           description: "Trees: Pine tree as is, apple tree with pastel eggs hanging from it, maple tree bare",
-          image: "src/images/Podcast2.jpeg",
+          image: "images/Podcast2.jpeg",
           audio: 'audio/',
           links: [
               "Backstories: Lily, Claire",
@@ -40,7 +40,7 @@ export class EpisodesService {
           id: 3,
           name: "April, 1997: ",
           description: "Trees: Pine tree as is, apple tree with white buds on it, maple tree with small, pale green leaves",
-          image: "src/images/Podcast3.jpeg",
+          image: "images/Podcast3.jpeg",
           audio: 'audio/',
           links: [
               "1997 Ephemera: (Need: Herald/Governor Weld, Nomar Garciaparra, Mo Vaughn, Roger Clemens images)"
@@ -51,7 +51,7 @@ export class EpisodesService {
           id: 4,
           name: "May, 1997: ",
           description: "Trees: Pine tree as is, apple tree with small, pale green leaves, maple tree with green leaves",
-          image: "src/images/Podcast4.jpeg",
+          image: "images/Podcast4.jpeg",
           audio: 'audio/',
           links: [
               "Somerville Images (Need: clawtoed bathtub/working class bathroom)",
@@ -64,7 +64,7 @@ export class EpisodesService {
           id: 5,
           name: "June, 1997: ",
           description: "Trees: Pine tree as is, apple tree with green leaves, small, green balls, maple tree with green leaves.",
-          image: "src/images/Podcast5.jpeg",
+          image: "images/Podcast5.jpeg",
           audio: 'audio/',
           links: [
               "Somerville Images: (Need: dilapidated stockade fencing, paved back yard, ailanthus trees)",
@@ -77,7 +77,7 @@ export class EpisodesService {
           id: 6,
           name: "July, 1997 ",
           description: "Trees in shadow, tiny, yellow lights? (Fireflies",
-          image: "src/images/Podcast6.jpeg",
+          image: "images/Podcast6.jpeg",
           audio: 'audio/',
           links: [
               "Forgiveness"
@@ -88,7 +88,7 @@ export class EpisodesService {
           id: 7,
           name: "August, 1997 ",
           description: "Pine tree as is, apple and maple trees' leaves brownish-green",
-          image: "src/images/Podcast7.jpeg",
+          image: "images/Podcast7.jpeg",
           audio: 'audio/',
           links: [
               "Somerville and Cambridge Images (Need: Friends Meeting at Cambridge, Longfellow Park.)",
@@ -100,7 +100,7 @@ export class EpisodesService {
           id: 8,
           name: "October, 1997 ",
           description: "Pine tree as is, apple tree with red apples and green leaves, maple tree leaves yellow",
-          image: "src/images/Podcast8.jpeg",
+          image: "images/Podcast8.jpeg",
           audio: 'audio/',
           links: [
               "Quakerese et al: Support group (FGC external link)",
@@ -113,7 +113,7 @@ export class EpisodesService {
           id: 9,
           name: "Thanksgiving, 1997 ",
           description: "Pine tree as is, apple tree and maple trees bare",
-          image: "src/images/Podcast9.jpeg",
+          image: "images/Podcast9.jpeg",
           audio: 'audio/',
           links: [
               "Backstories: Rocco",
@@ -126,7 +126,7 @@ export class EpisodesService {
           id: 10,
           name: "Christmas, 1997 ",
           description: "Pine tree with red ornaments on it, apple and maple trees bare",
-          image: "src/images/Podcast10.jpeg",
+          image: "images/Podcast10.jpeg",
           audio: 'audio/',
           links: [
               "Somerville and Cambridge Images (Need: corner stores/spas;  Christmas house decorations, lights; Union Square)",

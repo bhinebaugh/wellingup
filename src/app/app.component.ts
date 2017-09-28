@@ -12,8 +12,8 @@ import { environment } from './environment';
   selector: 'my-app',
   providers: [ActiveState],
   template: `
-    <div class="episode-mini" 
-        [class.shown]="(audioPlayerVisibleAsync | async)" 
+    <div class="episode-mini"
+        [class.shown]="(audioPlayerVisibleAsync | async)"
         [class.centered]="onFrontPage"
         [hidden]="!(audioPlayerVisibleAsync | async)"
     >
@@ -26,7 +26,11 @@ import { environment } from './environment';
       </audio>
       <p><a routerLink="/episodes">more episodes...</a></p>
     </div>
-    <header>
+    <header [class.no-border]="onFrontPage">
+    <div class="title-subtitle" [class.floating]="onFrontPage">
+    <h1>Welling Up</h1>
+    <h2>a love story</h2>
+    </div>
       <nav [hidden]="onFrontPage">
         <a routerLinkActive="current" routerLink="/home">home</a>
         <a routerLinkActive="current" routerLink="/episodes">episodes</a>
@@ -34,10 +38,6 @@ import { environment } from './environment';
         <a routerLinkActive="current" routerLink={{narrativeUrl}}>supplemental story</a>
         <a routerLinkActive="current" routerLink={{referenceUrl}}>reference material</a>
       </nav>
-      <div class="title-subtitle" [class.floating]="onFrontPage">
-        <h1>Welling Up</h1>
-        <h2>a love story</h2>
-      </div>
     </header>
 
     <div class="animation-wrapper">
