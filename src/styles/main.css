@@ -558,14 +558,9 @@ footer {
     float: none;
   }
   .narrative-links,
-<<<<<<< HEAD
-  .reference-links {
-    top: 0; left: 40%;
-=======
   .reference-links {
     top: 0;
     /*left: 40%;*/
->>>>>>> 635624e3c82480e5d27ec806859d7f8b7e604f57
     padding: 0;
     position: absolute;
   }
