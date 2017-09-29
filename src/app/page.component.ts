@@ -15,6 +15,16 @@ import { slideAnimation, pageTurn } from './animations';
 		<h3 [innerHtml]="page?.title.rendered"></h3>
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
+	<footer>
+	<div class="left-links">
+		<a>Facebook</a>
+		<a>Twitter</a>
+	</div>
+	<div class="right-links">
+		<a>Legal</a>
+		<a>Contact</a>
+	</div>
+	</footer>
 	`,
 	styles: [],
 	providers: [ ContentService ]
