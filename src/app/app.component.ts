@@ -35,8 +35,8 @@ import { environment } from './environment';
         <a routerLinkActive="current" routerLink="/home">home</a>
         <a routerLinkActive="current" routerLink="/episodes">episodes</a>
         <a routerLinkActive="current" routerLink="/synopsis">synopsis</a>
-        <a routerLinkActive="current" routerLink={{narrativeUrl}}>supplemental story</a>
-        <a routerLinkActive="current" routerLink={{referenceUrl}}>reference material</a>
+        <a routerLinkActive="current" routerLink="/narrative">supplemental story</a>
+        <a routerLinkActive="current" routerLink="/reference">reference material</a>
       </nav>
     </header>
 
