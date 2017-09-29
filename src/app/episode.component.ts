@@ -15,16 +15,26 @@ import { slideAnimation } from './animations';
       <img class="episode-thumbnail" src="{{episode.image}}">
       <div class="text-elements">
       <audio controls="controls">
-      <source src="{{episode.audio}}.ogg" type="audio/ogg">
-      <source src="{{episode.audio}}.mp3" type="audio/mpeg">
+      <source src="{{episode.audio}}" type="audio/ogg">
+      <source src="{{episode.audio}}" type="audio/mpeg">
       <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
       </audio>
-        <p class="blurb">Lorem ipsum dolor sit amet lorem ipsum dolor sit. Amet lorum ipsum dolor sit amet lorem. Ipsum dolor sit amet lorem ipsum. Dolor sit amet.</p>
+        <p class="blurb">{{episode.description}}</p>
         <a class="supplemental">Some Relevant Stuff</a>
         <a class="supplemental">Some Relevant Stuff</a>
       </div>
     </section>
   </div>
+  <footer>
+  <div class="left-links">
+    <a>Facebook</a>
+    <a>Twitter</a>
+  </div>
+  <div class="right-links">
+    <a>Legal</a>
+    <a>Contact</a>
+  </div>
+  </footer>
   `,
   providers: [ EpisodesService ]
 })
