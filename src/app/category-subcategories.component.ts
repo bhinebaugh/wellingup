@@ -13,22 +13,23 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     template: `
     <div class="wrapper">
       <section>
-        <h3>{{ category?.name }}SUPER DOPE TITLE</h3>
+        <h3>Subcategories of {{ category?.name }}</h3>
         <ul>
-            <li *ngFor="let page of pages"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
+            <li *ngFor="let subcategory of subcategories"><a routerLink='/category/{{subcategory.id}}' [innerHtml]="subcategory.name"></a></li>
         </ul>
       </section>
     </div>
     `,
     providers: [ ContentService ]
 })
-export class CategoryComponent implements OnInit {
+export class CategorySubcategoriesComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display')   display = 'block';
     @HostBinding('style.position')  position = 'absolute';
 
-    pages : Array<Page>;
+    subcategories : Array<Category>;
     category : Category;
+    categoryId : number;
 
     constructor(
         private contentService : ContentService,
@@ -38,12 +39,20 @@ export class CategoryComponent implements OnInit {
         // contentService.getPagesForCategory(id).then(returnedPages => this.pages = returnedPages );
         // get Category name, and breadcrumb also
         // this.contentService.getCategory(id).then(returnedCat => this.category = returnedCat)
+        // pull value from route metadata
+        this.categoryId = route.snapshot.data[0]['categoryId'];
     }
 
     ngOnInit(): void {
-        this.route.paramMap
-            .switchMap( (params: ParamMap) =>
-                this.contentService.getPagesForCategory(+params.get('id'))
-            ).subscribe((pages: Page[]) => this.pages = pages);
+        // this.route.paramMap
+        //     .switchMap( (params: ParamMap) =>
+        //         this.contentService.getSubcategoriesForCategory(this.categoryId)
+        //     ).subscribe((subcategories: Category[]) => this.subcategories = subcategories);
+        this.contentService.getSubcategoriesForCategory(this.categoryId)
+        .subscribe( subcategories => this.subcategories = subcategories ); // for stream
+        // .then( cats => this.subcategories = cats ) // for promise
+
+        this.contentService.getCategory(this.categoryId)
+        .then( cat => this.category = cat );
     }
 }

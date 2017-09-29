@@ -11,7 +11,8 @@ import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
-import { CategoryComponent } from './category.component';
+import { CategoryPagesComponent } from './category-pages.component';
+import { CategorySubcategoriesComponent } from './category-subcategories.component';
 import { PageComponent } from './page.component';
 import { ReferenceComponent } from './reference.component'; // change to PageComp
 import { ReferencePage } from './reference-page.component';
@@ -25,14 +26,15 @@ const appRoutes: Routes = [
   // show page for /post/x
   // post x = category/subcategory/x?
   // category/narrative
-  { path: 'category/:id', component: CategoryComponent },
+  { path: 'category/:id', component: CategoryPagesComponent }, // show pages for subcategory
   { path: 'page/:id', component: PageComponent }, // re-assign to Page component
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
-  // { path: 'narrative', component: CategoryComponent },
-  { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate in favor of category/1
+  { path: 'narrative', component: CategorySubcategoriesComponent, data: [{categoryId: 1}] },
+  // { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate in favor of category/1
   { path: 'narrative/:id', component: PageComponent }, // page/:id
-  { path: 'reference', component: ReferenceComponent }, // category/2
+  // { path: 'reference', component: ReferenceComponent }, // category/2
+  { path: 'reference', component: CategorySubcategoriesComponent, data: [{categoryId: 2}] },
   { path: 'reference/:id', component: ReferencePage }, // page/:id
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
@@ -46,7 +48,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
     HttpModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent ],
+  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })

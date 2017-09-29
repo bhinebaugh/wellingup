@@ -26,10 +26,36 @@ export class ContentService {
 	}
 
 	getPagesForCategory(id : number) : Promise<Page[]> {
-		return this.http.get('/posts?categories='+id)
+		return this.http.get('/posts?categories='+id+'&per_page=100') // avoid 10-item default
 			.toPromise()
 			.then(response => response.json() as Page[])
 			.catch(this.handleError)
+	}
+
+	getSubcategoriesForCategory(categoryId : number) {
+		return this.http.get('/categories?per_page=100') // avoid the 10-item default
+		.map( resp => resp.json() )
+		// this filter attempt returns all categories, as expected
+		// .filter( (cat, idcat) => true)
+		// .filter( function(cat, idcat) {
+		// 	console.log('filtering... cat:', cat); // --> [Obj, Obj]
+		// 	return true.filter( (cat, idcat) => true)
+		// })
+		// now the Observable contains an array
+		// and this of course works
+		// .map( obj => obj)
+		// while this examines each category object of the array
+		// and only allows it through if it has 'narrative' as parent category
+		.map( obj => obj.filter( (x : Category) => x.parent == categoryId) )
+
+		// used to return a promise
+		// .toPromise()
+		// .then(response => response.json())
+		// select only items that have narrative as parent
+		// but this isn't the way to filter
+		// .then(response => {
+		// 	response.json().filter((cat,idx) => {return cat === 0})
+		// }
 	}
 
 	getPagesForFrontPage() {
@@ -64,29 +90,7 @@ export class ContentService {
 
 	getNarrativeSubcategories() {
 		console.log('get narrative subcats');
-		return this.http.get('/categories?per_page=100') // avoid the 10-item default
-		.map( resp => resp.json() )
-		// this filter attempt returns all categories, as expected
-		// .filter( (cat, idcat) => true)
-		// .filter( function(cat, idcat) {
-		// 	console.log('filtering... cat:', cat); // --> [Obj, Obj]
-		// 	return true
-		// })
-		// now the Observable contains an array
-		// and this of course works
-		// .map( obj => obj)
-		// while this examines each category object of the array
-		// and only allows it through if it has 'narrative' as parent category
-		.map( obj => obj.filter( (x : Category) => x.parent == environment.narrativeCategory) )
-
-		// used to return a promise
-		// .toPromise()
-		// .then(response => response.json())
-		// select only items that have narrative as parent
-		// but this isn't the way to filter
-		// .then(response => {
-		// 	response.json().filter((cat,idx) => {return cat === 0})
-		// }
+		return this.getSubcategoriesForCategory(environment.narrativeCategory);
 	}
 
 }
