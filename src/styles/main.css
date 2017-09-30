@@ -93,6 +93,7 @@ button {
 footer {
   background-color: #8f8d99;
   display: block;
+  margin-top: 40px;
   width: 100%;
 }
 footer ul {
