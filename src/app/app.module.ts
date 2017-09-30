@@ -36,6 +36,8 @@ const appRoutes: Routes = [
   // { path: 'reference', component: ReferenceComponent }, // category/2
   { path: 'reference', component: CategorySubcategoriesComponent, data: [{categoryId: 2}] },
   { path: 'reference/:id', component: ReferencePage }, // page/:id
+  // { path: 'synopsis', component: PageComponent }, // and pass in page id (as param or data?)
+  { path: 'synopsis', redirectTo: 'page/79'},
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
   // { path: '**', component: PageNotFoundComponent }

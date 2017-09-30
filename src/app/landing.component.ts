@@ -35,7 +35,6 @@ export class LandingComponent {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit for landing component');
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
