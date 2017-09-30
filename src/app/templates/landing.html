@@ -3,9 +3,9 @@
 
 	<div id="aboveground" class="aboveground">
 		<div class="entrypoint" [hidden]="state.audioPlayerVisible$ | async">
-			<a id="listen-link" (click)="showAudioPlayer()">listen to the story</a>
+			<a routerLink="/episodes">listen to the story</a>
 		</div>
-		<a class="synopsis" routerLink="/page/79">Synopsis</a>
+		<a class="synopsis" routerLink="/synopsis">Synopsis</a>
 
 	</div>
 

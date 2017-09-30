@@ -17,6 +17,7 @@ import { PageComponent } from './page.component';
 import { ReferenceComponent } from './reference.component'; // change to PageComp
 import { ReferencePage } from './reference-page.component';
 import { LandingComponent } from './landing.component';
+import { SynopsisComponent } from './synopsis.component';
 import { environment } from './environment';
 
 const appRoutes: Routes = [
@@ -36,6 +37,8 @@ const appRoutes: Routes = [
   // { path: 'reference', component: ReferenceComponent }, // category/2
   { path: 'reference', component: CategorySubcategoriesComponent, data: [{categoryId: 2}] },
   { path: 'reference/:id', component: ReferencePage }, // page/:id
+  // { path: 'synopsis', component: PageComponent }, // and pass in page id (as param or data?)
+  { path: 'synopsis', component: SynopsisComponent },
   { path: 'home', component: LandingComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
   // { path: '**', component: PageNotFoundComponent }
@@ -48,7 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
     HttpModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent ],
+  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })

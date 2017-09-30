@@ -1,4 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
+import { Location } from '@angular/common';
 
 import { EpisodesService } from './episodes.service';
 import { slideAnimation } from './animations';
@@ -10,6 +11,9 @@ import { slideAnimation } from './animations';
   `],
   template: `
   <div class="wrapper">
+    <div class="go-back-wrapper">
+      <a class="go-back" (click)="goBack()">&larr; back</a>
+    </div>
     <section *ngFor="let episode of episodes">
       <h3>{{episode.name}}</h3>
       <img class="episode-thumbnail" src="{{episode.image}}">
@@ -45,7 +49,14 @@ export class EpisodeComponent {
 
   episodes: Array<any>;
 
-  constructor( episodesService: EpisodesService ){
+  constructor(
+    private episodesService: EpisodesService,
+    private location: Location
+  ){
     this.episodes = episodesService.getEpisodes();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

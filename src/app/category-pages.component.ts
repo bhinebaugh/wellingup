@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
@@ -13,6 +14,7 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     template: `
     <div class="wrapper">
       <section>
+        <a class="go-back" (click)="goBack()">&larr; back</a>
         <h3>{{ category?.name }}</h3>
         <ul>
             <li *ngFor="let page of pages"><a routerLink='/page/{{page.id}}' [innerHtml]="page.title.rendered"></a></li>
@@ -42,7 +44,8 @@ export class CategoryPagesComponent implements OnInit {
 
     constructor(
         private contentService : ContentService,
-        private route : ActivatedRoute
+        private route : ActivatedRoute,
+        private location : Location
     ){
         // let id = +this.route.snapshot.params['id'];
         // contentService.getPagesForCategory(id).then(returnedPages => this.pages = returnedPages );
@@ -60,4 +63,8 @@ export class CategoryPagesComponent implements OnInit {
         this.contentService.getCategory(id)
         .then( cat => this.category = cat );
     }
+
+    goBack(): void {
+		this.location.back();
+	}
 }

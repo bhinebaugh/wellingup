@@ -345,10 +345,17 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   opacity: 1;
 }
 
+.go-back-wrapper,
 .page {
   margin: 0 16.7%;
   padding: 1rem 4rem;
   position: relative; /* to anchor .go-back */
+}
+.go-back-wrapper {
+  top: 5rem; /* hack for positioning relative to <section>'s on episodes page */
+}
+.wrapper > section {
+  position: relative;
 }
 
 .go-back {
