@@ -16,15 +16,14 @@
 				<li *ngFor="let category of narrativeSubcategories"><a routerLink="/category/{{category.id}}" [innerHtml]="category.name"></a></li>
 			</ul>
 			<ul class="reference-links">
-				<li *ngFor="let page of referencePages | slice:0:3"><a routerLink="/reference/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>
-				<li><a routerLink="{{referenceCategoryUrl}}">all...</a></li>
+				<li *ngFor="let category of referenceSubcategories"><a routerLink="/category/{{category.id}}" [innerHtml]="category.name"></a></li>
 			</ul>
 		</div>
 		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">
 			<a id="supplemental-link" (click)="showRootLinks()">explore the depths</a>
 		</div>
 	</div>
-
+climbing
 
 </div>
 <div id="painting" [hidden]="!paintingCrossfade"></div>
