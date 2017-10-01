@@ -579,10 +579,10 @@ footer {
     top: 0.5rem;
 }
 .narrative-links::before {
-  content: 'story pages';
+  content: 'story sections';
 }
 .reference-links::before {
-  content: 'reference pages';
+  content: 'reference sections';
 }
 .narrative-links {
   left: 0%;
