@@ -476,6 +476,7 @@ hr{
   display: block;
   margin-top: 0;
   vertical-align: top;
+  max-width: 175px;
 }
 .text-elements{
   display: inline-block;
@@ -587,7 +588,6 @@ footer {
   left: 0%;
 }
 
-
 /* two-column arrangement of root links */
 @media (min-width: 450px) {
   .title-subtitle.floating {
@@ -614,4 +614,37 @@ footer {
   .open .reference-links  li:nth-child(3) { left: 1%; transition-delay: 800ms; }
   .open .reference-links  li:nth-child(4) { left: 6%; transition-delay: 830ms; }
 
+}
+@media (max-width: 650px){
+  .narrative-links, .reference-links{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    width: 45%;
+  }
+  #root-links ul{
+    margin: 0;
+  }
+  .go-back{
+    top: -2em;
+  }
+  section, .page{
+    margin: 40px 0;
+    padding: 8.3%;
+    width: 83.3%;
+  }
+  .text-elements>audio{
+    width: 100%;
+  }
+  nav>a{
+    display: inline-block;
+  }
+  .wrapper{
+    min-height: 400px;
+  }
+  main{
+    height: 100vh;
+    margin: auto 0;
+  }
 }
