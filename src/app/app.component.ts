@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ActiveState } from './active-state.service';
+import { EpisodesService } from './episodes.service';
 import { Observable } from 'rxjs/Observable';
 // import { Subject } from 'rxjs/Subject';
 // import 'rxjs/add/operator/filter';
@@ -10,16 +11,16 @@ import { environment } from './environment';
 
 @Component({
   selector: 'my-app',
-  providers: [ActiveState],
+  providers: [ActiveState,
+              EpisodesService],
   template: `
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
-        [class.centered]="onFrontPage"
         [hidden]="!(audioPlayerVisibleAsync | async)"
     >
       <h5>episode 1</h5>
       <audio controls="controls">
-        <source src="audio/welling-up-patricia-wild-1.webm">
+        <source src="{{this.episodes[0].audio}}">
         <source src="audio/welling-up-patricia-wild-1.mp4">
         <source src="audio/welling-up-patricia-wild-1.mp3">
         <source src="audio/welling-up-patricia-wild-1.wav">
@@ -50,21 +51,26 @@ export class AppComponent implements OnInit {
   audioPlayerVisibleAsync : Observable<boolean>;
   narrativeUrl : string;
   referenceUrl : string;
+  episodes : array;
 
   constructor(
     private state: ActiveState,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ){}
+    private activatedRoute: ActivatedRoute,
+    private episodesService: EpisodesService
+  ){
+    this.episodes = episodesService.getEpisodes();
+  }
 
   ngOnInit(): void {
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
     this.narrativeUrl = "/category/"+environment.narrativeCategory;
     this.referenceUrl = "/category/"+environment.referenceCategory;
   }
-
   newComponentActivated(component: Event) {
     this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
   }
+
+
 
 }

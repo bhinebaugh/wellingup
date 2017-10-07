@@ -446,7 +446,7 @@ p{
   /*margin: 2vh 2vw;*/
 }
 audio{
-  width: 66%;
+  width: 83.3%;
 }
 .blurb{
   display: inline-block;
@@ -615,7 +615,7 @@ footer {
   .open .reference-links  li:nth-child(4) { left: 6%; transition-delay: 830ms; }
 
 }
-@media (max-width: 650px){
+@media screen and (max-width: 650px){
   .narrative-links, .reference-links{
     display: inline-block;
     margin: 0;

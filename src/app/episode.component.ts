@@ -1,11 +1,13 @@
 import { Component, HostBinding } from '@angular/core';
 import { Location } from '@angular/common';
 
+import { ActiveState } from './active-state.service'
 import { EpisodesService } from './episodes.service';
 import { slideAnimation } from './animations';
 
 @Component({
   animations: [ slideAnimation ],
+  providers: [ ActiveState ],
   selector: 'episodes',
   styles: [`
   `],
@@ -23,6 +25,7 @@ import { slideAnimation } from './animations';
       <source src="{{episode.audio}}" type="audio/mpeg">
       <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
       </audio>
+      <button class="play-episode" (click)="changeEpisode()">Play Episode</button>
         <p class="blurb">{{episode.description}}</p>
         <a class="supplemental">Some Relevant Stuff</a>
         <a class="supplemental">Some Relevant Stuff</a>
@@ -51,12 +54,17 @@ export class EpisodeComponent {
 
   constructor(
     private episodesService: EpisodesService,
-    private location: Location
+    private location: Location,
+    private state: ActiveState
   ){
     this.episodes = episodesService.getEpisodes();
   }
 
   goBack(): void {
     this.location.back();
+  }
+  changeEpisode(): void{
+    this.state.makeAudioPlayerVisible();
+    console.log(this.episodes);
   }
 }
