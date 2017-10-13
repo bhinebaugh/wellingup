@@ -44,6 +44,7 @@ import { environment } from './environment';
     <div class="animation-wrapper">
       <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
     </div>
+
   `
 })
 export class AppComponent implements OnInit {
@@ -51,7 +52,7 @@ export class AppComponent implements OnInit {
   audioPlayerVisibleAsync : Observable<boolean>;
   narrativeUrl : string;
   referenceUrl : string;
-  episodes : array;
+  episodes : number[];
 
   constructor(
     private state: ActiveState,
