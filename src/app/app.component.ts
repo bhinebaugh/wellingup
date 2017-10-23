@@ -12,7 +12,7 @@ import { environment } from './environment';
 @Component({
   selector: 'my-app',
   providers: [ActiveState,
-              EpisodesService],
+    EpisodesService],
   template: `
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
