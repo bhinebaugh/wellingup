@@ -7,7 +7,8 @@ import { slideAnimation } from './animations';
 
 @Component({
   animations: [ slideAnimation ],
-  providers: [ ActiveState ],
+  providers: [ ActiveState,
+    EpisodesService ],
   selector: 'episodes',
   styles: [`
   `],
@@ -16,7 +17,7 @@ import { slideAnimation } from './animations';
     <div class="go-back-wrapper">
       <a class="go-back" (click)="goBack()">&larr; back</a>
     </div>
-    <section *ngFor="let episode of episodes">
+    <section class="episode" *ngFor="let episode of episodes">
       <h3>{{episode.name}}</h3>
       <img class="episode-thumbnail" src="{{episode.image}}">
       <div class="text-elements">
@@ -32,7 +33,7 @@ import { slideAnimation } from './animations';
       </div>
     </section>
   </div>
-  <footer>
+  <footer class="episodes-footer">
   <div class="left-links">
     <a>Facebook</a>
     <a>Twitter</a>
@@ -42,8 +43,7 @@ import { slideAnimation } from './animations';
     <a>Contact</a>
   </div>
   </footer>
-  `,
-  providers: [ EpisodesService ]
+  `
 })
 export class EpisodeComponent {
 	@HostBinding('@routeAnimation') routeAnimation = true;
