@@ -7,8 +7,7 @@ import { slideAnimation } from './animations';
 
 @Component({
   animations: [ slideAnimation ],
-  providers: [ ActiveState,
-    EpisodesService ],
+  providers: [ EpisodesService ],
   selector: 'episodes',
   styles: [`
   `],
