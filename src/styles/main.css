@@ -152,8 +152,10 @@ a {
 
 /* landing page */
 
+.loading main,
 landing main {
   background: url('../images/patterns/regal.png') repeat; /* pattern by 'Akash' from subtlepatterns.com */
+  height: 100vh; /* for pre-load page mainly */
 }
 
 #upper-transition {
@@ -210,6 +212,8 @@ landing main {
   transform-origin: 50% 50%; /*bottom;*/
   width: 100%;
   z-index: 6;
+}
+#painting.transition {
   animation-name: fadeOut;
   animation-delay: 1.2s;
   animation-duration: 1.6s;
