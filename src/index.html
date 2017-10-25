@@ -19,17 +19,16 @@
       System.import('main.js').catch(function(err){ console.error(err); });
     </script>
 
-    <!-- for landing page interactions -->
-    <!-- TODO: get compressed version. use velocity-based plugin instead of GSAP. handle with npm? -->
-    <!--<script type="text/javascript" src="vendor-js/TweenMax.min.js"></script>
-    <script type="text/javascript" src="vendor-js/ScrollMagic.js"></script>
-    <script type="text/javascript" src="vendor-js/plugins/animation.gsap.js"></script>
-    <script type="text/javascript" src="vendor-js/scrollmagic/plugins/debug.addIndicators.js"></script>-->
-    <!-- href="https://github.com/ai/autoprefixer" -->
 
   </head>
 
-  <body>
-    <my-app>Loading AppComponent content here ...</my-app>
+  <body class="loading">
+    <my-app>
+
+      <main>
+        <div id="painting"></div>
+      </main>
+
+    </my-app>
   </body>
 </html>
