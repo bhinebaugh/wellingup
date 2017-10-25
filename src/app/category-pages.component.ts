@@ -57,7 +57,17 @@ export class CategoryPagesComponent implements OnInit {
         this.route.paramMap
             .switchMap( (params: ParamMap) =>
                 this.contentService.getPagesForCategory(+params.get('id'))
-            ).subscribe((pages: Page[]) => this.pages = pages);
+            ).subscribe((pages: Page[]) => {
+                // compare Post objects based on value of first tag they possess
+                this.pages = pages.sort( (a,b) => {
+                    if(a['tags'][0] < b['tags'][0]){
+                        return -1;
+                    }else if(a['tags'][0] > b['tags'][0]){
+                        return 1;
+                    }
+                    return 0;
+                })
+            });
 
         let id = +this.route.snapshot.params['id'];
         this.contentService.getCategory(id)

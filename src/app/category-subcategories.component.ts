@@ -52,7 +52,17 @@ export class CategorySubcategoriesComponent implements OnInit {
         //         this.contentService.getSubcategoriesForCategory(this.categoryId)
         //     ).subscribe((subcategories: Category[]) => this.subcategories = subcategories);
         this.contentService.getSubcategoriesForCategory(this.categoryId)
-        .subscribe( subcategories => this.subcategories = subcategories ); // for stream
+        // .subscribe( subcategories => this.subcategories = subcategories ); // for stream
+        .subscribe( subcategories => { // sort according to alphabetical order of description field
+            this.subcategories = subcategories.sort( (a,b) => {
+                    if(a['description'][0] < b['description'][0]){
+                        return -1;
+                    }else if(a['description'][0] > b['description'][0]){
+                        return 1;
+                    }
+                    return 0;
+                });
+        })
         // .then( cats => this.subcategories = cats ) // for promise
 
         this.contentService.getCategory(this.categoryId)

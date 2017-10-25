@@ -34,7 +34,16 @@ export class LandingComponent {
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
-    this.contentService.getNarrativeSubcategories().subscribe(data => this.narrativeSubcategories = data );
+    this.contentService.getNarrativeSubcategories().subscribe( data => {
+      this.narrativeSubcategories = data.sort( (a,b) => {
+                    if(a['description'][0] < b['description'][0]){
+                        return -1;
+                    }else if(a['description'][0] > b['description'][0]){
+                        return 1;
+                    }
+                    return 0;
+                });
+    });
     this.contentService.getSubcategoriesForCategory(environment.referenceCategory)
     .subscribe( data => this.referenceSubcategories = data );
   }
