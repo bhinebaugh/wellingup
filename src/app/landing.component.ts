@@ -35,7 +35,7 @@ export class LandingComponent {
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
     this.contentService.getNarrativeSubcategories().subscribe( data => {
-      this.narrativeSubcategories = data.sort( (a,b) => {
+      this.narrativeSubcategories = data.sort( (a : Category, b : Category) => {
                     if(a['description'][0] < b['description'][0]){
                         return -1;
                     }else if(a['description'][0] > b['description'][0]){
