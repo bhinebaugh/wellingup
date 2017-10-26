@@ -63,7 +63,7 @@ export class EpisodeComponent {
   goBack(): void {
     this.location.back();
   }
-  changeEpisode(id): void{
+  changeEpisode(id : number): void{
     this.state.makeAudioPlayerVisible();
     this.state.currentEpisode = id;
     console.log(this.episodes);
