@@ -20,8 +20,8 @@ import { environment } from './environment';
     >
       <h5>episode {{this.episodes[this.state.currentEpisode - 1].id}}</h5>
       <audio controls="controls">
-        <source src="{{this.episodes[this.state.currentEpisode - 1].audio}}" type="audio/ogg">
-        <!--<source src="{{this.episodes[this.state.currentEpisode].audio}}" type="audio/mpeg">
+        <source src="{{this.episodes[0].audio}}" type="audio/ogg">
+        <!--<source src="{{this.episodes[this.state.currentEpisod].audio}}" type="audio/mpeg">
         <source src="audio/welling-up-patricia-wild-1.mp4">
         <source src="audio/welling-up-patricia-wild-1.mp3">
         <source src="audio/welling-up-patricia-wild-1.wav">-->
