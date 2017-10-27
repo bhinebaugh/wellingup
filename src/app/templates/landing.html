@@ -13,10 +13,10 @@
 		<div id="root-links" [ngClass]="{'open': rootLinksVisible }">
 			<ul class="narrative-links">
 				<!--<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>-->
-				<li *ngFor="let category of narrativeSubcategories"><a routerLink="/category/{{category.id}}" [innerHtml]="category.name"></a></li>
+				<li *ngFor="let category of narrativeSubcategories"><a routerLink="/category/{{category.id}}/{{category.name}}" [innerHtml]="category.name"></a></li>
 			</ul>
 			<ul class="reference-links">
-				<li *ngFor="let category of referenceSubcategories"><a routerLink="/category/{{category.id}}" [innerHtml]="category.name"></a></li>
+				<li *ngFor="let category of referenceSubcategories"><a routerLink="/category/{{category.id}}/{{category.name}}" [innerHtml]="category.name"></a></li>
 			</ul>
 		</div>
 		<div class="entrypoint" [ngClass]="{'hidden': rootLinksVisible}">

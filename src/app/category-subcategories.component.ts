@@ -17,7 +17,7 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
         <a class="go-back" (click)="goBack()">&larr; back</a>
         <h3>Subcategories of {{ category?.name }}</h3>
         <ul>
-            <li *ngFor="let subcategory of subcategories"><a routerLink='/category/{{subcategory.id}}' [innerHtml]="subcategory.name"></a></li>
+            <li *ngFor="let subcategory of subcategories"><a routerLink='/category/{{subcategory.id}}/{{subcategory.name}}' [innerHtml]="subcategory.name"></a></li>
         </ul>
       </section>
     </div>

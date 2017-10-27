@@ -27,8 +27,8 @@ const appRoutes: Routes = [
   // show page for /post/x
   // post x = category/subcategory/x?
   // category/narrative
-  { path: 'category/:id', component: CategoryPagesComponent }, // show pages for subcategory
-  { path: 'page/:id', component: PageComponent }, // re-assign to Page component
+  { path: 'category/:id/:name', component: CategoryPagesComponent }, // show pages for subcategory
+  { path: 'page/:id/:name', component: PageComponent }, // re-assign to Page component
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
   { path: 'narrative', component: CategorySubcategoriesComponent, data: [{categoryId: 1}] },
