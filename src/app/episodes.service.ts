@@ -15,12 +15,12 @@ export class EpisodesService {
         image: "images/Podcast1.jpeg",
         audio:'audio/welling-up-1.mp3',
         links: [
-          {title: "Rocco", url: "/page/18"},
-          {title: "Donna", url: "BackStories: Donna"}
-          {title: "1997 Ephemera", url: "1997 Ephemera"},
+          {title: "Rocco", url: "/page/18/Rocco"},
+          {title: "Donna", url: "/page/150/Donna"},
+          {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
           {title: "Somerville Images", url: "Somerville Images"},
-          {title: "Mary Magdalen Images and Quotes (Need: more Noli me Tangere}", url: "Images and Quotes re Mary Magdalen"},
-          {title: "Touch", url: "Touch"}
+          {title: "Mary Magdalen Images and Quotes (Need: more Noli me Tangere}", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+          {title: "Touch", url: "/page/29/Touch"}
         ]
       },
       {
@@ -30,11 +30,11 @@ export class EpisodesService {
           image: "images/Podcast2.jpeg",
           audio: 'audio/welling-up-2.mp3',
           links: [
-              {title: "Lily", url: "Backstories: Lily"},
-              {title: "Claire", url: "Backstories: Claire"},
-              {title: "1997 Ephemera", url: "1997 Ephemera"},
+              {title: "Lily", url: "/page/159/Lily"},
+              {title: "Claire", url: "/page/134/Claire"},
+              {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
               {title: "Somerville Images", url: "Somerville Images"},
-              {title: "Greater-Boston Glossary and Maps", url: "Greater-Boston Maps"}
+              {title: "Greater-Boston Glossary and Maps", url: "/page/245/Greater%20Boston%20Maps"}
           ]
       },
 
@@ -45,7 +45,7 @@ export class EpisodesService {
           image: "images/Podcast3.jpeg",
           audio: 'audio/welling-up-3.mp3',
           links: [
-              {title: "1997 Ephemera", url: "1997 Ephemera"}
+              {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"}
           ]
       },
 
@@ -57,8 +57,8 @@ export class EpisodesService {
           audio: 'audio/welling-up-4.mp3',
           links: [
               {title: "Somerville Images", url: "Somerville Images"},
-              {title: "Images and Quotes re Mary Magdalen", url: "Images and Quotes re Mary Magdalen"},
-              {title: "Greg", url: "Greg"},
+              {title: "Images and Quotes re Mary Magdalen", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+              {title: "Greg", url: "/page/120/Greg"},
               {title: "Jewell's Father", url: "Jewell's Father"}
           ]
       },
@@ -71,8 +71,8 @@ export class EpisodesService {
           audio: 'audio/welling-up-5.mp3',
           links: [
               {title: "Somerville Images", url: "Somerville Images"},
-              {title: "MM Images and Quotes", url: "Images and Quotes re Mary Magdalen"},
-              {title: "Checker", url: "Checker"}
+              {title: "MM Images and Quotes", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+              {title: "Checker", url: "/page/576/Checker"}
           ]
       },
 
@@ -83,7 +83,7 @@ export class EpisodesService {
           image: "images/Podcast6.jpeg",
           audio: 'audio/welling-up-6.mp3',
           links: [
-              {title: "Forgiveness", url: "Forgiveness"}
+              {title: "Forgiveness", url: "/page/23/Forgiveness"}
           ]
       },
 
@@ -95,7 +95,7 @@ export class EpisodesService {
           audio: 'audio/welling-up-7.mp3',
           links: [
               {title: "Somerville and Cambridge Images", url: "Somerville Images"},
-              {title: "About 'Noli Me Tangere'", url: "Noli Me Tangere"}
+              {title: "About Noli Me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"}
           ]
       },
 
@@ -107,8 +107,8 @@ export class EpisodesService {
           audio: 'audio/welling-up-8.mp3',
           links: [
               {title: "Quakerese et al: Support group (FGC external link)", url: "Quakerese"},
-              {title: "1997 Ephemera (Red Sox)", url: "1997 Ephemera"},
-              {title: "About Noli me Tangere", url: "Noli Me Tangere"}
+              {title: "1997 Ephemera (Red Sox)", url: "/page/393/Reference:%201997%20Ephemera"},
+              {title: "About Noli me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"}
           ]
       },
 
@@ -119,8 +119,8 @@ export class EpisodesService {
           image: "images/Podcast9.jpeg",
           audio: 'audio/welling-up-9.mp3',
           links: [
-              {title: "Backstories: Rocco", url: "Rocco"},
-              {title: "Touch", url: "Touch"},
+              {title: "Backstories: Rocco", url: "/page/18/Rocco"},
+              {title: "Touch", url: "/page/29/Touch"},
               {title: "Other men in Jewell’s Life: her stepfather", url: "Jewell's Stepfather"}
           ]
       },
@@ -133,8 +133,9 @@ export class EpisodesService {
           audio: 'audio/welling-up-10.mp3',
           links: [
               {title: "Somerville and Cambridge Images (Need: corner stores/spas;  Christmas house decorations, lights; Union Square)", url: "Somerville Images"},
-              {title: "1997 Ephemera (Need: phone booth)", url: "1997 Ephemera"},
-              {title: "Other Women in Jewell’s Life: 'Olivia Walton,' Margaret", url: "Olivia Walton"},
+              {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
+              {title: "Other Women in Jewell’s Life: 'Olivia Walton,'", url: "Olivia Walton"},
+              {title: "Margaret", url: "/page/124/Margaret"},
               {title: "Other Men in Jewell’s Life: her father", url: "Jewell's Father"}
           ]
       }
