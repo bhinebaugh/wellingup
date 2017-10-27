@@ -477,9 +477,9 @@ hr{
 .play-episode{
   background: #C9C9EA;
   border: none;
-  border-bottom: 4px solid #9292AA;
+  border-bottom: 3px solid #9292AA;
   border-radius: 6px;
-  box-shadow: 0 4px 4px #aaa;
+  box-shadow: 0 3px 3px #aaa;
   box-sizing: content-box;
   color: #346;
   font-size: 1.05em;
@@ -487,8 +487,8 @@ hr{
 }
 .play-episode:active{
   background: #C9C9EA;
-  border-bottom: 2px solid #9292AA;
-  box-shadow: 0 2px 2px #aaa;
+  border-bottom: 1px solid #9292AA;
+  box-shadow: 0 1px 1px #aaa;
   margin-top: 2px;
 }
 .supplemental{
