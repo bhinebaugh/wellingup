@@ -20,15 +20,9 @@ import { slideAnimation } from './animations';
       <h3>{{episode.name}}</h3>
       <img class="episode-thumbnail" src="{{episode.image}}">
       <div class="text-elements">
-      <audio controls="controls">
-        <source src="{{episode.audio}}" type="audio/ogg">
-        <source src="{{episode.audio}}" type="audio/mpeg">
-      <p>If you have trouble with embedded audio, you might want to <a href="{{episode.audio}}.mp3">download this episode</a> instead</p>
-      </audio>
       <button class="play-episode" (click)="changeEpisode(episode.id)">Play Episode</button>
         <p class="blurb">{{episode.description}}</p>
-        <a class="supplemental">Some Relevant Stuff</a>
-        <a class="supplemental">Some Relevant Stuff</a>
+        <a class="supplemental" *ngFor="let link of episode.links" routerlink="">{{link.title}}</a>
       </div>
     </section>
   </div>
@@ -50,6 +44,7 @@ export class EpisodeComponent {
 	@HostBinding('style.position')  position = 'absolute';
   audioPlayerVisibleAsync : Observable<boolean>;
   episodes : Array<any>;
+  links : Array<any>;
 
   constructor(
     private episodesService: EpisodesService,

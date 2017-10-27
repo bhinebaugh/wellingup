@@ -264,6 +264,8 @@ landing main {
 .episode {
         /*border-image: url('../images/cloud.png') 2 stretch;*/
   display: inline-block;
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 
@@ -290,6 +292,7 @@ landing main {
   border: solid 2px #dadada;
   border-radius: 4px;
   padding: 0 10px 5px;
+  min-width: 300px;
   z-index: 20;
 }
 .episode-mini.shown {
@@ -467,6 +470,14 @@ hr{
   margin: 0 2%;
   vertical-align: top;
   width: 16.7%;
+}
+.play-episode{
+  background: linear-gradient(#eee, #C9C9EA);
+  border: 2px solid;
+  border-color: #ddd #aaa #aaa #ddd;
+  color: #346;
+  font-size: 1.05em;
+  margin: 0;
 }
 .supplemental{
   display: block;
