@@ -19,7 +19,7 @@ export class EpisodesService {
           {title: "Donna", url: "/page/150/Donna"},
           {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
           {title: "Somerville Images", url: "Somerville Images"},
-          {title: "Mary Magdalen Images and Quotes (Need: more Noli me Tangere}", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+          {title: "Mary Magdalen Images and Quotes", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
           {title: "Touch", url: "/page/29/Touch"}
         ]
       },

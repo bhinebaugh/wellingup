@@ -62,6 +62,9 @@ export class AppComponent implements OnInit {
     private episodesService: EpisodesService
   ){
     this.episodes = episodesService.getEpisodes();
+    this.router.events.subscribe(
+      () => window.scrollTo(0, 0)
+    );
   }
 
   ngOnInit(): void {

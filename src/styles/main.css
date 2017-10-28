@@ -250,7 +250,7 @@ landing main {
 }
 
 .episodes-wrapper {
-  overflow-x: scroll;
+  padding: 70px;
 }
 .episodes {
   opacity: 0;
@@ -262,10 +262,8 @@ landing main {
 }
 
 .episode {
-        /*border-image: url('../images/cloud.png') 2 stretch;*/
   display: inline-block;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin: 0 16.7% 50px;
 }
 
 
@@ -352,6 +350,16 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
 }
 .go-back-wrapper {
   top: 5rem; /* hack for positioning relative to <section>'s on episodes page */
+}
+section{
+  /*background-color: rgba(255, 255, 255, 0.64);*/
+  background: white url('../images/patterns/paperbg.jpg') bottom no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 1px 2px 6px #aaa;
+  margin: 70px 16.7%;
+  padding: 30px 50px;
+  width: 66%;
 }
 .wrapper > section {
   position: relative;
@@ -458,39 +466,42 @@ audio{
   vertical-align: top;
   width: 100%;
 }
-section{
-  /*background-color: rgba(255, 255, 255, 0.64);*/
-  background: white url('../images/patterns/paperbg.jpg') bottom no-repeat;
-  background-size: cover;
-  border-bottom: 1px solid #ccc;
-  box-shadow: 1px 2px 6px #aaa;
-  margin: 70px 16.7%;
-  padding: 30px 50px;
-  width: 66%;
-}
+
 hr{
   border-top: 1px solid #a8afbd;
   width: 41.3%;
 }
 .episode-thumbnail{
   display: inline-block;
-  margin: 0 2%;
+  margin: 0 3%;
   vertical-align: top;
   width: 16.7%;
 }
+.play-episode:focus{
+  outline: none;
+}
 .play-episode{
-  background: linear-gradient(#eee, #C9C9EA);
-  border: 2px solid;
-  border-color: #ddd #aaa #aaa #ddd;
+  background: #C9C9EA;
+  border: none;
+  border-bottom: 3px solid #9292AA;
+  border-radius: 6px;
+  box-shadow: 0 3px 3px #aaa;
+  box-sizing: content-box;
   color: #346;
   font-size: 1.05em;
   margin: 0;
 }
+.play-episode:active{
+  background: #C9C9EA;
+  border-bottom: 1px solid #9292AA;
+  box-shadow: 0 1px 1px #aaa;
+  margin-top: 2px;
+}
 .supplemental{
   display: block;
-  margin-top: 0;
+  margin-top: 5px;
   vertical-align: top;
-  max-width: 175px;
+  max-width: 300px;
 }
 .text-elements{
   display: inline-block;
@@ -509,7 +520,7 @@ footer {
 .left-links, .right-links{
   display: inline-block;
   width: 16.7%;
-  margin: 10px 0 0 16.7%;
+  margin: 10px 0 0 30%;
 }
 .left-links>a, .right-links>a{
   color: #4d4d57;
@@ -640,6 +651,11 @@ footer {
     vertical-align: top;
     width: 45%;
   }
+  .episode-mini.shown{
+    bottom: 90px;
+    left: 0;
+    width: 94vw;
+  }
   #root-links ul{
     margin: 0;
   }
@@ -647,21 +663,38 @@ footer {
     top: -2em;
   }
   section, .page{
-    margin: 40px 0;
+    margin: 40px 0 90px;
     padding: 8.3%;
     width: 83.3%;
   }
-  .text-elements>audio{
-    width: 100%;
+  .episode{
+    margin: 20px 0;
+  }
+  .episode-thumbnail{
+    margin: 0 0 0 24%;
+    width: 50%;
+  }
+  .text-elements{
+    margin: 0 0 0 8.3%;
+    width: 83.3%;
+  }
+  .text-elements>p{
+    font-size: 1.1em;
+  }
+  .play-episode{
+    margin: 10px 10%;
   }
   nav>a{
     display: inline-block;
   }
   .wrapper{
-    min-height: 400px;
+    min-height: 450px;
   }
   main{
     height: 100vh;
     margin: auto 0;
+  }
+  .episodes-wrapper{
+    padding: 20px 0 90px;
   }
 }
