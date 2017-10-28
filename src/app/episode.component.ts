@@ -16,15 +16,17 @@ import { slideAnimation } from './animations';
     <div class="go-back-wrapper">
       <a class="go-back" (click)="goBack()">&larr; back</a>
     </div>
-    <section class="episode" *ngFor="let episode of episodes">
-      <h3>{{episode.name}}</h3>
-      <img class="episode-thumbnail" src="{{episode.image}}">
-      <div class="text-elements">
-      <button class="play-episode" (click)="changeEpisode(episode.id)">Play Episode</button>
-        <p class="blurb">{{episode.description}}</p>
-        <a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">- {{link.title}}</a>
-      </div>
-    </section>
+    <div class="episodes-wrapper">
+      <section class="episode" *ngFor="let episode of episodes">
+        <h3>{{episode.name}}</h3>
+        <img class="episode-thumbnail" src="{{episode.image}}">
+        <div class="text-elements">
+          <button class="play-episode" (click)="changeEpisode(episode.id)">Play Episode</button>
+          <p class="blurb">{{episode.description}}</p>
+          <a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">- {{link.title}}</a>
+        </div>
+      </section>
+    </div>
   </div>
   <footer class="episodes-footer">
   <div class="left-links">
