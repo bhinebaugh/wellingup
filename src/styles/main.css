@@ -363,9 +363,10 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   top: -1.5em;
 }
 h3{
-  border-bottom: 2px solid #a8afbd;
-  color: #346;
+  border-bottom: 2px solid #d2d3d4;
+  color: #959aa2;
   font-size: 1.8rem;
+  font-weight: 400;
   line-height: 1.5em;
   margin: 10px 0;
   padding: 0;
@@ -411,12 +412,15 @@ episodes ul, narrative ul, reference ul, section ul{
   display: inline-block;
   list-style-type: none;
   margin: 0;
-  padding: 2em;
+  padding-left: 0; /* reset */
   width: 66%;
+}
+episodes ul {
+  padding: 2em;
 }
 li{
   line-height: 2em;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 0;
 }
 narrative, reference, episodes{
   display: block;
@@ -455,10 +459,13 @@ audio{
   width: 100%;
 }
 section{
-  background-color: rgba(255, 255, 255, 0.64);
+  /*background-color: rgba(255, 255, 255, 0.64);*/
+  background: white url('../images/patterns/paperbg.jpg') bottom no-repeat;
+  background-size: cover;
   border-bottom: 1px solid #ccc;
+  box-shadow: 1px 2px 6px #aaa;
   margin: 70px 16.7%;
-  padding: 30px;
+  padding: 30px 50px;
   width: 66%;
 }
 hr{
@@ -614,7 +621,7 @@ footer {
     position: absolute;
   }
   .reference-links { left: 50%; }
-  li { position: relative; margin-top: 1em; }
+  li { position: relative; margin-top: 0.5em; }
   .open .narrative-links  li:first-child { left: 10%; transition-delay: 200ms; }
   .open .narrative-links  li:nth-child(2) { left: 5%; transition-delay: 1200ms; }
   .open .narrative-links  li:nth-child(3) { left: 8%; transition-delay: 600ms; }
