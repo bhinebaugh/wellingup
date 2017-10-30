@@ -32,10 +32,11 @@ nav a{
   padding: 1rem;
 }
 nav a:hover {
-  background: #abc;
+  background: #83818e;
 }
 nav a.current {
-  background: #346;
+  background: #6f6c80;
+  box-shadow: inset 0px 3px 12px #605784;
   color: #dde;
   text-decoration: none;
 }
@@ -466,6 +467,7 @@ hr{
   box-shadow: 0 3px 3px #aaa;
   box-sizing: content-box;
   color: #346;
+  cursor: pointer;
   font-size: 1.05em;
   margin: 0;
 }
@@ -662,8 +664,10 @@ footer {
   .play-episode{
     margin: 10px 10%;
   }
+  nav { padding: 0; }
   nav>a{
     display: inline-block;
+    padding: 0.4rem;
   }
   .wrapper{
     min-height: 450px;

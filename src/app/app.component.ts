@@ -28,7 +28,7 @@ import { environment } from './environment';
         <source src="audio/welling-up-patricia-wild-1.mp3">
         <source src="audio/welling-up-patricia-wild-1.wav">-->
       </audio>
-      <p><a routerLink="/episodes">more episodes...</a></p>
+      <p><a routerLink="/episodes">browse episodes...</a></p>
     </div>
     <header [class.no-border]="onFrontPage">
     <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
