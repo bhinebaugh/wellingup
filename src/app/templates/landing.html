@@ -1,11 +1,11 @@
 <main>
-<div id="frame">
+<div id="frame" [ngClass]="{'transition': paintingCrossfade}">
 
 	<div id="aboveground" class="aboveground">
-		<div class="entrypoint" [hidden]="state.audioPlayerVisible$ | async">
+		<div class="entrypoint" [ngClass]="{'transition': paintingCrossfade}">
 			<a routerLink="/episodes">listen to the story</a>
 		</div>
-		<a class="synopsis" routerLink="/synopsis">Synopsis</a>
+		<a class="synopsis" routerLink="/synopsis" [ngClass]="{'transition': paintingCrossfade}">Synopsis</a>
 
 	</div>
 

@@ -11,8 +11,10 @@ import { environment } from './environment';
 
 @Component({
   selector: 'my-app',
-  providers: [ActiveState,
-    EpisodesService],
+  providers: [
+    ActiveState,
+    EpisodesService
+  ],
   template: `
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
@@ -29,7 +31,7 @@ import { environment } from './environment';
       <p><a routerLink="/episodes">more episodes...</a></p>
     </div>
     <header [class.no-border]="onFrontPage">
-    <div class="title-subtitle" [class.floating]="onFrontPage">
+    <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
     <h1>Welling Up</h1>
     <h2>a love story</h2>
     </div>
