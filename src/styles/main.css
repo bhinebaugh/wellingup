@@ -481,19 +481,19 @@ hr{
   outline: none;
 }
 .play-episode{
-  background: #C9C9EA;
+  background: #a1a6ad;
   border: none;
-  border-bottom: 3px solid #9292AA;
+  border-bottom: 3px solid #8f8d99;
   border-radius: 6px;
   box-shadow: 0 3px 3px #aaa;
   box-sizing: content-box;
   color: #346;
   font-size: 1.05em;
+  letter-spacing: 1px;
   margin: 0;
 }
 .play-episode:active{
-  background: #C9C9EA;
-  border-bottom: 1px solid #9292AA;
+  border-bottom: 1px solid #8f8d99;
   box-shadow: 0 1px 1px #aaa;
   margin-top: 2px;
 }
@@ -683,6 +683,9 @@ footer {
   }
   .play-episode{
     margin: 10px 10%;
+  }
+  .play-episode:active{
+    margin: 12px 10% 10px;
   }
   nav>a{
     display: inline-block;
