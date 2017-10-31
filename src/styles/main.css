@@ -176,7 +176,6 @@ landing main {
 }
 .aboveground,
 .belowground {
-  box-shadow: 0 0 5px black;
   margin: 0 auto;
   max-width: 75vh;
   position: relative;
@@ -571,11 +570,19 @@ footer {
 .narrative-links,
 .reference-links {
   clear: both;
+  overflow-x: hidden;
   z-index: 5;
   /*transition: all 0.6s ease-out;*/
 }
-
-.narrative-links::before,
+.narrative-links>p, .reference-links>p{
+  color: white;
+  font-size: 1em;
+  font-style: italic;
+  position: relative;
+  left: 3rem;
+  top: 0.5rem;
+}
+/*.narrative-links::before,
 .reference-links::before {
     color: white;
     font-size: 80%;
@@ -589,7 +596,7 @@ footer {
 }
 .reference-links::before {
   content: 'reference sections';
-}
+}*/
 .narrative-links {
   left: 0%;
 }
@@ -635,7 +642,10 @@ footer {
     width: 94vw;
   }
   #root-links ul{
-    margin: 0;
+    margin: 0 0 0 15px;
+  }
+  #root-links>ul>p{
+    left: 1.5em;
   }
   .go-back{
     top: -2em;
