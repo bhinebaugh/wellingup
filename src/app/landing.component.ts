@@ -48,7 +48,7 @@ export class LandingComponent {
     .subscribe( data => this.referenceSubcategories = data );
   }
 
-  ngAfterContentInit(): void {
+  ngOnDestroy(): void {
     // deactivate the painting crossfade for future init of this component
     this.state.painting = false;
   }
