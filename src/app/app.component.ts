@@ -19,6 +19,7 @@ import { environment } from './environment';
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
         [hidden]="!(audioPlayerVisibleAsync | async)"
+        [class.bottom]="onFrontPage"
     >
       <h5>episode {{this.episodes[this.state.currentEpisode - 1]?.id}}</h5>
       <audio controls="controls" src="{{this.episodes[this.state.currentEpisode - 1]?.audio}}">

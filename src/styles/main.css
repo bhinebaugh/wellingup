@@ -688,4 +688,7 @@ footer {
   .episodes-wrapper{
     padding: 20px 0 90px;
   }
+  .episode-mini.shown.bottom{
+    bottom: 0;
+  }
 }
