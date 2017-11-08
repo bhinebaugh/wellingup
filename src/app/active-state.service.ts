@@ -11,8 +11,6 @@ export class ActiveState {
     private audioPlayerVisibleSource = new Subject<boolean>(); // BehaviorSubject is probably more appropriate
     audioPlayerVisible$ = this.audioPlayerVisibleSource.asObservable();
 
-    private episodeSelectedSource = new Subject<number>();
-    episodeSelected$ = this.episodeSelectedSource.asObservable();
 
     // implementing service as store with old-style plain variables
     rootLinks : boolean;
@@ -35,9 +33,13 @@ export class ActiveState {
         // return this.rootLinksVisible$.toPromise().then(res => res)
     }
     public makeAudioPlayerVisible() {
-        console.log("service making root links visible");
+        console.log("service revealing audio player");
         this.rootLinks = true;
         this.audioPlayerVisibleSource.next(true);
+    }
+    public hideAudioPlayer(){
+      console.log("service hiding audio player");
+      this.audioPlayerVisibleSource.next(false);
     }
     public hideRootLinks() {
         console.log("service making root links hidden");

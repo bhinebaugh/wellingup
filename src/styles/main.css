@@ -119,6 +119,9 @@ a {
 .hidden {
   display: none;
 }
+.revealed{
+  display: inline-block;
+}
 
 .entrypoint {
   width: 100%;
@@ -285,7 +288,6 @@ landing main {
 }
 
 .episode-mini {
-  /*display: none; /* initially hidden */
   background: #f0f0f0;
   border: solid 2px #dadada;
   border-radius: 4px;
@@ -315,7 +317,6 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   display: block;
   height: 360px;
   margin: 0 auto;
-        /*width: 24em;*/
   opacity: 1;
 }
 
@@ -329,7 +330,6 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   top: 5rem; /* hack for positioning relative to <section>'s on episodes page */
 }
 section{
-  /*background-color: rgba(255, 255, 255, 0.64);*/
   background: white url('../images/patterns/paperbg.jpg') bottom no-repeat;
   background-size: cover;
   border-bottom: 1px solid #ccc;
@@ -454,10 +454,10 @@ hr{
   vertical-align: top;
   width: 16.7%;
 }
-.play-episode:focus{
+.play-episode:focus, .player-toggle:focus{
   outline: none;
 }
-.play-episode{
+.play-episode, .player-toggle{
   background: #a1a6ad;
   border: none;
   border-bottom: 3px solid #8f8d99;
@@ -469,10 +469,16 @@ hr{
   letter-spacing: 1px;
   margin: 0;
 }
-.play-episode:active{
+.play-episode:active, .player-toggle:active{
   border-bottom: 1px solid #8f8d99;
   box-shadow: 0 1px 1px #aaa;
   margin-top: 2px;
+}
+.player-toggle{
+  float: right;
+  height: 20px;
+  padding: 0;
+  width: 20px;
 }
 .supplemental{
   display: block;

@@ -19,9 +19,10 @@ import { environment } from './environment';
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
         [hidden]="!(audioPlayerVisibleAsync | async)"
-        [class.bottom]="onFrontPage"
+        [class.bottom]="onFront"
     >
-      <h5>episode {{this.episodes[this.state.currentEpisode - 1]?.id}}</h5>
+      <h5>{{this.episodes[this.state.currentEpisode - 1]?.name}}
+      <button class="play-episode player-toggle" (click)="this.state.hideAudioPlayer()">X</button></h5>
       <audio controls="controls" src="{{this.episodes[this.state.currentEpisode - 1]?.audio}}">
         <source src="{{this.episodes[this.state.currentEpisode]?.audio}}" type="audio/ogg">
         <!--<source src="{{this.episodes[this.state.currentEpisode].audio}}" type="audio/mpeg">
@@ -31,6 +32,10 @@ import { environment } from './environment';
       </audio>
       <p><a routerLink="/episodes">more episodes...</a></p>
     </div>
+    <div class="episode-mini"
+      [hidden]="(audioPlayerVisibleAsync | async)"
+      [class.shown]="!(audioPlayerVisibleAsync | async)"
+      ><button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()">^</button></div>
     <header [class.no-border]="onFrontPage">
     <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
     <h1>Welling Up</h1>
