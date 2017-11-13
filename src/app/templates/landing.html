@@ -12,10 +12,12 @@
 	<div class="belowground">
 		<div id="root-links" [ngClass]="{'open': rootLinksVisible }">
 			<ul class="narrative-links">
+				<p>story Sections</p>
 				<!--<li *ngFor="let page of narrativePages"><a routerLink="/narrative/{{page.id}}" [innerHtml]="page.title.rendered"></a></li>-->
 				<li *ngFor="let category of narrativeSubcategories"><a routerLink="/category/{{category.id}}/{{category.name}}" [innerHtml]="category.name"></a></li>
 			</ul>
 			<ul class="reference-links">
+				<p>reference sections</p>
 				<li *ngFor="let category of referenceSubcategories"><a routerLink="/category/{{category.id}}/{{category.name}}" [innerHtml]="category.name"></a></li>
 			</ul>
 		</div>

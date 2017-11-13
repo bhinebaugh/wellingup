@@ -19,8 +19,10 @@ import { environment } from './environment';
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
         [hidden]="!(audioPlayerVisibleAsync | async)"
+        [class.bottom]="onFront"
     >
-      <h5>episode {{this.episodes[this.state.currentEpisode - 1]?.id}}</h5>
+      <h5>{{this.episodes[this.state.currentEpisode - 1]?.name}}
+      <button class="play-episode player-toggle" (click)="this.state.hideAudioPlayer()">X</button></h5>
       <audio controls="controls" src="{{this.episodes[this.state.currentEpisode - 1]?.audio}}">
         <source src="{{this.episodes[this.state.currentEpisode]?.audio}}" type="audio/ogg">
         <!--<source src="{{this.episodes[this.state.currentEpisode].audio}}" type="audio/mpeg">
@@ -29,6 +31,11 @@ import { environment } from './environment';
         <source src="audio/welling-up-patricia-wild-1.wav">-->
       </audio>
       <p><a routerLink="/episodes">browse episodes...</a></p>
+    </div>
+    <div class="player-revealer"
+      [hidden]="(audioPlayerVisibleAsync | async) || this.state.audioPlayer === false"
+      [class.shown]="!(audioPlayerVisibleAsync | async) && this.state.audioPlayer === true"
+      ><button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()"><img src="images/goodCaret.png" class="caret"></button>
     </div>
     <header [class.no-border]="onFrontPage">
     <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
