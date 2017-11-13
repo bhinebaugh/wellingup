@@ -32,10 +32,11 @@ import { environment } from './environment';
       </audio>
       <p><a routerLink="/episodes">more episodes...</a></p>
     </div>
-    <div class="episode-mini"
-      [hidden]="(audioPlayerVisibleAsync | async)"
-      [class.shown]="!(audioPlayerVisibleAsync | async)"
-      ><button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()">^</button></div>
+    <div class="player-revealer"
+      [hidden]="(audioPlayerVisibleAsync | async) || this.state.audioPlayer === false"
+      [class.shown]="!(audioPlayerVisibleAsync | async) && this.state.audioPlayer === true"
+      ><button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()"><img src="images/goodCaret.png" class="caret"></button>
+    </div>
     <header [class.no-border]="onFrontPage">
     <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
     <h1>Welling Up</h1>

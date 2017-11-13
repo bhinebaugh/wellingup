@@ -283,6 +283,9 @@ landing main {
   color: #555;
   margin: 0.6rem 0 0.4rem;
 }
+h5{
+  font-size: 1em;
+}
 .episode-mini audio {
   width: 100%;
 }
@@ -309,6 +312,24 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   bottom: 50%;
   left: 50%;
   transform: translateX(-50%);
+}
+.player-revealer{
+  background: #f0f0f0;
+  border: solid 2px #dadada;
+  border-radius: 4px;
+  font-family: serif;
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 20;
+}
+.caret{
+  position: absolute;
+  width: 40px;
+  overflow: hidden;
+  top: -2.5px;
+  right: 2.5px;
 }
 
 
@@ -469,6 +490,9 @@ hr{
   letter-spacing: 1px;
   margin: 0;
 }
+.player-toggle, .player-toggle:active{
+  margin: 0 0 4px;
+}
 .play-episode:active, .player-toggle:active{
   border-bottom: 1px solid #8f8d99;
   box-shadow: 0 1px 1px #aaa;
@@ -476,9 +500,9 @@ hr{
 }
 .player-toggle{
   float: right;
-  height: 20px;
+  height: 25px;
   padding: 0;
-  width: 20px;
+  width: 25px;
 }
 .supplemental{
   display: block;
@@ -647,6 +671,20 @@ footer {
     left: 0;
     width: 94vw;
   }
+  .player-revealer{
+    height: 8.3vw;
+    width: 8.3vw;
+    right: 0;
+    bottom: 142px;
+    left: auto;
+  }
+  .player-revealer>.player-toggle{
+    display: block;
+    margin: 0 3px;
+  }
+  .caret{
+    right: 5px;
+  }
   #root-links ul{
     margin: 0 0 0 15px;
   }
@@ -696,5 +734,8 @@ footer {
   }
   .episode-mini.shown.bottom{
     bottom: 0;
+  }
+  .player-toggle, .player-toggle:active{
+    margin: 0 0 4px;
   }
 }

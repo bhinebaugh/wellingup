@@ -33,13 +33,14 @@ export class ActiveState {
         // return this.rootLinksVisible$.toPromise().then(res => res)
     }
     public makeAudioPlayerVisible() {
-        console.log("service revealing audio player");
         this.rootLinks = true;
+        this.audioPlayer = true;
+        console.log();
         this.audioPlayerVisibleSource.next(true);
     }
     public hideAudioPlayer(){
-      console.log("service hiding audio player");
       this.audioPlayerVisibleSource.next(false);
+      console.log();
     }
     public hideRootLinks() {
         console.log("service making root links hidden");
