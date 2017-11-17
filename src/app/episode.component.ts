@@ -29,12 +29,8 @@ import { slideAnimation } from './animations';
     </div>
   </div>
   <footer class="episodes-footer">
-  <div class="left-links">
+  <div class="footer-links">
     <a>Facebook</a>
-    <a>Twitter</a>
-  </div>
-  <div class="right-links">
-    <a>Legal</a>
     <a>Contact</a>
   </div>
   </footer>
