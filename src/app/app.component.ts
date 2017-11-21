@@ -19,13 +19,13 @@ import { environment } from './environment';
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
         [hidden]="!(audioPlayerVisibleAsync | async)"
-        [class.bottom]="onFront"
+        [class.bottom]="onFrontPage"
     >
-      <h5>{{this.episodes[this.state.currentEpisode - 1]?.name}}
+      <h5>{{this.episodes[(currentEpisodeAsync | async) - 1]?.name}}
       <button class="play-episode player-toggle" (click)="this.state.hideAudioPlayer()">X</button></h5>
-      <audio controls="controls" src="{{this.episodes[this.state.currentEpisode - 1]?.audio}}">
-        <source src="{{this.episodes[this.state.currentEpisode]?.audio}}" type="audio/ogg">
-        <!--<source src="{{this.episodes[this.state.currentEpisode].audio}}" type="audio/mpeg">
+      <audio controls="controls" src="{{this.episodes[(currentEpisodeAsync | async) - 1]?.audio}}">
+        <source src="{{this.episodes[currentEpisodeAsync | async]?.audio}}" type="audio/ogg">
+        <!--<source src="{{this.episodes[this.state.currentEpisode$ | async].audio}}" type="audio/mpeg">
         <source src="audio/welling-up-patricia-wild-1.mp4">
         <source src="audio/welling-up-patricia-wild-1.mp3">
         <source src="audio/welling-up-patricia-wild-1.wav">-->
@@ -60,6 +60,7 @@ import { environment } from './environment';
 export class AppComponent implements OnInit {
   onFrontPage : boolean = false;
   audioPlayerVisibleAsync : Observable<boolean>;
+  currentEpisodeAsync : Observable<number>;
   narrativeUrl : string;
   referenceUrl : string;
   episodes : number[];
@@ -78,6 +79,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
+    this.currentEpisodeAsync = this.state.currentEpisode$;
     this.narrativeUrl = "/category/"+environment.narrativeCategory;
     this.referenceUrl = "/category/"+environment.referenceCategory;
   }

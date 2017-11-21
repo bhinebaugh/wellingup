@@ -9,7 +9,9 @@ export class ActiveState {
 
     // rootLinksVisible: boolean = false;
     private audioPlayerVisibleSource = new Subject<boolean>(); // BehaviorSubject is probably more appropriate
+    private currentEpisodeSource = new Subject<number>();
     audioPlayerVisible$ = this.audioPlayerVisibleSource.asObservable();
+    currentEpisode$ = this.currentEpisodeSource.asObservable();
 
 
     // implementing service as store with old-style plain variables
@@ -24,6 +26,7 @@ export class ActiveState {
         this.rootLinks = false;
         this.audioPlayer = false;
         this.currentEpisode = 0; // or 0 for prelude/intro?
+        this.currentEpisodeSource.next(0);
         this.audioPlayerVisibleSource.next(false);
      }
 
