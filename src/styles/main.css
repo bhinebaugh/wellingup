@@ -267,7 +267,8 @@ landing main {
 
 .episode {
   display: inline-block;
-  margin: 0 16.7% 50px;
+  margin: 0 8.3% 50px;
+  padding: 20px 8.3%;
 }
 
 
@@ -506,6 +507,10 @@ hr{
   padding: 0;
   width: 25px;
 }
+.episode-mini.shown>h5>.player-toggle{
+  letter-spacing: -.01em;
+  line-height: 1.1em;
+}
 .supplemental{
   display: block;
   margin-top: 5px;
@@ -526,15 +531,16 @@ footer {
 .episodes-footer{
   margin: 0;
 }
-.left-links, .right-links{
+.footer-links{
   display: inline-block;
+  margin: 10px 0 0 66.6%;
   width: 16.7%;
-  margin: 10px 0 0 30%;
 }
-.left-links>a, .right-links>a{
+.footer-links>a{
   color: #4d4d57;
   display: block;
-  margin-top: 5px;
+  margin: 5px 0 0 0;
+  text-align: right;
 }
 .bottom-wrapper {
   margin: 0 auto;
@@ -669,7 +675,7 @@ footer {
     width: 45%;
   }
   .episode-mini.shown{
-    bottom: 90px;
+    bottom: 0;
     left: 0;
     width: 94vw;
   }
@@ -677,7 +683,7 @@ footer {
     height: 8.3vw;
     width: 8.3vw;
     right: 0;
-    bottom: 142px;
+    bottom: 0;
     left: auto;
   }
   .player-revealer>.player-toggle{
@@ -742,5 +748,18 @@ footer {
   }
   .player-toggle, .player-toggle:active{
     margin: 0 0 4px;
+  }
+  .footer-links{
+    display: block;
+    margin: auto;
+    width: 50%;
+  }
+  .footer-links>a:first-child{
+    border-right: 1px solid #4d4d57;
+  }
+  .footer-links>a{
+    display: inline-block;
+    padding: 5px 20px;
+    width: auto;
   }
 }
