@@ -21,7 +21,7 @@ import { slideAnimation } from './animations';
         <h3>{{episode.name}}</h3>
         <img class="episode-thumbnail" src="{{episode.image}}">
         <div class="text-elements">
-          <button class="play-episode" (click)="changeEpisode(episode.id)">Play Episode</button>
+          <button class="play-episode" (click)="changeEpisode(episode.id-1)">Play Episode</button>
           <p class="blurb">{{episode.description}}</p>
           <a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">- {{link.title}}</a>
         </div>
@@ -58,9 +58,10 @@ export class EpisodeComponent {
   }
   changeEpisode(id : number): void{
     this.state.makeAudioPlayerVisible();
-    this.state.currentEpisode = id;
-    console.log(this.episodes);
-    console.log(this.state.currentEpisode);
-    console.log(this.episodes[this.state.currentEpisode - 1].audio);
+    this.state.changeEpisode(id);
+    // this.state.currentEpisode = id;
+    // console.log(this.episodes);
+    // console.log(this.state.currentEpisode);
+    // console.log(this.episodes[this.state.currentEpisode - 1].audio);
   }
 }

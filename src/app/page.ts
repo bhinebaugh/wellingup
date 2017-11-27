@@ -1,7 +1,7 @@
 export class Page {
     id: number;
     slug: string;
-    title: string;
-    content: string;
+    title: { rendered: string };
+    content: { rendered: string };
     categories: Array<any>;
 }
