@@ -24,15 +24,20 @@ a[href^="https://"] {
 nav {
   /*background-color: #99aba9;*/
   background-color: #8f8d99;
+  border-bottom: 4px solid #e6d27a;
+  font-size: 0;
+  overflow-y: hidden;
   padding: 1rem;
   text-align: center;
 }
 nav a{
   color: #4d4d57;
-  padding: 1rem;
+  font-size: 16px;
+  margin: 0;
+  padding: 17px;
 }
 nav a:hover {
-  background: #83818e;
+  background: #e6d27a;
 }
 nav a.current {
   background: #6f6c80;
@@ -42,7 +47,6 @@ nav a.current {
 }
 
 .title-subtitle{
-  border-bottom: 2px solid #e6d27a;
   z-index: -1;
 }
 .title-subtitle.floating {
@@ -79,7 +83,6 @@ header h2 {
 header {
   /*background-color: rgb(187, 205, 222);*/
   background-color: rgb(161, 166, 173);
-  border-bottom: 4px solid #e6d27a;
   margin: 0px;
   padding: 0px;
 }
