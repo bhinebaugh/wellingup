@@ -22,12 +22,8 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
       </section>
     </div>
     <footer>
-      <div class="left-links">
-        <a>Facebook</a>
-        <a>Twitter</a>
-      </div>
-      <div class="right-links">
-        <a>Legal</a>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/wellingupbook/">Facebook</a>
         <a>Contact</a>
       </div>
     </footer>

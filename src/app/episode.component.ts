@@ -30,7 +30,7 @@ import { slideAnimation } from './animations';
   </div>
   <footer class="episodes-footer">
   <div class="footer-links">
-    <a>Facebook</a>
+    <a href="https://www.facebook.com/wellingupbook/">Facebook</a>
     <a>Contact</a>
   </div>
   </footer>
