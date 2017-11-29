@@ -517,8 +517,12 @@ hr{
 .supplemental{
   display: block;
   margin-top: 5px;
+  text-decoration: none;
   vertical-align: top;
   max-width: 300px;
+}
+.supplemental:hover{
+  text-decoration: underline;
 }
 .text-elements{
   display: inline-block;
