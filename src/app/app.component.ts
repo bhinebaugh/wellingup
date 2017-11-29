@@ -22,11 +22,9 @@ import { environment } from './environment';
         [hidden]="!(audioPlayerVisibleAsync | async)"
         [class.bottom]="onFrontPage"
     >
-      <div class="player-full"
-        [hidden]="(audioPlayerMaximizedAsync | async)"
-      >
+
         <h5>{{(currentEpisodeAsync | async)?.name}}
-        <button class="play-episode player-toggle" (click)="this.state.minimizeAudioPlayer()">X</button></h5>
+        <button class="play-episode player-toggle" (click)="this.state.hideAudioPlayer()">X</button></h5>
         <audio controls="controls" src="{{(currentEpisodeAsync | async)?.audio}}">
           <source src="{{(currentEpisodeAsync | async)?.audio}}" type="audio/mpeg">
           <!--<source src="{{this.episodes[this.state.currentEpisode$ | async].audio}}" type="audio/mpeg">
@@ -37,11 +35,11 @@ import { environment } from './environment';
         <p><a routerLink="/episodes">browse episodes...</a></p>
       </div>
       <div class="player-revealer"
-        [hidden]="!(audioPlayerMaximizedAsync | async)"
+        [hidden]="(audioPlayerVisibleAsync | async) || this.state.audioPlayer === false"
+        [class.shown]="!(audioPlayerVisibleAsync | async) && this.state.audioPlayer === true"
       >
-        <button class="player-toggle" (click)="this.state.maximizeAudioPlayer()"><img src="images/goodCaret.png" class="caret"></button>
+        <button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()"><img src="images/goodCaret.png" class="caret"></button>
       </div>
-    </div>
     <header [class.no-border]="onFrontPage">
     <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
       <h1>Welling Up</h1>
