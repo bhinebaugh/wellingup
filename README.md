@@ -6,6 +6,14 @@ This is a single page app built on Angular 4 that will be pulling content from a
 
 The project is set up to either be installed locally with npm or run within a Docker container.
 
+npm start
+
+# Production
+
+run `ng build --prod` to compile and aggregate js + htmlassets into `dist/`
+
+NOTE: angular-cli / ng is probably installed locally (not a global npm install), so the path to execute it will be `./node_modules/@angular/cli/bin/ng`
+
 ## Docker
 
 The `Dockerfile` provides the instructions for building the image for our Angular app. Make sure you have [Docker](http://docker.io) installed, then feed it the Dockerfile to build the image (tagged as 'angularapp' here). Once the image is built, you can run a container from it, mapping the ports and volumes to allow access into the container from the host environment.
@@ -54,6 +62,11 @@ with excellent support for Angular apps that use routing.
 Here are the test related scripts:
 * `npm test` - compiles, runs and watches the karma unit tests
 * `npm run e2e` - compiles and run protractor e2e tests, written in Typescript (*e2e-spec.ts)
+
+Scripts to compile and copy assets to deploy...
+
+use main-aot.ts, to feed to ... 
+
 
 ## Testing
 

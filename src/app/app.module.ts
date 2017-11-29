@@ -11,6 +11,7 @@ import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
+import { CategoryComponent } from './category.component';
 import { CategoryPagesComponent } from './category-pages.component';
 import { CategorySubcategoriesComponent } from './category-subcategories.component';
 import { PageComponent } from './page.component';
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
     HttpModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
+  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
   bootstrap:    [ AppComponent ]
 })
