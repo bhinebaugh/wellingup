@@ -8,7 +8,9 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
+        "audio",
+        "images",
+        "styles",
         "favicon.ico"
       ],
       "index": "index.html",
@@ -18,7 +20,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles/main.css"
       ],
       "scripts": [],
       "environmentSource" : "environments/environment.ts",

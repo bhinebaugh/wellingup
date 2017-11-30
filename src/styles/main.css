@@ -14,9 +14,9 @@ a[href^="https://"] {
   /* borrowed from wikipedia.org */
   background-position: center right;
   background-repeat: no-repeat;
-  background-image: url("../images/external-link-icon.png");
+  background-image: url("/images/external-link-icon.png");
   background-image: linear-gradient(transparent,transparent),url("data:image/svg+xml,%3C%3Fxml version=%221.0%22 encoding=%22UTF-8%22 standalone=%22no%22%3F%3E%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E%3Cpath fill=%22%23fff%22 stroke=%22%2360686a%22 d=%22M1.5 4.518h5.982V10.5H1.5z%22/%3E%3Cpath d=%22M5.765 1H11v5.39L9.427 7.937l-1.31-1.31L5.393 9.35l-2.69-2.688 2.81-2.808L4.2 2.544z%22 fill=%22%2360686a%22/%3E%3Cpath d=%22M9.995 2.004l.022 4.885L8.2 5.07 5.32 7.95 4.09 6.723l2.882-2.88-1.85-1.852z%22 fill=%22%23fff%22/%3E%3C/svg%3E");
-  background-image: -o-linear-gradient(transparent,transparent),url("../images/external-link-icon.png");
+  background-image: -o-linear-gradient(transparent,transparent),url("/images/external-link-icon.png");
   padding-right: 13px;
 }
 
@@ -161,7 +161,7 @@ a {
 
 .loading main,
 landing main {
-  background: url('../images/patterns/regal.png') repeat; /* pattern by 'Akash' from subtlepatterns.com */
+  background: url('/images/patterns/regal.png') repeat; /* pattern by 'Akash' from subtlepatterns.com */
   height: 100vh; /* for pre-load page mainly */
 }
 
@@ -208,7 +208,7 @@ landing main {
 /* landing page animations */
 
 #painting { /* 'noli me tangere' fades out... */
-  background: transparent url('../images/miranda.jpg') no-repeat 50% top;
+  background: transparent url('/images/miranda.jpg') no-repeat 50% top;
   background-size: contain;
   height: 90vh;
   left: 0px;
@@ -356,7 +356,7 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   top: 5rem; /* hack for positioning relative to <section>'s on episodes page */
 }
 section{
-  background: white url('../images/patterns/paperbg.jpg') bottom no-repeat;
+  background: white url('/images/patterns/paperbg.jpg') bottom no-repeat;
   background-size: cover;
   border-bottom: 1px solid #ccc;
   box-shadow: 1px 2px 6px #aaa;
@@ -409,7 +409,7 @@ ng-component {
   width: 100%; /* or less? */
 }
 ng-component, narrative, reference, characters, episodes, landing, .wrapper{
-  background: url(../images/wavecut.png) repeat;
+  background: url(/images/wavecut.png) repeat;
 }
 characters{
   min-height: 800px;
