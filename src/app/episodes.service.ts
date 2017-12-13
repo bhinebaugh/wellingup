@@ -18,13 +18,14 @@ export class EpisodesService {
           {title: "Rocco", url: "/page/18/Rocco"},
           {title: "Donna", url: "/page/150/Donna"},
           {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
+          {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
           {title: "Images and Quotes re Mary Magdalen", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
           {title: "Touch", url: "/page/29/Touch"}
         ]
       },
       {
           id: 2,
-          name: "Maudy Thursday, March, 1997",
+          name: "Maundy Thursday, March, 1997",
           description: "Nine months earlier and Rocco’s got company. Who the hell is he?",
           image: "images/Podcast2.jpeg",
           audio: 'audio/welling-up-2.mp3',
@@ -32,6 +33,7 @@ export class EpisodesService {
               {title: "Lily", url: "/page/159/Lily"},
               {title: "Claire", url: "/page/134/Claire"},
               {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
               {title: "Greater-Boston Maps", url: "/page/245/Greater%20Boston%20Maps"}
           ]
       },
@@ -39,10 +41,11 @@ export class EpisodesService {
       {
           id: 3,
           name: "April, 1997",
-          description: "Jewell meets 'Nomah.'",
+          description: "Jewell meets 'Nomah.' (Meh)",
           image: "images/Podcast3.jpeg",
           audio: 'audio/welling-up-3.mp3',
           links: [
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
               {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"}
           ]
       },
@@ -55,6 +58,7 @@ export class EpisodesService {
           audio: 'audio/welling-up-4.mp3',
           links: [
               {title: "Images and Quotes re Mary Magdalen", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
               {title: "Greg", url: "/page/120/Greg"}
           ]
       },
@@ -67,6 +71,7 @@ export class EpisodesService {
           audio: 'audio/welling-up-5.mp3',
           links: [
               {title: "Images and Quotes re Mary Magdalen", url: "/page/53/Images%20and%20Quotes%20re%20Mary%20Magdalen"},
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
               {title: "Checker", url: "/page/576/Checker"}
           ]
       },
@@ -89,7 +94,9 @@ export class EpisodesService {
           image: "images/Podcast7.jpeg",
           audio: 'audio/welling-up-7.mp3',
           links: [
-              {title: "About Noli Me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"}
+              {title: "About Noli Me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"},
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
+              {title: "10 Links About Quakers", url: "/page/598/10%20Links%20About%20Quakers"}
           ]
       },
 
@@ -101,7 +108,8 @@ export class EpisodesService {
           audio: 'audio/welling-up-8.mp3',
           links: [
               {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
-              {title: "About Noli me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"}
+              {title: "About Noli me Tangere", url: "/page/230/About%20Noli%20me%20Tangere"},
+              {title: "10 Links About Quakers", url: "/page/598/10%20Links%20About%20Quakers"}
           ]
       },
 
@@ -125,6 +133,7 @@ export class EpisodesService {
           audio: 'audio/welling-up-10.mp3',
           links: [
               {title: "1997 Ephemera", url: "/page/393/Reference:%201997%20Ephemera"},
+              {title: "Cambridge and Somerville Images", url: "/page/243/Reference:%20Somerville%20and%20Cambridge%20Images"},
               {title: "Margaret", url: "/page/124/Margaret"}
           ]
       }

@@ -6,7 +6,7 @@ This is a single page app built on Angular 4 that will be pulling content from a
 
 The project is set up to either be installed locally with npm or run within a Docker container.
 
-npm start
+The serve locally, `ng serve` when using angular cli. (this used to be `npm start`)
 
 # Production
 
