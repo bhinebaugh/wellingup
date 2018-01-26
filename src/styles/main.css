@@ -352,6 +352,9 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
   padding: 1rem 4rem;
   position: relative; /* to anchor .go-back */
 }
+.comments {
+  margin: 3rem 16.7%;
+}
 .go-back-wrapper {
   top: 5rem; /* hack for positioning relative to <section>'s on episodes page */
 }

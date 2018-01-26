@@ -74,6 +74,17 @@ export class ContentService {
 		.toPromise()
 		.then(response => response.json() as Page );
 	}
+	getCommentsForPage(id: number) {
+		var postUrl: string = '/comments?post=' + id;
+		// all comments: 'https://wellingup.net/wellingup/wp-json/wp/v2/comments'
+		// context=embed or =view (default)
+		return this.http.get( postUrl )
+		.toPromise()
+		.then(response => response.json())
+		// return new Array()
+		// var itsanarrayalreadytypescript: Array<object>;
+		// return Promise.resolve( itsanarrayalreadytypescript )
+	}
 
 	getNarrativePages() {
 		return this.getPagesForCategory(environment.narrativeCategory)
