@@ -1,4 +1,5 @@
 import { NgModule }      from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
   providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],

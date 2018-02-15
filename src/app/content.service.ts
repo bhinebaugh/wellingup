@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { environment } from './environment';
 import { Category } from './category';
 import { Page } from './page';
+import { Comment } from './comment';
 // import { narrativePages } from './mock-pages';
 
 @Injectable()
@@ -104,4 +105,30 @@ export class ContentService {
 		return this.getSubcategoriesForCategory(environment.narrativeCategory);
 	}
 
+	postComment(comment: Comment) {
+		let url = '/comments';
+		// customRequestOptions is not in effect for POST requests
+		// the way it does for GET requests above, so hard coding url:
+		this.http.post(
+			'https://wellingup.net/wellingup/wp-json/wp/v2/comments',
+			comment
+			// {
+			// 	author_email: "me@example.com",
+			// 	author_name: "Me",
+			// 	content: "test from http.post",
+			// 	post: postId
+			// }
+		)
+		// .map( resp => console.log(resp.json()) )
+		.toPromise()
+		.then( resp => {
+			console.log( resp.json() )
+		})
+		.catch(this.handleCommentSubmitError)
+	}
+
+	handleCommentSubmitError() {
+		console.log('error posting comment')
+		// show feedback in component
+	}
 }

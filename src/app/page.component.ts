@@ -1,8 +1,9 @@
-//import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
+import { Comment } from './comment';
 import { Page } from './page';
 import { ContentService } from './content.service';
 import { slideAnimation, pageTurn } from './animations';
@@ -16,6 +17,23 @@ import { slideAnimation, pageTurn } from './animations';
 		<div [innerHtml]="page?.content.rendered"></div>
 	</div>
 	<div class="comments">
+		<div [hidden]="displayForm">
+			<button (click)="showForm()">add comment</button>
+		</div>
+		<div [hidden]="!displayForm">
+			<h6>Leave a comment</h6>
+			<form (ngSubmit)="submitComment()">
+				<label for="name">Name</label>
+				<input [(ngModel)]="comment.author_name" name="name" id="name" type="text">
+				<br/>
+				<label for="email">Email address</label>
+				<input [(ngModel)]="comment.author_email" name="email" id="email" type="email">
+				<br/>
+				<label for="content">Your comment</label>
+				<textarea [(ngModel)]="comment.content" name="content" id="content" placeholder="your comment"></textarea>
+				<button>post</button>
+			</form>
+		</div>
 		<ul *ngFor="let comment of comments">
 			<li class="comment">
 				<h6>comment by {{comment.author_name}}</h6>
@@ -54,8 +72,12 @@ export class PageComponent implements OnInit {
 	@HostBinding('style.display')   display = 'block';
 	@HostBinding('style.position')  position = 'absolute';
 
+	id: number;
 	page: Page;
 	comments: Array<object>;
+	comment: Comment;
+
+	displayForm: boolean;
 
 	constructor(
 		private contentService:ContentService,
@@ -64,14 +86,29 @@ export class PageComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		let id = +this.route.snapshot.params['id'];
-		this.contentService.getPage(id).then(resolvedPage => this.page = resolvedPage)
-		this.contentService.getCommentsForPage(id)
+		this.id = +this.route.snapshot.params['id'];
+		this.comment = new Comment(
+			'',
+			'',
+			'',
+			this.id
+		);
+		this.contentService.getPage(this.id).then(resolvedPage => this.page = resolvedPage)
+		this.contentService.getCommentsForPage(this.id)
 		.then(resolvedComments => this.comments = resolvedComments)
 	}
 
 	goBack(): void {
 		this.location.back();
+	}
+	showForm(): void {
+		this.displayForm = true;
+	}
+
+	submitComment(): void {
+		// send POST request to API
+		this.contentService.postComment(this.comment)
+		this.displayForm = false;
 	}
 
 }
