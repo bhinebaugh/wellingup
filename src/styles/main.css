@@ -1,4 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:700,300,300italic);
+
 body {
+  font-family: 'Merriweather';
   font-size: 16px;
   margin: 0;
   overflow-x: hidden;
@@ -25,6 +28,7 @@ nav {
   /*background-color: #99aba9;*/
   background-color: #8f8d99;
   border-bottom: 4px solid #e6d27a;
+  box-shadow: 0px -5px 25px #9d97b9; /* cheat to darken element above, .title-subtitle */
   font-size: 0;
   overflow-y: hidden;
   padding: 1rem;
@@ -48,8 +52,16 @@ nav a.current {
 
 .title-subtitle{
   z-index: -1;
+  background: radial-gradient( 
+    ellipse at top, 
+    rgb(230,236,248), 
+    rgba(201, 208, 218, 0.6), 
+    rgba(145, 150, 156, .5)
+  );
+  padding-bottom: 0.8em;
 }
 .title-subtitle.floating {
+  background: transparent;
   border-bottom: none;
   position: absolute;
   top: 5.4rem;
@@ -71,6 +83,7 @@ header h1 {
   margin: 0;
   padding: 0.4em 0 0;
   text-align: center;
+  text-shadow: 2px 14px 7px #a3afc6;
 }
 header h2 {
   color: #667;
@@ -81,8 +94,7 @@ header h2 {
   padding: 1rem;
 }
 header {
-  /*background-color: rgb(187, 205, 222);*/
-  background-color: rgb(161, 166, 173);
+  background: url(/images/wavecut.png) repeat;
   margin: 0px;
   padding: 0px;
 }
@@ -349,7 +361,7 @@ iteration-count | direction | fill-mode (forwards, backwards, both) | play-state
 .go-back-wrapper,
 .page {
   margin: 0 16.7%;
-  padding: 1rem 4rem;
+  padding: 2.5rem 4rem;
   position: relative; /* to anchor .go-back */
 }
 .comments {
@@ -376,25 +388,43 @@ section{
   position: absolute;
   top: -1.5em;
 }
-h3{
+h3 {
   border-bottom: 2px solid #d2d3d4;
   color: #959aa2;
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.5em;
-  margin: 10px 0;
-  padding: 0;
+  margin: 0.5em 0 1.5em;
+  padding: 0 0 0.25em;
 }
-img{
+img {
   display: block;
   margin: 0 auto;
 }
-.page{
-  background-color: rgba(255, 255, 255, 0.64);
+.page {
+  background-color: rgb(253, 252, 246);
+  /*option 1*/
+  background: linear-gradient( rgba(252, 252, 233, 0.8), rgba(245, 245, 232, 0.7) ), url('/images/patterns/beige_paper.png') repeat;
+  /*option 2*/
+  background: linear-gradient( rgba(253, 255, 215, 0.5), rgba(245, 245, 232, 0.5) ), url('/images/patterns/white_paperboard.png') repeat;
   border-bottom: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(75, 76, 83, 0.27);
+  padding-bottom: 5rem; /* to balance end-ornament */
 }
+#end-ornament {
+  margin-top: 1rem;
+}
+/*.page:after {
+  background: url('/images/flourish.svg') 50% 100% no-repeat;
+  height: 50px;
+  padding: 20px;
+}
+.page-content > p:last-child {
+  background: url('/images/flourish.svg') 50% 100% no-repeat;
+  padding-bottom: 80px;
+}*/
 .animation-wrapper .page {
-  margin-top: 3rem !important;
+  margin-top: 4rem !important;
 }
 .animation-wrapper {
   /* for page-turn animation on child .wrapper */
@@ -412,7 +442,12 @@ ng-component {
   width: 100%; /* or less? */
 }
 ng-component, narrative, reference, characters, episodes, landing, .wrapper{
-  background: url(/images/wavecut.png) repeat;
+  background: url('/images/patterns/regal.png') repeat; /* fallback */
+  background: linear-gradient(rgba(56, 52, 78, 0.3),rgba(25, 27, 30, 0.4)), url('/images/patterns/regal.png') repeat;
+  /* would need clearance to use these
+  background: url('/images/patterns/morris.wallpaper1.jpg') repeat;
+  background: linear-gradient(rgba(194, 193, 200, 0.84),rgba(140, 152, 171, 0.85)), url('/images/patterns/morris.wallpaper2.jpg') repeat;
+  */
 }
 characters{
   min-height: 800px;
@@ -450,17 +485,29 @@ figcaption {
   line-height: 1.2em;
   text-align: center;
 }
-figure>img{
+.page-content img,
+figure > img{
   background: #fff;
   box-shadow: 0 2px 4px #333;
   margin: 5px auto;
   padding: 10px;
 }
-p{
-  color: #2f3135;
-  font-size: 1.2em;
+/* offset images in WP content as if clipped to page */
+/*@media (min-width: 450px) {
+  .page-content figure {
+    float: right;
+    position: relative;
+    left: 90px;
+    margin-left: -50px;
+  }
+}*/
+p {
+  color: #453f25;
+  font-size: 1.1em;
   line-height: 1.4em;
   /*margin: 2vh 2vw;*/
+  text-align: justify;
+  /* text-justify: distribute or inter-character or inter-word ? */
 }
 audio{
   width: 83.3%;
@@ -473,9 +520,13 @@ audio{
   width: 100%;
 }
 
-hr{
-  border-top: 1px solid #a8afbd;
-  width: 41.3%;
+hr {
+  background: url('/images/flourish.svg') 50% 100% no-repeat;
+  border: none;
+  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+  height: 50px;
+  width: 50%;
 }
 .episode-thumbnail{
   display: inline-block;
@@ -625,7 +676,7 @@ footer {
   z-index: 5;
   /*transition: all 0.6s ease-out;*/
 }
-.narrative-links>p, .reference-links>p{
+.narrative-links > p, .reference-links > p{
   color: white;
   font-size: 1em;
   font-style: italic;
