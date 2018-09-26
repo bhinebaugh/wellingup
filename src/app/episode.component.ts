@@ -23,7 +23,9 @@ import { slideAnimation } from './animations';
         <div class="text-elements">
           <button class="play-episode" (click)="changeEpisode(episode.id-1)">Play Episode</button>
           <p class="blurb">{{episode.description}}</p>
-          <a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">- {{link.title}}</a>
+          <ul>
+            <li><a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">{{link.title}}</a></li>
+          </ul>
         </div>
       </section>
     </div>
