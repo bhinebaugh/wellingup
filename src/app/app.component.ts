@@ -61,7 +61,7 @@ import { environment } from './environment';
   `
 })
 export class AppComponent implements OnInit {
-  onFrontPage : boolean = false;
+  onFrontPage : boolean = true;
   audioPlayerVisibleAsync : Observable<boolean>;
   audioPlayerMaximizedAsync : Observable<boolean>;
   currentEpisodeAsync : Observable<Episode>;

@@ -1,6 +1,6 @@
-import { animate, AnimationEntryMetadata, state, style, transition, trigger } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
-export const slideAnimation: AnimationEntryMetadata =
+export const slideAnimation =
     trigger('routeAnimation',[
         state('*',
             style({ opacity: 1, transform: 'translateX(0)' })
@@ -17,7 +17,7 @@ export const slideAnimation: AnimationEntryMetadata =
         ])
     ]);
 
-export const pageBack: AnimationEntryMetadata =
+export const pageBack =
     trigger('routeAnimation', [
         state('*',
             style({
@@ -36,7 +36,7 @@ export const pageBack: AnimationEntryMetadata =
     ])
 
 
-export const pageTurn: AnimationEntryMetadata =
+export const pageTurn =
     // new page is negative z-index to be below other content
     // start with zero opacity
     // fade in
