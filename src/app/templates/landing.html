@@ -5,7 +5,9 @@
 		<div class="entrypoint" [ngClass]="{'transition': paintingCrossfade}">
 			<a routerLink="/episodes">Listen to the story</a>
 		</div>
-		<a class="synopsis" routerLink="/synopsis" [ngClass]="{'transition': paintingCrossfade}">Synopsis</a>
+		<div class="synopsis" [ngClass]="{'transition': paintingCrossfade}">
+			<a routerLink="/synopsis">Synopsis</a>
+		</div>
 
 	</div>
 
