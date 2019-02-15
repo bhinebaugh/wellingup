@@ -59,20 +59,27 @@ export class CategorySubcategoriesComponent implements OnInit {
         //     ).subscribe((subcategories: Category[]) => this.subcategories = subcategories);
         this.contentService.getSubcategoriesForCategory(this.categoryId)
         // .subscribe( subcategories => this.subcategories = subcategories ); // for stream
-        .subscribe( subcategories => { // sort according to alphabetical order of description field
-            this.subcategories = subcategories.sort( (a : Category, b : Category) => {
-                    if(a['description'][0] < b['description'][0]){
-                        return -1;
-                    }else if(a['description'][0] > b['description'][0]){
-                        return 1;
-                    }
-                    return 0;
-                });
+        .subscribe( resp => {
+            this.subcategories = resp
         })
+            
+            // subcategories => { // sort according to alphabetical order of description field
+            // this.subcategories = subcategories.sort( (a : Category, b : Category) => {
+            //         if(a['description'][0] < b['description'][0]){
+            //             return -1;
+            //         }else if(a['description'][0] > b['description'][0]){
+            //             return 1;
+            //         }
+            //         return 0;
+            //     });
+        // })
         // .then( cats => this.subcategories = cats ) // for promise
 
         this.contentService.getCategory(this.categoryId)
-        .then( cat => this.category = cat );
+        .subscribe( resp => {
+            this.category = resp
+        })
+        // .then( cat => this.category = cat );
     }
 
     goBack(): void {

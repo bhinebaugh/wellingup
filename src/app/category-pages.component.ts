@@ -67,7 +67,7 @@ export class CategoryPagesComponent implements OnInit {
 
         let id = +this.route.snapshot.params['id'];
         this.contentService.getCategory(id)
-        .then( cat => this.category = cat );
+        .subscribe( cat => this.category = cat );
     }
 
     goBack(): void {

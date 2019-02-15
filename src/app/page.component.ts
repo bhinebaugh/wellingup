@@ -151,7 +151,7 @@ export class PageComponent implements OnInit {
 
 	id: number;
 	page: Page;
-	comments: Array<object>;
+	comments: Array<Comment>;
 	comment: Comment;
 
 	displayForm: boolean;
@@ -171,8 +171,7 @@ export class PageComponent implements OnInit {
 			this.id
 		);
 		this.contentService.getPage(this.id).then(resolvedPage => this.page = resolvedPage)
-		this.contentService.getCommentsForPage(this.id)
-		.then(resolvedComments => this.comments = resolvedComments)
+		this.contentService.getCommentsForPage(this.id).subscribe( comments => { this.comments = comments })
 	}
 
 	goBack(): void {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd, RouterOutlet } from '@angular/router';
 import { ActiveState } from './active-state.service';
 import { EpisodesService } from './episodes.service';
 import { Episode } from './episode';
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
 import { environment } from './environment';
+import { slideAnimation } from './animations';
 
 @Component({
   selector: 'my-app',
@@ -16,6 +17,7 @@ import { environment } from './environment';
     ActiveState,
     EpisodesService
   ],
+  animations: [ slideAnimation ],
   template: `
     <div class="episode-mini"
         [class.shown]="(audioPlayerVisibleAsync | async)"
@@ -54,8 +56,8 @@ import { environment } from './environment';
       </nav>
     </header>
 
-    <div class="animation-wrapper">
-      <router-outlet (activate)="newComponentActivated($event)"></router-outlet>
+    <div class="animation-wrapper" [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
 
   `
@@ -88,8 +90,11 @@ export class AppComponent implements OnInit {
     this.narrativeUrl = "/category/"+environment.narrativeCategory;
     this.referenceUrl = "/category/"+environment.referenceCategory;
   }
-  newComponentActivated(component: Event) {
-    this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
+
+  // detect route change
+  prepareRoute(outlet: RouterOutlet) {
+    // this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
 

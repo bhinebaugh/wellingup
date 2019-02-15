@@ -6,7 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 // Animation API support is still evolving (http://caniuse.com/#feat=web-animation)
 // Polyfill web-animations.min.js is recommended
 import { animate, style, transition, trigger } from '@angular/animations';
-import { HttpModule, RequestOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { RequestOptions } from '@angular/http';
 
 import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
@@ -21,6 +22,7 @@ import { ReferencePage } from './reference-page.component';
 import { LandingComponent } from './landing.component';
 import { SynopsisComponent } from './synopsis.component';
 import { environment } from './environment';
+import { ContentService } from './content.service';
 
 const appRoutes: Routes = [
   { path: 'episodes', component: EpisodeComponent },
@@ -30,15 +32,15 @@ const appRoutes: Routes = [
   // post x = category/subcategory/x?
   // category/narrative
   { path: 'category/:id/:name', component: CategoryPagesComponent }, // show pages for subcategory
-  { path: 'page/:id/:name', component: PageComponent }, // re-assign to Page component
+  { path: 'page/:id/:name', component: PageComponent, data: {animation: 'Page'} }, // re-assign to Page component
   { path: 'characters', component: CharactersComponent },
   // { path: 'characters/:id', component: CharactersComponent },
   { path: 'narrative', component: CategorySubcategoriesComponent, data: [{categoryId: 1}] },
   // { path: 'narrative', redirectTo: 'category/'+environment.narrativeCategory }, // deprecate in favor of category/1
-  { path: 'narrative/:id', component: PageComponent }, // page/:id
+  { path: 'narrative/:id', component: PageComponent, data: {animation: 'Page'} }, // page/:id
   // { path: 'reference', component: ReferenceComponent }, // category/2
   { path: 'reference', component: CategorySubcategoriesComponent, data: [{categoryId: 2}] },
-  { path: 'reference/:id', component: ReferencePage }, // page/:id
+  { path: 'reference/:id', component: ReferencePage, data: {animaton: 'Page'} }, // page/:id
   // { path: 'synopsis', component: PageComponent }, // and pass in page id (as param or data?)
   { path: 'synopsis', component: SynopsisComponent },
   { path: 'home', component: LandingComponent },
@@ -51,11 +53,14 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}), // for debugging
-    HttpModule,
+    HttpClientModule,
     FormsModule
   ],
   declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
-  providers: [ { provide: RequestOptions, useClass: CustomRequestOptions } ],
+  providers: [ 
+    ContentService,
+    { provide: RequestOptions, useClass: CustomRequestOptions } 
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

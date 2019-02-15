@@ -22,6 +22,6 @@ export class ReferenceComponent {
 	referencePages: Array<Page>;
 	
 	constructor( contentService: ContentService ) {
-		contentService.getReferencePages().then(pages => this.referencePages = pages)
+		contentService.getReferencePages().subscribe(pages => this.referencePages = pages)
 	}
 }

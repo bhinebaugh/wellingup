@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
@@ -10,32 +11,39 @@ import { Page } from './page';
 import { Comment } from './comment';
 // import { narrativePages } from './mock-pages';
 
-@Injectable()
+export interface Category {
+	id: number;
+	name: string;
+	slug: string;
+}
+
+@Injectable({
+	providedIn: 'root'
+})
 export class ContentService {
 
 	private handleError(error: any): Promise<any> {
 			return Promise.reject( error.message || error );
 	}
 	
-	constructor(private http: Http) {}
+	constructor(private http: HttpClient) {}
 	
-	getCategory(id : number) : Promise<Category> {
-		return this.http.get('/categories/'+id)
-			.toPromise()
-			.then(response => response.json() as Category)
-			.catch(this.handleError)
+	getCategory(id : number) : Observable<Category> {
+		return this.http.get<Category>('/categories/'+id)
+			// .toPromise()
+			// .then(response => response.json() as Category)
+			// .catch(this.handleError)
 	}
 
-	getPagesForCategory(id : number) : Promise<Page[]> {
-		return this.http.get('/posts?categories='+id+'&per_page=100') // avoid 10-item default
-			.toPromise()
-			.then(response => response.json() as Page[])
-			.catch(this.handleError)
+	getPagesForCategory(id : number) : Observable<Page[]> {
+		return this.http.get<Page[]>('/posts?categories='+id+'&per_page=100') // avoid 10-item default
 	}
 
-	getSubcategoriesForCategory(categoryId : number) {
-		return this.http.get('/categories?per_page=100') // avoid the 10-item default
-		.map( resp => resp.json() )
+	getSubcategoriesForCategory(categoryId : number): Observable<Category[]> {
+		return this.http.get<Category[]>(
+			'/categories?per_page=100' // avoid the 10-item default
+		);
+		// .map( resp => resp.json() )
 		// this filter attempt returns all categories, as expected
 		// .filter( (cat, idcat) => true)
 		// .filter( function(cat, idcat) {
@@ -47,7 +55,7 @@ export class ContentService {
 		// .map( obj => obj)
 		// while this examines each category object of the array
 		// and only allows it through if it has 'narrative' as parent category
-		.map( obj => obj.filter( (x : Category) => x.parent == categoryId) )
+		// .map( obj => obj.filter( (x : Category) => x.parent == categoryId) )
 
 		// used to return a promise
 		// .toPromise()
@@ -63,25 +71,24 @@ export class ContentService {
 		// pages that should appear on landing page, in roots section
 		// are set to 'sticky' in WordPress
 		// '/posts?sticky=1'
-		this.http.get('/posts?sticky=1')
-		.toPromise()
-		.then(response => response.json() as Page);
+		this.http.get<Page[]>('/posts?sticky=1')
 	}
 
 	getPage(id: number): Promise<Page> {
 		// return Promise.resolve(narrativePages[id-1])
 		var postUrl: string = '/posts/' + id.toString();
-		return this.http.get( postUrl )
+		return this.http.get<Page>( postUrl )
 		.toPromise()
-		.then(response => response.json() as Page );
+		// .then(response => response.json() as Page );
+		.then( r => r as Page )
 	}
 	getCommentsForPage(id: number) {
 		var postUrl: string = '/comments?post=' + id;
 		// all comments: 'https://wellingup.net/wellingup/wp-json/wp/v2/comments'
 		// context=embed or =view (default)
-		return this.http.get( postUrl )
-		.toPromise()
-		.then(response => response.json())
+		return this.http.get<Comment[]>( postUrl )
+		// .toPromise()
+		// .then(response => response.json())
 		// return new Array()
 		// var itsanarrayalreadytypescript: Array<object>;
 		// return Promise.resolve( itsanarrayalreadytypescript )
@@ -119,12 +126,13 @@ export class ContentService {
 			// 	post: postId
 			// }
 		)
+		// FIXME
 		// .map( resp => console.log(resp.json()) )
-		.toPromise()
-		.then( resp => {
-			console.log( resp.json() )
-		})
-		.catch(this.handleCommentSubmitError)
+		// .toPromise()
+		// .then( resp => {
+		// 	console.log( resp.json() )
+		// })
+		// .catch(this.handleCommentSubmitError)
 	}
 
 	handleCommentSubmitError() {
