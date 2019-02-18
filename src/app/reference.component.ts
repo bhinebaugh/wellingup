@@ -15,9 +15,6 @@ import { slideAnimation } from './animations';
   providers: [ ContentService ]
 })
 export class ReferenceComponent {
-	@HostBinding('@routeAnimation') routeAnimation = true;
-	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'absolute';
 
 	referencePages: Array<Page>;
 	

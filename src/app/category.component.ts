@@ -29,9 +29,6 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     providers: [ ContentService ]
 })
 export class CategoryComponent implements OnInit {
-    @HostBinding('@routeAnimation') routeAnimation = true;
-    @HostBinding('style.display')   display = 'block';
-    @HostBinding('style.position')  position = 'absolute';
 
     pages : Array<Page>;
     category : Category;

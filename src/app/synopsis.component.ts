@@ -27,9 +27,6 @@ import { pageTurn } from './animations';
     providers: [ ContentService ]
 })
 export class SynopsisComponent {
-    @HostBinding('@routeAnimation') routeAnimation = true;
-    @HostBinding('style.display')   display = 'block';
-    @HostBinding('style.position')  position = 'absolute';
 
     page: Page;
 

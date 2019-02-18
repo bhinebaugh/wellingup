@@ -145,9 +145,6 @@ import { slideAnimation, pageTurn } from './animations';
 
 
 export class PageComponent implements OnInit {
-	@HostBinding('@routeAnimation') routeAnimation = true;
-	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'absolute';
 
 	id: number;
 	page: Page;

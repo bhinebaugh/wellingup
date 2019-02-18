@@ -31,9 +31,6 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     providers: [ ContentService ]
 })
 export class CategorySubcategoriesComponent implements OnInit {
-    @HostBinding('@routeAnimation') routeAnimation = true;
-    @HostBinding('style.display')   display = 'block';
-    @HostBinding('style.position')  position = 'absolute';
 
     subcategories : Array<Category>;
     category : Category;

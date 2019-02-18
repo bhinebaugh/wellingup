@@ -21,9 +21,6 @@ import { slideAnimation } from './animations';
 
 
 export class ReferencePage implements OnInit {
-    @HostBinding('@routeAnimation') routeAnimation = true;
-	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'absolute';
 
 	referencePage: Page;
 

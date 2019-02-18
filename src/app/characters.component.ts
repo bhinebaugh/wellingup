@@ -23,9 +23,6 @@ import { slideAnimation } from './animations';
   providers: [ CharactersService ]
 })
 export class CharactersComponent {
-	@HostBinding('@routeAnimation') routeAnimation = true;
-	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'absolute';
 
 	characters: Array<any>;
 

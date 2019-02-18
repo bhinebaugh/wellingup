@@ -39,9 +39,6 @@ import { slideAnimation } from './animations';
   `
 })
 export class EpisodeComponent {
-	@HostBinding('@routeAnimation') routeAnimation = true;
-	@HostBinding('style.display')   display = 'block';
-	@HostBinding('style.position')  position = 'absolute';
   audioPlayerVisibleAsync : Observable<boolean>;
   episodes : Array<any>;
   links : Array<any>;
