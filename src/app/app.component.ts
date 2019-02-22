@@ -4,10 +4,7 @@ import { ActiveState } from './active-state.service';
 import { EpisodesService } from './episodes.service';
 import { Episode } from './episode';
 import { Observable } from 'rxjs/Observable';
-// import { Subject } from 'rxjs/Subject';
-// import 'rxjs/add/operator/filter';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/toPromise';
+import { filter } from 'rxjs/operators';
 import { environment } from './environment';
 import { slideAnimation } from './animations';
 
@@ -43,8 +40,12 @@ import { slideAnimation } from './animations';
         <button class="player-toggle" (click)="this.state.makeAudioPlayerVisible()"><img src="images/goodCaret.png" class="caret"></button>
       </div>
     <header [class.no-border]="onFrontPage">
-    <div class="title-subtitle" [class.floating]="onFrontPage" [ngClass]="{'transition': this.state.painting}">
-      <h1>Welling Up</h1>
+    <div 
+      class="title-subtitle" 
+      routerLinkActive="floating"
+      [ngClass]="{'transition': this.state.painting}"
+    >
+      <h1><a routerLink="/home">Welling Up</a></h1>
       <h2>a love story</h2>
     </div>
       <nav [hidden]="onFrontPage">
@@ -63,13 +64,14 @@ import { slideAnimation } from './animations';
   `
 })
 export class AppComponent implements OnInit {
-  onFrontPage : boolean = true;
+  onFrontPage : boolean;
   audioPlayerVisibleAsync : Observable<boolean>;
   audioPlayerMaximizedAsync : Observable<boolean>;
   currentEpisodeAsync : Observable<Episode>;
   narrativeUrl : string;
   referenceUrl : string;
   episodes : number[];
+  whenNavEnds : Observable<Event>;
 
   constructor(
     public state: ActiveState,
@@ -78,8 +80,17 @@ export class AppComponent implements OnInit {
     private episodesService: EpisodesService
   ){
     this.episodes = episodesService.getEpisodes();
-    this.router.events.subscribe(
-      () => window.scrollTo(0, 0)
+    this.router.events
+    .pipe( // RxJs 6 requirement
+      filter(e => e instanceof NavigationEnd)
+    )
+    .subscribe(
+      () => {
+        window.scrollTo(0, 0);
+        let pathCheck = this.router.isActive('home', false)
+        console.log('home is active?', pathCheck);
+        this.onFrontPage = pathCheck
+      }
     );
   }
 
@@ -93,7 +104,6 @@ export class AppComponent implements OnInit {
 
   // detect route change
   prepareRoute(outlet: RouterOutlet) {
-    // this.onFrontPage = ('/home' == this.router.routerState.snapshot.url);
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 

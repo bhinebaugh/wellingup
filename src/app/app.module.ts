@@ -5,9 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 // Animation API support is still evolving (http://caniuse.com/#feat=web-animation)
 // Polyfill web-animations.min.js is recommended
-import { animate, style, transition, trigger } from '@angular/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RequestOptions } from '@angular/http';
 
 import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
@@ -21,7 +19,6 @@ import { ReferenceComponent } from './reference.component'; // change to PageCom
 import { ReferencePage } from './reference-page.component';
 import { LandingComponent } from './landing.component';
 import { SynopsisComponent } from './synopsis.component';
-import { environment } from './environment';
 import { ContentService } from './content.service';
 
 const appRoutes: Routes = [
