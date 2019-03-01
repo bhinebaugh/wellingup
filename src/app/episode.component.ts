@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { Location } from '@angular/common';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { ActiveState } from './active-state.service'
 import { EpisodesService } from './episodes.service';

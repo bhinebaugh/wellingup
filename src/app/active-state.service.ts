@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { Episode } from './episode';
 import { EpisodesService } from './episodes.service';
 import 'rxjs/add/operator/toPromise';
@@ -43,19 +42,15 @@ export class ActiveState {
         // return this.rootLinksVisible$.toPromise().then(res => res)
     }
     public makeAudioPlayerVisible() {
-        this.rootLinks = true;
+        // this.rootLinks = true;
         this.audioPlayer = true;
-        console.log();
         this.audioPlayerVisibleSource.next(true);
     }
     public minimizeAudioPlayer() {
-        console.log("min player")
         this.audioPlayerMaximizedSource.next(true);
     }
     public maximizeAudioPlayer() {
-        // console.log("max player")
         this.audioPlayerMaximizedSource.next(false);
-        // this.audioPlayerMaximizedSource.toPromise().then(x => console.log("min source", x))
     }
 
     public hideAudioPlayer(){
@@ -69,5 +64,8 @@ export class ActiveState {
     }
     public changeEpisode( id : number ) {
         this.currentEpisodeSource.next(this.episodes[id]);
+    }
+    public skipIntro() {
+        this.painting = false;
     }
 }

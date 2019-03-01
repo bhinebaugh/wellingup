@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import { environment } from './environment';
 import { Category } from './category';
@@ -30,9 +28,6 @@ export class ContentService {
 	
 	getCategory(id : number) : Observable<Category> {
 		return this.http.get<Category>('/categories/'+id)
-			// .toPromise()
-			// .then(response => response.json() as Category)
-			// .catch(this.handleError)
 	}
 
 	getPagesForCategory(id : number) : Observable<Page[]> {
@@ -42,29 +37,10 @@ export class ContentService {
 	getSubcategoriesForCategory(categoryId : number): Observable<Category[]> {
 		return this.http.get<Category[]>(
 			'/categories?per_page=100' // avoid the 10-item default
-		);
-		// .map( resp => resp.json() )
-		// this filter attempt returns all categories, as expected
-		// .filter( (cat, idcat) => true)
-		// .filter( function(cat, idcat) {
-		// 	console.log('filtering... cat:', cat); // --> [Obj, Obj]
-		// 	return true.filter( (cat, idcat) => true)
-		// })
-		// now the Observable contains an array
-		// and this of course works
-		// .map( obj => obj)
-		// while this examines each category object of the array
-		// and only allows it through if it has 'narrative' as parent category
-		// .map( obj => obj.filter( (x : Category) => x.parent == categoryId) )
-
-		// used to return a promise
-		// .toPromise()
-		// .then(response => response.json())
-		// select only items that have narrative as parent
-		// but this isn't the way to filter
-		// .then(response => {
-		// 	response.json().filter((cat,idx) => {return cat === 0})
-		// }
+		)
+		.pipe(
+			map( cats => cats.filter( (cat : Category) => cat.parent == categoryId) )
+		)
 	}
 
 	getPagesForFrontPage() {
@@ -87,11 +63,6 @@ export class ContentService {
 		// all comments: 'https://wellingup.net/wellingup/wp-json/wp/v2/comments'
 		// context=embed or =view (default)
 		return this.http.get<Comment[]>( postUrl )
-		// .toPromise()
-		// .then(response => response.json())
-		// return new Array()
-		// var itsanarrayalreadytypescript: Array<object>;
-		// return Promise.resolve( itsanarrayalreadytypescript )
 	}
 
 	getNarrativePages() {

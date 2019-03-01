@@ -34,23 +34,26 @@ export class LandingComponent {
     this.paintingCrossfade = this.state.painting;
     this.rootLinksVisible = this.state.rootLinks;
     this.audioPlayerVisibleAsync = this.state.audioPlayerVisible$;
-    this.contentService.getNarrativeSubcategories().subscribe( data => {
-      this.narrativeSubcategories = data.sort( (a : Category, b : Category) => {
-                    if(a['description'][0] < b['description'][0]){
-                        return -1;
-                    }else if(a['description'][0] > b['description'][0]){
-                        return 1;
-                    }
-                    return 0;
-                });
-    });
+    // this.contentService.getNarrativeSubcategories().subscribe( data => {
+    //   this.narrativeSubcategories = data.sort( (a : Category, b : Category) => {
+    //                 if(a['description'][0] < b['description'][0]){
+    //                     return -1;
+    //                 }else if(a['description'][0] > b['description'][0]){
+    //                     return 1;
+    //                 }
+    //                 return 0;
+    //             });
+    // });
     this.contentService.getSubcategoriesForCategory(environment.referenceCategory)
     .subscribe( data => this.referenceSubcategories = data );
+    this.contentService.getSubcategoriesForCategory(environment.narrativeCategory)
+    .subscribe( data => this.narrativeSubcategories = data );
   }
 
   ngOnDestroy(): void {
     // deactivate the painting crossfade for future init of this component
-    this.state.painting = false;
+    // this.state.painting = false;
+    this.state.skipIntro();
   }
 
   showAudioPlayer() {

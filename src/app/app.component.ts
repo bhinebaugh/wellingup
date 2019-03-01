@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd, RouterOutlet } from '@angular/ro
 import { ActiveState } from './active-state.service';
 import { EpisodesService } from './episodes.service';
 import { Episode } from './episode';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { environment } from './environment';
 import { slideAnimation } from './animations';
@@ -87,9 +87,7 @@ export class AppComponent implements OnInit {
     .subscribe(
       () => {
         window.scrollTo(0, 0);
-        let pathCheck = this.router.isActive('home', false)
-        console.log('home is active?', pathCheck);
-        this.onFrontPage = pathCheck
+        this.onFrontPage = this.router.isActive('home', false)
       }
     );
   }
