@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Episode } from './episode';
 import { EpisodesService } from './episodes.service';
-import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ActiveState {

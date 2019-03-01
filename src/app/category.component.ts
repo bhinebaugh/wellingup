@@ -1,11 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
-
 import { Category } from './category';
 import { Page } from './page';
 import { ContentService } from './content.service';
+import { switchMap } from 'rxjs/operators';
 import { slideAnimation, pageTurn, pageBack } from './animations';
 
 @Component({
@@ -45,8 +43,9 @@ export class CategoryComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.paramMap
-            .switchMap( (params: ParamMap) =>
-                this.contentService.getPagesForCategory(+params.get('id'))
-            ).subscribe((pages: Page[]) => this.pages = pages);
+            .pipe(
+                switchMap( (params: ParamMap) => this.contentService.getPagesForCategory(+params.get('id')) )
+            )
+            .subscribe((pages: Page[]) => this.pages = pages);
     }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
 
 import { Category } from './category';
 import { Page } from './page';
