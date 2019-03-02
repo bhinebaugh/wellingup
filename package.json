@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Multimedia audio book front end, bootstrapped from Angular QuickStart",
   "scripts": {
-    "build": "tsc -p src/",
+    "build": "ng build --prod",
     "build:watch": "tsc -p src/ -w",
     "build:e2e": "tsc -p e2e/",
     "serve": "ng serve",
