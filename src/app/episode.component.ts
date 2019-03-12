@@ -9,32 +9,36 @@ import { slideAnimation } from './animations';
 @Component({
   animations: [ slideAnimation ],
   selector: 'episodes',
-  styles: [`
-  `],
+  styleUrls: ['episode.component.css'],
   template: `
   <div class="wrapper">
     <div class="go-back-wrapper">
       <a class="go-back" (click)="goBack()">&larr; back</a>
     </div>
     <div class="episodes-wrapper">
-      <section class="episode" *ngFor="let episode of episodes">
-        <h3>{{episode.name}}</h3>
-        <img class="episode-thumbnail" src="{{episode.image}}">
-        <div class="text-elements">
-          <button class="play-episode" (click)="changeEpisode(episode.id-1)">Play Episode</button>
-          <p class="blurb">{{episode.description}}</p>
-          <ul>
-            <li><a class="supplemental" *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active">{{link.title}}</a></li>
-          </ul>
+      <article class="episode" *ngFor="let episode of episodes">
+        <div class="body">
+          <img class="episode-thumbnail" src="{{episode.image}}">
+          <section class="episode-description">
+            <h3>{{episode.name}}</h3>
+            <p class="blurb">{{episode.description}}</p>
+            <button class="play-episode" (click)="changeEpisode(episode.id-1)">Play Episode</button>
+          </section>
         </div>
-      </section>
+        <footer>
+          <h3>Related:</h3>
+          <ul>
+            <li *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active"><a class="supplemental">{{link.title}}</a></li>
+          </ul>
+        </footer>
+      </article>
     </div>
   </div>
   <footer class="episodes-footer">
-  <div class="footer-links">
-    <a href="https://www.facebook.com/wellingupbook/">Facebook</a>
-    <a>Contact</a>
-  </div>
+    <div class="footer-links">
+      <a href="https://www.facebook.com/wellingupbook/">Facebook</a>
+      <a>Contact</a>
+    </div>
   </footer>
   `
 })

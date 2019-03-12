@@ -1,0 +1,101 @@
+    .episode{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0 60px;
+      padding: 0;
+    }
+    .body {
+      background: #fff repeat-y repeating-linear-gradient(#f6f4ed 0, #f3f2e2 2em, #d2d2ee 2em, #d2d2ee 2.1em, #f6f3e8 2.1em);
+      display: flex;
+      box-shadow: 0px 4px 8px #726f7e;
+      z-index: 2;
+    }
+    h3 {
+      border-width: 0;
+      font-size: 1.8rem;
+      line-height: 2rem;
+      margin: 0;
+      padding: 1rem 0 0;
+    }
+    .episode-thumbnail {
+      margin: 0;
+      flex: 0 1 480px; /* don't grow, ? cap at full size = 480px */
+    }
+    .episode-description {
+      display: flex;
+      flex-direction: column;
+      flex: 0 1 20rem; /* don't grow, cap at 20rem */
+      margin: 0;
+      padding: 1em 2em;
+    }
+    .blurb{
+      color: #6c6b61;
+      font-size: 1rem;
+      padding-top: 2rem;
+    }
+    .play-episode {
+      align-self: center;
+      background: transparent;
+      border: solid 5px #96a6c699;
+      border-radius: 6px;
+      box-shadow: 0 0 3px #aaa;
+      box-shadow: inset 0 0 3px #aaa;
+      margin: 3rem 0 0;
+
+      color: #909bb3;
+      cursor: pointer;
+      font-size: 1.25em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 0px 1px 2px #96a6c6;
+
+      transform: rotate(-10deg);
+      transition: all 0.4s;
+    }
+    .play-episode:active {
+      /* margin: 12px 10% 10px; */
+    }
+    .play-episode:hover {
+      background: #b0bdc666;
+      box-shadow: none;
+      text-shadow: none;
+      transform: none; /* rotate(-4deg) */
+    }
+    footer {
+      background: #e6dac2;
+      box-shadow: 0px 2px 4px #9087b4;
+      display: flex;
+      padding: 1rem 2rem 1.5rem;
+      width: 78%;
+      z-index: 1;
+    }
+    footer h3 {
+        align-self: center;
+        flex: 0 1 auto;
+    }
+    ul {
+      align-items: center;
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      width: auto;
+    }
+    li {
+      line-height: 1.2em;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .supplemental { 
+      border-bottom: dashed 2px #ba8;
+      color: #877b63;
+      display: block;
+      font-style: italic;
+      margin: 0 8px;
+      padding: 12px 0 4px;
+      text-decoration: none;
+      transition: border 0.2s;
+    }
+    .supplemental:hover {
+      border-bottom: solid 2px #b6aa90;
+    }

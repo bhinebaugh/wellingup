@@ -23,7 +23,7 @@
               { "glob": "**/*", "input": "src/assets", "output": "/"}
             ],
             "styles": [
-              "src/styles/main.css"
+              "src/main.css"
             ],
             "scripts": []
           },
@@ -79,7 +79,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles/main.css"
+              "src/main.css"
             ],
             "scripts": [],
             "assets": [

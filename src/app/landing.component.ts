@@ -9,6 +9,7 @@ import { environment } from './environment';
 @Component({
   selector: 'landing',
   templateUrl: './templates/landing.html',
+  styleUrls: ['./templates/landing.css'],
   providers: [ ContentService ]
 })
 export class LandingComponent {
