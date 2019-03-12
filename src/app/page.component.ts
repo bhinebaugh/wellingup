@@ -126,18 +126,42 @@ import { slideAnimation, pageTurn } from './animations';
 	</footer>
 	`,
 	styles: [`
+		.comments {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin: 0 auto;
+			width: 66%;
+		}
 		.comments ul {
+			flex: 0 1 16em;
 			padding: 0;
 		}
 		.comments h6 {
 			margin: 0;
 		}
 		.comment {
-			background: #f9f9ee;
-			border: solid 1px #decccc;
+			background: #cea5de linear-gradient(170deg, #cea5de, #e0b9f3);
+			box-shadow: 0 8px 8px #42395666;
 			font-size: 0.8em;
 			list-style: none;
 			padding: 1em 2em;
+		}
+		.comments form {
+			background: #f6f18a;
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+		}
+		.comments label {
+			color: #817328;
+			font-size: .9rem;
+		}
+		input, textarea {
+			margin-bottom: 1rem;
+			background: #fffba7;
+			box-shadow: none;
 		}
 	`],
 	providers: [ ContentService ]

@@ -114,9 +114,7 @@ header {
 }
 
 button {
-  display: inline-block;
   height: 50px;
-  margin: 40px 0 40px 45vw;
   width: 200px;
 }
 

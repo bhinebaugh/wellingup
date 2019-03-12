@@ -11,7 +11,7 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     animations: [ pageBack ],
     template: `
     <div class="wrapper">
-      <section>
+      <section class="page">
         <a class="go-back" (click)="goBack()">&larr; back</a>
         <h3>Subcategories of {{ category?.name }}</h3>
         <ul>
