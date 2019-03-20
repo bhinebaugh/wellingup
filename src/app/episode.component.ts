@@ -26,7 +26,7 @@ import { slideAnimation } from './animations';
           </section>
         </div>
         <footer>
-          <h3>Related:</h3>
+          <h3>Related</h3>
           <ul>
             <li *ngFor="let link of episode.links" routerLink="{{link.url}}" routerLinkActive="active"><a class="supplemental">{{link.title}}</a></li>
           </ul>

@@ -2,13 +2,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 20px 0 60px;
+      margin: 20px 12px 60px;
       padding: 0;
     }
     .body {
-      background: #fff repeat-y repeating-linear-gradient(#f6f4ed 0, #f3f2e2 2em, #d2d2ee 2em, #d2d2ee 2.1em, #f6f3e8 2.1em);
       display: flex;
-      box-shadow: 0px 4px 8px #726f7e;
+      align-items: stretch;
+      justify-content: center;
       z-index: 2;
     }
     h3 {
@@ -19,16 +19,20 @@
       padding: 1rem 0 0;
     }
     .episode-thumbnail {
+      box-shadow: 0px 4px 8px #726f7e;
       margin: 0;
       flex: 0 1 480px; /* don't grow, ? cap at full size = 480px */
     }
     .episode-description {
+      background: #fff repeat-y repeating-linear-gradient(#f6f4ed 0, #f3f2e2 2em, #d2d2ee 2em, #d2d2ee 2.1em, #f6f3e8 2.1em);
+      box-shadow: 0px 4px 8px #726f7e;
       display: flex;
       flex-direction: column;
       flex: 0 1 20rem; /* don't grow, cap at 20rem */
       margin: 0;
       padding: 1em 2em;
     }
+
     .blurb{
       color: #6c6b61;
       font-size: 1rem;
@@ -41,7 +45,7 @@
       border-radius: 6px;
       box-shadow: 0 0 3px #aaa;
       box-shadow: inset 0 0 3px #aaa;
-      margin: 3rem 0 0;
+      margin: 3rem 0 2rem;
 
       color: #909bb3;
       cursor: pointer;
@@ -66,19 +70,17 @@
       background: #e6dac2;
       box-shadow: 0px 2px 4px #9087b4;
       display: flex;
-      padding: 1rem 2rem 1.5rem;
-      width: 78%;
+      align-items: center;
+      padding: 0.2rem 2.2rem 1rem;
       z-index: 1;
     }
     footer h3 {
-        align-self: center;
-        flex: 0 1 auto;
+        margin: 0;
+        padding: 0;
     }
     ul {
-      align-items: center;
-      display: flex;
       flex: 1 1 auto;
-      flex-wrap: wrap;
+      list-style-type: none;
       width: auto;
     }
     li {
@@ -98,4 +100,21 @@
     }
     .supplemental:hover {
       border-bottom: solid 2px #b6aa90;
+    }
+
+    @media screen and (max-width: 770px ) {
+      h3 { padding-top: 3rem; }
+      p.blurb { padding-top: 0; }
+      .body {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .episode-thumbnail {
+        margin: 0;
+        flex: 0 1 400px;
+        position: relative;
+        top: 20px;
+        box-shadow: 0 -1px 4px #39395c;
+      }
     }
