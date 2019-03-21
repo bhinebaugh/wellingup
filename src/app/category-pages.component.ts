@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
@@ -9,7 +9,9 @@ import { switchMap } from 'rxjs/operators';
 import { slideAnimation, pageTurn, pageBack } from './animations';
 
 @Component({
+    selector: 'pages-in-category',
     animations: [ pageBack ],
+    styles: ['.wrapper { padding-top: 4rem; '],
     template: `
     <div class="wrapper">
       <section class="page">
@@ -30,9 +32,9 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     providers: [ ContentService ]
 })
 export class CategoryPagesComponent implements OnInit {
-
+    
     pages : Array<Page>;
-    category : Category;
+    @Input() category: Category
 
     constructor(
         private contentService : ContentService,

@@ -11,6 +11,7 @@ import { CustomRequestOptions } from './customrequest.options';
 import { AppComponent }  from './app.component';
 import { EpisodeComponent } from './episode.component';
 import { CharactersComponent } from './characters.component';
+import { PageListComponent } from './page-list.component';
 import { CategoryComponent } from './category.component';
 import { CategoryPagesComponent } from './category-pages.component';
 import { CategorySubcategoriesComponent } from './category-subcategories.component';
@@ -53,7 +54,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  declarations: [ AppComponent, EpisodeComponent, PageComponent, CategoryComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
+  declarations: [ AppComponent, EpisodeComponent, PageComponent, PageListComponent, CategoryComponent, CategorySubcategoriesComponent, CategoryPagesComponent, CharactersComponent, ReferenceComponent, ReferencePage, LandingComponent, SynopsisComponent ],
   providers: [ 
     { provide: HTTP_INTERCEPTORS, useClass: CustomRequestOptions, multi: true },
     ContentService,

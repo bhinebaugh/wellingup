@@ -13,10 +13,10 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
     <div class="wrapper">
       <section class="page">
         <a class="go-back" (click)="goBack()">&larr; back</a>
-        <h3>Subcategories of {{ category?.name }}</h3>
-        <ul>
-            <li *ngFor="let subcategory of subcategories"><a routerLink='/category/{{subcategory.id}}/{{subcategory.name}}' [innerHtml]="subcategory.name"></a></li>
-        </ul>
+        <h1>{{ category?.name }} Pages</h1>
+        <div class="subcategories">
+          <page-list [category]="subcategory" *ngFor="let subcategory of subcategories"></page-list>
+        </div>
       </section>
     </div>
     <footer>
@@ -26,6 +26,18 @@ import { slideAnimation, pageTurn, pageBack } from './animations';
       </div>
     </footer>
     `,
+    styles: [`
+      h1 {
+        text-align: center;
+        color: #60686a;
+        padding: 0 0 1em;
+      }
+      .subcategories {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    `],
     providers: [ ContentService ]
 })
 export class CategorySubcategoriesComponent implements OnInit {
